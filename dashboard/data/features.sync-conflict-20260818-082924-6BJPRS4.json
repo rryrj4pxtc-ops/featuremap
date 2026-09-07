@@ -1,0 +1,6930 @@
+{
+  "_meta": {
+    "schema_version": "1.5",
+    "last_updated": "2026-08-17",
+    "generated_by": "xlsx-to-features-json.py"
+  },
+  "features": [
+    {
+      "id": "SAU-006",
+      "name": "TILA",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Real-time vs delayed price management",
+      "brd": [
+        "ARCD-2933"
+      ],
+      "tags": [
+        "cross-screen"
+      ],
+      "area": "Compliance",
+      "screen": "Market Home",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-018",
+      "name": "Trending",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Top 20-30 most-searched stocks hourly",
+      "brd": [
+        "ARCD-41012"
+      ],
+      "tags": [
+        "renamed-from:Trending Stocks",
+        "v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 9,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-019",
+      "name": "Nomu IPO (Institutional)",
+      "journey": "IPOs",
+      "status": "Planned",
+      "definition": "Institutional Nomu subscriptions",
+      "brd": [
+        "ARCD-47866"
+      ],
+      "area": "Subscriptions",
+      "screen": "IPO Details",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-025",
+      "name": "Volatility",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Historical volatility indicators",
+      "brd": [
+        "ARCD-58777"
+      ],
+      "tags": [
+        "renamed-from:Sector & Exchange Volatility",
+        "v1.4",
+        "sub-of:SAU-095"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 7,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-039",
+      "name": "Stock Screener",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Filter stocks by fundamentals, technicals, sector",
+      "competitors": [
+        "Derayah",
+        "Investing.com",
+        "Moomoo"
+      ],
+      "priority": 25,
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 21,
+      "impact": 5
+    },
+    {
+      "id": "SAU-031",
+      "name": "Iceberg",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Slicing order view",
+      "competitors": [
+        "Sahm",
+        "SNB Capital"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi",
+        "renamed-from:Iceberg Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 7,
+      "figma_link": "(Figma link pending)",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-033",
+      "name": "Stop Loss",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Active stop loss view",
+      "brd": [
+        "ARCD-75523"
+      ],
+      "tags": [
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 4,
+      "figma_link": "(Figma link pending)",
+      "impact": 3,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-034",
+      "name": "Take Profit",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Active take profit view",
+      "brd": [
+        "ARCD-75523"
+      ],
+      "tags": [
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 5,
+      "figma_link": "(Figma link pending)",
+      "impact": 3,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-036",
+      "name": "Order Filter",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Filter by status/type/market",
+      "tags": [
+        "renamed-from:Order Filter Panel",
+        "v1.5"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 22,
+      "figma_link": "(Figma link pending)",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-044",
+      "name": "Quick Reorder",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "One-tap repeat previous trade — reduces friction",
+      "competitors": [
+        "SNB Capital"
+      ],
+      "priority": 16,
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi",
+        "sub-of:SAU-220"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 17,
+      "impact": 4
+    },
+    {
+      "id": "SAU-003",
+      "name": "Saudi Margin Lending",
+      "journey": "LMS/SBL",
+      "status": "Live",
+      "definition": "Digital Sharia-compliant margin lending application",
+      "brd": [
+        "ARCD-1634"
+      ],
+      "area": "LMS",
+      "screen": "Margin Activation Process",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2277-16009",
+      "figma_status": "As-Built",
+      "figma_file": "Portfolios",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-008",
+      "name": "Saudi Auto Margin Approval",
+      "journey": "LMS/SBL",
+      "status": "Live",
+      "definition": "Automated compliance/risk approval (ARCD-1923 live; ARCD-85843/ARCD-86236 planned phases)",
+      "brd": [
+        "ARCD 1923",
+        "ARCD-85843",
+        "ARCD-86236"
+      ],
+      "area": "LMS",
+      "screen": "Margin Activation Process",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-009",
+      "name": "Saudi Margin Renewal",
+      "journey": "LMS/SBL",
+      "status": "Live",
+      "definition": "Digital renewal at maturity",
+      "brd": [
+        "ARCD-2367"
+      ],
+      "area": "LMS",
+      "screen": "Margin Account Home",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-010",
+      "name": "Saudi Margin Early Payment",
+      "journey": "LMS/SBL",
+      "status": "Live",
+      "definition": "Early partial/full repayment",
+      "brd": [
+        "ARCD-2367"
+      ],
+      "area": "LMS",
+      "screen": "Margin Account Home",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-011",
+      "name": "Saudi Margin Phase 2 (Commodities)",
+      "journey": "LMS/SBL",
+      "status": "Live",
+      "definition": "Commodity contractor + promissory notes",
+      "brd": [
+        "ARCD-2424"
+      ],
+      "area": "LMS",
+      "screen": "Margin Account Home",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-020",
+      "name": "Portfolio P/L View",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Historical performance chart",
+      "brd": [
+        "ARCD-2654"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 2,
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2029-45173",
+      "figma_file": "Portfolios",
+      "impact": 4,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-022",
+      "name": "Update Avg Cost Price",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Manual cost price correction",
+      "brd": [
+        "ARCD-2650"
+      ],
+      "tags": [
+        "sub-of:SAU-141"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 9,
+      "impact": 3,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-023",
+      "name": "Buying Power Swap",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "Local ↔ International buying power transfer",
+      "brd": [
+        "ARCD-2644"
+      ],
+      "area": "Cash Management",
+      "screen": "All Portfolios View",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-024",
+      "name": "Instant Settlement",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "Same-day or next-day settlement option",
+      "brd": [
+        "ARCD-14352"
+      ],
+      "tags": [
+        "moved-per-spec-v3"
+      ],
+      "area": "Cash Management",
+      "figma_link": "(Figma link pending)",
+      "impact": 3,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-026",
+      "name": "Tradable Rights",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Huqooq available in portfolio",
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 15,
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-35148",
+      "figma_file": "Portfolios",
+      "impact": 3,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-075",
+      "name": "Performance Chart",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Graphical portfolio performance over time — last 3 months.",
+      "brd": [
+        "ARCD-2654"
+      ],
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 1,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 3,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-084",
+      "name": "Peer Portfolio Comparison",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Benchmark P&L vs anonymized peers",
+      "brd": [
+        "ARCD-60816"
+      ],
+      "tags": [
+        "differentiator",
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 38,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-086",
+      "name": "Portfolio Health Score",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Composite quality metric (diversification + risk + perf)",
+      "brd": [
+        "ARCD 52378"
+      ],
+      "tags": [
+        "differentiator",
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 39,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-087",
+      "name": "Allocation Tracker",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Target vs actual allocation across markets",
+      "brd": [
+        "ARCD-61176"
+      ],
+      "tags": [
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 40,
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2106-58522",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-090",
+      "name": "Goal Tracker",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Link assets to financial goals, track progress",
+      "brd": [
+        "ARCD 55733"
+      ],
+      "tags": [
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 41,
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-095",
+      "name": "Market Sectors",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Filter holdings by sector/index/Shariah",
+      "tags": [
+        "renamed-from:Sectors",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 5,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-078",
+      "name": "Transfer Stocks",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "In-specie transfer between portfolios",
+      "competitors": [
+        "Riyad Bank",
+        "SNB Capital"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 33,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 3,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-080",
+      "name": "Liquidate Portfolio",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Bulk liquidation flow",
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 30,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 3,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-081",
+      "name": "Reports",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Portfolio reports. Sub-types: Overview, Gain/Loss, Statement, Orders, Transfer, Market, Finance.",
+      "brd": [
+        "ARCD-1720"
+      ],
+      "competitors": [
+        "Derayah",
+        "Alinma",
+        "AlJazira Capital"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 21,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-098",
+      "name": "Auto Dividend Reinvest",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Automatic dividend reinvestment option",
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "sub-of:SAU-141"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 10,
+      "figma_file": "Portfolios",
+      "impact": 3
+    },
+    {
+      "id": "SAU-102",
+      "name": "Rights Issue",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "End-to-end digital rights subscription flow",
+      "competitors": [
+        "Derayah",
+        "Alinma"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 16,
+      "impact": 3
+    },
+    {
+      "id": "SAU-092",
+      "name": "StoryTeller",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Visual portfolio narratives (1,845 screens)",
+      "tags": [
+        "deep-discovery",
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 42,
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Portfolios",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-038",
+      "name": "Market Depth",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Market depth — active traders consider non-negotiable",
+      "competitors": [
+        "Moomoo",
+        "Derayah",
+        "Alinma",
+        "IBKR"
+      ],
+      "competitor_notes": [
+        "60 levels"
+      ],
+      "priority": 25,
+      "tags": [
+        "renamed-from:Level 2 Order Book",
+        "v1.4",
+        "sub-of:SAU-203"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 5,
+      "impact": 3
+    },
+    {
+      "id": "SAU-040",
+      "name": "Technical Analysis",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Native drawing tools, 60+ indicators, pattern detection",
+      "competitors": [
+        "Moomoo",
+        "TradingView",
+        "thinkorswim",
+        "Sahm"
+      ],
+      "priority": 25,
+      "tags": [
+        "sub-of:SAU-135"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 15,
+      "impact": 2
+    },
+    {
+      "id": "SAU-041",
+      "name": "Compare Stock",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Side-by-side multi-stock comparison with overlaid charts",
+      "competitors": [
+        "Moomoo",
+        "Derayah"
+      ],
+      "competitor_notes": [
+        "6 stocks",
+        "2 stocks"
+      ],
+      "priority": 20,
+      "tags": [
+        "renamed-from:Stock Comparison",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 32,
+      "impact": 2
+    },
+    {
+      "id": "SAU-045",
+      "name": "Major Shareholder",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Top shareholders of listed companies",
+      "competitors": [
+        "Derayah",
+        "Moomoo"
+      ],
+      "tags": [
+        "sub-of:SAU-122"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 22,
+      "impact": 4
+    },
+    {
+      "id": "SAU-048",
+      "name": "Trade on Chart",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Place orders directly on the price chart",
+      "competitors": [
+        "TradingView",
+        "thinkorswim",
+        "NinjaTrader",
+        "IBKR"
+      ],
+      "tags": [
+        "relocated:v1.5"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 31,
+      "impact": 2
+    },
+    {
+      "id": "SAU-002",
+      "name": "Limit",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Limit buy/sell at specified price",
+      "brd": [
+        "ARCD-1553",
+        "ARCD-87521"
+      ],
+      "tags": [
+        "renamed-from:Limit Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 3,
+      "figma_link": "(Figma link pending)",
+      "impact": 5,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-007",
+      "name": "MOC (Market On Close)",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Execute at official closing price",
+      "brd": [
+        "ARCD_9245"
+      ],
+      "tags": [
+        "renamed-from:Market-on-Close (MOC)",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 6,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-012",
+      "name": "Options",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Full options on DOTS system",
+      "brd": [
+        "ARCD-1983",
+        "ARCD-2330"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 9,
+      "figma_link": "(Figma link pending)",
+      "impact": 3,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-015",
+      "name": "Short Selling",
+      "journey": "LMS/SBL",
+      "status": "Planned",
+      "definition": "Sell borrowed securities short",
+      "brd": [
+        "ARCD-53753"
+      ],
+      "area": "SBL",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-035",
+      "name": "Basket",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Create basket with conditions",
+      "tags": [
+        "renamed-from:Basket Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 14,
+      "figma_link": "(Figma link pending)",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-042",
+      "name": "Conditional",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "ARC has Figma only — competitors have full production",
+      "competitors": [
+        "Derayah",
+        "AlJazira Capital",
+        "Sahm",
+        "Alinma"
+      ],
+      "priority": 20,
+      "tags": [
+        "renamed-from:Conditional Orders",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 9,
+      "impact": 3
+    },
+    {
+      "id": "SAU-046",
+      "name": "Sukuk Trading",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Bond/Sukuk trading natively",
+      "brd": [
+        "ARCD-72385"
+      ],
+      "competitors": [
+        "Derayah",
+        "Alinma",
+        "AlJazira Capital",
+        "SNB Capital"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi",
+        "relocated:v1.5"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 25,
+      "impact": 3,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-047",
+      "name": "Bracket",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Combined stop-loss + take-profit in one order",
+      "competitors": [
+        "thinkorswim",
+        "Sahm",
+        "Derayah"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi",
+        "renamed-from:Bracket Order (OCO)",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 8,
+      "impact": 2
+    },
+    {
+      "id": "SAU-103",
+      "name": "Attached",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "brd": [
+        "ARCD-75523"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "renamed-from:Attached Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 10,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-104",
+      "name": "Slicing",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "brd": [
+        "ARCD-88151",
+        "ARCD-1248"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "renamed-from:Slicing Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 11,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-105",
+      "name": "Chain",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "tags": [
+        "ceo-assessment",
+        "renamed-from:Chain Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 13,
+      "impact": 2
+    },
+    {
+      "id": "SAU-106",
+      "name": "Trailing",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "brd": [
+        "ARCD-75523"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "renamed-from:Trailing Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 12,
+      "impact": 3,
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-076",
+      "name": "Analysis Changes",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Feed of analyst rating upgrades/downgrades across the market.",
+      "brd": [
+        "ARCD-60979"
+      ],
+      "competitors": [
+        "Derayah",
+        "Awaed"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 23,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-58217",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-051",
+      "name": "Auto-Watchlist on Buy",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Owned stocks automatically added to watchlist",
+      "competitors": [
+        "Sahm"
+      ],
+      "priority": 12,
+      "tags": [
+        "sahm-gap",
+        "cross-screen"
+      ],
+      "area": "Watchlist",
+      "impact": 2
+    },
+    {
+      "id": "SAU-057",
+      "name": "Watchlist",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Main watchlist screen showing user's saved stocks with mini-charts and key data.",
+      "competitors": [
+        "abyan trading"
+      ],
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Watchlist",
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2015-17180",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-058",
+      "name": "Watchlist Story",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Story-style card view of watchlist stocks with key metrics.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Watchlist",
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2012-14669",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-060",
+      "name": "Watchlist — Edit / Reorder",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Edit watchlist: reorder, remove, or rename watchlists.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Watchlist",
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2012-31364",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-064",
+      "name": "Why Is It Moving",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Screen highlighting stocks moving up in price/volume.",
+      "competitors": [
+        "Awaed",
+        "Abyan"
+      ],
+      "tags": [
+        "deep-discovery",
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 1,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-50473",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-066",
+      "name": "Bulls vs Bears",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Market sentiment view: bulls vs bears for watched stocks.",
+      "tags": [
+        "deep-discovery",
+        "no-competitor-offers-this",
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us",
+        "sub-of:SAU-135"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 14,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-55635",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 1,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-067",
+      "name": "News",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Market-wide news feed.",
+      "brd": [
+        "ARCD-24713",
+        "ARCD-39221"
+      ],
+      "tags": [
+        "deep-discovery",
+        "renamed-from:Market News",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 19,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-60820",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-069",
+      "name": "Insider Traders",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Insider trading activity for stocks in watchlist.",
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "deep-discovery",
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us",
+        "renamed-from:Insider Trades",
+        "v1.4",
+        "sub-of:SAU-214"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 25,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-68787",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "SAU-070",
+      "name": "Government Traders",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Government/sovereign fund trading activity for watched stocks.",
+      "tags": [
+        "deep-discovery",
+        "renamed-from:Government Trades",
+        "v1.4",
+        "sub-of:SAU-214"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 26,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-71425",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-001",
+      "name": "Digital Account Opening (Saudi)",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Standard onboarding for Saudi nationals via SuperApp",
+      "brd": [
+        "ARCD-47480"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-002",
+      "name": "Minor Account Onboarding",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Guardian-initiated onboarding for minor children — Saudi nationals only (ARB or non-ARB)",
+      "brd": [
+        "ARCD 45978"
+      ],
+      "area": "Minor",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-003",
+      "name": "Update National Address",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Self-service national address update",
+      "brd": [
+        "ARCD-14242"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-004",
+      "name": "Session Upgrade & OTP",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "One-time session upgrade for high-value actions",
+      "brd": [
+        "ARCD-84906"
+      ],
+      "tags": [
+        "account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-005",
+      "name": "GCC Customer Onboarding",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Onboarding for GCC nationals with ID + face verification",
+      "brd": [
+        "ARCD-47480"
+      ],
+      "area": "Global",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-006",
+      "name": "Family Onboarding",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Digital onboarding for family members — Saudi nationals only (ARB or non-ARB)",
+      "brd": [
+        "ARCD-26191"
+      ],
+      "area": "Saudi",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-007",
+      "name": "Expired ID Handling",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Detect expired IDs and route to renewal",
+      "brd": [
+        "ARCD-99958"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-008",
+      "name": "GCC Customer ID Update",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Existing GCC clients update expired docs",
+      "brd": [
+        "ARCD-47480"
+      ],
+      "area": "Global",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-009",
+      "name": "Foreign Customer ID Verification",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Real-time ID + face scan for foreign customers",
+      "brd": [
+        "ARCD-79680"
+      ],
+      "area": "Global",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-011",
+      "name": "Minor Trading Restrictions",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Guardian configures trade limits on minor accounts",
+      "brd": [
+        "ARCD 45978"
+      ],
+      "area": "Family",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD"
+    },
+    {
+      "id": "ONB-012",
+      "name": "Guardian Trading for Minor",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Execute trades on behalf of a minor — Saudi nationals only",
+      "area": "Minor",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-013",
+      "name": "Open IBKR Portfolio",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Create International Brokerage account via IBKR",
+      "brd": [
+        "ARCD-70106",
+        "ARCD-100213"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-017",
+      "name": "Face ID / Biometric Setup",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "3-step Face ID setup flow",
+      "tags": [
+        "account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-018",
+      "name": "Change Password",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Self-service password update",
+      "tags": [
+        "account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "Auth",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-019",
+      "name": "Non-ARB Bank Account Entry",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "External bank details for non-ARB clients",
+      "brd": [
+        "ARCD-98292"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-020",
+      "name": "KYC Confirmation Screens",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Success/error modals across KYC",
+      "tags": [
+        "account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-021",
+      "name": "Family Members Overview",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Home screen showing linked family accounts",
+      "area": "Saudi",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-022",
+      "name": "Progress Indicator / Stepper",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Visual stepper in onboarding — reduces drop-off",
+      "competitors": [
+        "Derayah",
+        "Derayah Smart"
+      ],
+      "tags": [
+        "account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_file": "OnBoarding (KYC)",
+      "impact": 4
+    },
+    {
+      "id": "ONB-023",
+      "name": "Pre-filled KYC from National ID",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Pre-fill fields from ID data — faster registration",
+      "competitors": [
+        "Derayah"
+      ],
+      "area": "All account types",
+      "figma_file": "OnBoarding (KYC)",
+      "impact": 5
+    },
+    {
+      "id": "LMS-006",
+      "name": "SBL Program",
+      "journey": "LMS/SBL",
+      "status": "Planned",
+      "definition": "Securities borrowing & lending for yield/short",
+      "brd": [
+        "ARCD-53753"
+      ],
+      "tags": [
+        "differentiator"
+      ],
+      "area": "SBL",
+      "source": "BRD"
+    },
+    {
+      "id": "LMS-007",
+      "name": "SBL Digital Acceptance",
+      "journey": "LMS/SBL",
+      "status": "Planned",
+      "definition": "Digital enrollment and suitability",
+      "brd": [
+        "ARCD-86486"
+      ],
+      "area": "SBL",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-016",
+      "name": "Tadawulaty SSO",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Single sign-on to Edaa platform",
+      "brd": [
+        "ARCD-22970"
+      ],
+      "tags": [
+        "differentiator"
+      ],
+      "area": "Services",
+      "source": "BRD"
+    },
+    {
+      "id": "US-001",
+      "name": "Market Order",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Buy/sell US-listed stocks (NYSE, NASDAQ)",
+      "brd": [
+        "ARCD-70106"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-002",
+      "name": "Stock Profile Page",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Detailed US stock info with financials",
+      "brd": [
+        "ARCD-14312"
+      ],
+      "area": "Stock Page",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-003",
+      "name": "Shariah Compliance Lists",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "General + ARC-specific Shariah filter",
+      "brd": [
+        "ARCD-2067"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-004",
+      "name": "Stock Search",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Search by ticker/name in Arabic/English",
+      "brd": [
+        "ARCD-50707"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-005",
+      "name": "Options",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Options chain with Greeks and market data",
+      "brd": [
+        "ARCD-72350",
+        "ARCD-13645"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-008",
+      "name": "Government Trades",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "US Congress stock disclosures",
+      "brd": [
+        "ARCD-72957"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-009",
+      "name": "Trending Stocks",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "High-attention US stocks",
+      "brd": [
+        "ARCD-72979"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-012",
+      "name": "Stock Screener (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Filter US stocks by fundamentals/technicals",
+      "brd": [
+        "ARCD-61082"
+      ],
+      "competitors": [
+        "Moomoo",
+        "Investing.com"
+      ],
+      "priority": 25,
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 3,
+      "source": "BRD"
+    },
+    {
+      "id": "US-013",
+      "name": "Pre/Post Market Trading",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Extended hours trading — baseline for US market",
+      "competitors": [
+        "Moomoo",
+        "Robinhood",
+        "IBKR"
+      ],
+      "priority": 25,
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 3
+    },
+    {
+      "id": "US-014",
+      "name": "Fractional Shares (IBKR)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Buy partial shares of expensive stocks",
+      "competitors": [
+        "IBKR",
+        "Moomoo",
+        "Robinhood"
+      ],
+      "priority": 20,
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 4
+    },
+    {
+      "id": "US-015",
+      "name": "AI-Powered Assistant",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "AI chat for news, charts, earnings analysis",
+      "competitors": [
+        "Investing.com",
+        "Moomoo"
+      ],
+      "priority": 20,
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 5
+    },
+    {
+      "id": "US-016",
+      "name": "Stock Comparison",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Multi-stock side-by-side comparison",
+      "competitors": [
+        "Moomoo",
+        "Investing.com"
+      ],
+      "competitor_notes": [
+        "6 stocks"
+      ],
+      "priority": 20,
+      "area": "Stock Page",
+      "screen": "Market Page",
+      "impact": 2
+    },
+    {
+      "id": "US-017",
+      "name": "ETF Exposure View",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Which ETFs hold a given stock and weight",
+      "competitors": [
+        "Moomoo",
+        "Investing.com"
+      ],
+      "priority": 16,
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 1
+    },
+    {
+      "id": "US-018",
+      "name": "Whale / Institutional Tracking",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Unusual large-volume transaction alerts",
+      "competitors": [
+        "Moomoo",
+        "Robinhood",
+        "Derayah",
+        "Abyan",
+        "Webull"
+      ],
+      "priority": 15,
+      "tags": [
+        "benchmark:trading-gaps-2025"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 5
+    },
+    {
+      "id": "US-019",
+      "name": "Unusual Activity",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Options/equity volume spike detection",
+      "competitors": [
+        "Sahm",
+        "Webull"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025"
+      ],
+      "area": "Market",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-020",
+      "name": "Bonds Trading",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Fixed income trading capability",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-021",
+      "name": "Futures Trading",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Futures product for US markets",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-024",
+      "name": "Fast Order (No Confirm)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "One-tap execution without confirmation",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-025",
+      "name": "Major Shareholder",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Institutional ownership breakdown",
+      "competitors": [
+        "Sahm",
+        "Derayah",
+        "Abyan"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-028",
+      "name": "Earnings Calendar",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Upcoming company earnings announcements",
+      "area": "Market",
+      "screen": "Market Page",
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-66195",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-066",
+      "name": "Portfolio Preference",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Display preferences for portfolio view",
+      "area": "Settings",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Profile & Setting",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-031",
+      "name": "Cash-In from ARB",
+      "journey": "Cash Management",
+      "status": "Live",
+      "definition": "Transfer from Al Rajhi Bank to portfolio",
+      "brd": [
+        "ARCD-2651"
+      ],
+      "area": "Cash Management",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "Home",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "XJ-032",
+      "name": "Aggregated Cash & Buying Power",
+      "journey": "Cash Management",
+      "status": "Live",
+      "definition": "Total across all portfolios and wallets",
+      "brd": [
+        "ARCD-72218"
+      ],
+      "area": "Cash Management",
+      "figma_file": "Home",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-033",
+      "name": "UCM Multi-Currency Wallet",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "Additional currencies + improved UI",
+      "brd": [
+        "ARCD-72195"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-034",
+      "name": "Multi Virtual IBANs",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "Auto-route incoming wire transfers",
+      "brd": [
+        "ARCD-72196"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-036",
+      "name": "Apple Pay",
+      "journey": "Cash Management",
+      "status": "Live",
+      "definition": "Deposit via Apple Pay — digital wallet funding",
+      "competitors": [
+        "Derayah"
+      ],
+      "competitor_notes": [
+        "Apple Pay"
+      ],
+      "area": "Cash Management",
+      "figma_file": "Home",
+      "impact": 5
+    },
+    {
+      "id": "MF-001",
+      "name": "Subscribe to SAR/USD Fund",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "SAR-denominated mutual fund subscription",
+      "brd": [
+        "ARCD-47782"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "MF-002",
+      "name": "USD Fund via SAR Account",
+      "journey": "Mutual Funds",
+      "status": "Planned",
+      "definition": "Auto FX conversion for USD fund",
+      "brd": [
+        "ARCD-32980"
+      ],
+      "area": "Orders",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "MF-003",
+      "name": "Cancel Subscription Order",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Cancel pending fund orders",
+      "area": "Orders",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "MF-004",
+      "name": "Cancel Fund Portfolio",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Close SAR/USD fund portfolio",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-005",
+      "name": "Fund Performance Chart",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Investment performance over time",
+      "brd": [
+        "ARCD-47782"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "MF-006",
+      "name": "Dividend History",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Total dividends received per fund",
+      "brd": [
+        "ARCD-47782"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-007",
+      "name": "Funds by Asset Class",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Organize catalog by equity/sukuk/etc",
+      "brd": [
+        "ARCD-47782"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-008",
+      "name": "Historical Performance",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Fund historical performance chart",
+      "brd": [
+        "ARCD-47782"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-009",
+      "name": "Blocked Amounts Display",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Show pending buy as blocked amounts",
+      "brd": [
+        "ARCD-48329"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-010",
+      "name": "Mutual Fund Margin Lending",
+      "journey": "LMS/SBL",
+      "status": "Planned",
+      "definition": "Use fund units as margin collateral",
+      "brd": [
+        "ARCD-8609",
+        "ARCD-24456"
+      ],
+      "area": "LMS",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-011",
+      "name": "Switch Funds Flow",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Switch between fund products",
+      "area": "Orders",
+      "screen": "Orders Page",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "MF-012",
+      "name": "Private Fund",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Private equity and private fund products",
+      "brd": [
+        "ARCD-100655"
+      ],
+      "competitors": [
+        "AlJazira Capital",
+        "Derayah"
+      ],
+      "priority": 20,
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 5,
+      "source": "BRD"
+    },
+    {
+      "id": "MF-014",
+      "name": "Compare Funds",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Side-by-side fund comparison tool",
+      "brd": [
+        "ARCD-98131",
+        "ARCD-100521"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-015",
+      "name": "Top Fund Holders",
+      "journey": "Mutual Funds",
+      "status": "Planned",
+      "definition": "Show top holders of a mutual fund",
+      "area": "Market",
+      "screen": "Market Page"
+    },
+    {
+      "id": "MF-016",
+      "name": "Fund Financial Reports",
+      "journey": "Mutual Funds",
+      "status": "Planned",
+      "definition": "In-app audited financial reports per fund",
+      "area": "Market",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-001",
+      "name": "Robo Onboarding",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Suitability questions + risk profile assessment",
+      "brd": [
+        "ARCD-22648",
+        "ARCD-93704"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "RBO-002",
+      "name": "Create Robo Portfolio",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "New portfolio with risk profile assignment",
+      "brd": [
+        "ARCD-85842"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "RBO-003",
+      "name": "Robo Cash Withdrawal",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Native withdrawal from Robo portfolio",
+      "brd": [
+        "ARCD-85842"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "RBO-004",
+      "name": "Mashura Reports",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Robo advisory reporting screens",
+      "brd": [
+        "ARCD-85842"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "RBO-005",
+      "name": "Goal-Based Portfolio (Full)",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "End-to-end goal-based investment product, not just tracker",
+      "brd": [
+        "ARCD-85842"
+      ],
+      "competitors": [
+        "Derayah Smart",
+        "AlJazira Capital"
+      ],
+      "competitor_notes": [
+        "10+ Goals"
+      ],
+      "priority": 15,
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "impact": 4,
+      "source": "BRD"
+    },
+    {
+      "id": "RBO-006",
+      "name": "Try-Before-Invest Simulator",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Pre-built strategies with simulation mode",
+      "competitors": [
+        "Derayah Smart",
+        "Moomoo",
+        "Sahm"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 5
+    },
+    {
+      "id": "RBO-007",
+      "name": "Robo Calculator",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Projected growth calculator over time",
+      "competitors": [
+        "Derayah Smart"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "impact": 3
+    },
+    {
+      "id": "RBO-008",
+      "name": "Strategy Comparison",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Compare conservative vs aggressive vs balanced",
+      "competitors": [
+        "Derayah Smart"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 3
+    },
+    {
+      "id": "IPO-001",
+      "name": "Main Market IPO Subscribe",
+      "journey": "IPOs",
+      "status": "Live",
+      "definition": "IPO subscription on Saudi Exchange main market",
+      "brd": [
+        "ARCD-1594"
+      ],
+      "area": "Subscriptions",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "IPO-002",
+      "name": "IPO Details & Status",
+      "journey": "IPOs",
+      "status": "Live",
+      "definition": "View listings and subscription status",
+      "brd": [
+        "ARCD-1594"
+      ],
+      "area": "Subscriptions",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "IPO-003",
+      "name": "Nomu IPO Subscribe",
+      "journey": "IPOs",
+      "status": "Live",
+      "definition": "Parallel market IPO subscription",
+      "brd": [
+        "ARCD-1922"
+      ],
+      "area": "Subscriptions",
+      "source": "BRD"
+    },
+    {
+      "id": "IPO-005",
+      "name": "Qualified Client Verification",
+      "journey": "IPOs",
+      "status": "Live",
+      "definition": "CMA eligibility checks for private fund IPOs",
+      "brd": [
+        "ARCD-22937"
+      ],
+      "area": "Subscriptions",
+      "source": "BRD"
+    },
+    {
+      "id": "IPO-007",
+      "name": "US Market IPO",
+      "journey": "IPOs",
+      "status": "Gap",
+      "definition": "US IPO subscription capability",
+      "area": "Subscriptions"
+    },
+    {
+      "id": "IPO-008",
+      "name": "IPO Popup Banner",
+      "journey": "IPOs",
+      "status": "Live",
+      "definition": "Popup announcement for new IPO awareness",
+      "competitors": [
+        "AlJazira Capital"
+      ],
+      "area": "Market",
+      "impact": 2
+    },
+    {
+      "id": "US-030",
+      "name": "Dividends Calendar",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Financial calendar of dividend announcements",
+      "brd": [
+        "ARCD-72987"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-031",
+      "name": "Insider Trades",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Executive insider trading disclosures",
+      "brd": [
+        "ARCD-68490"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-048",
+      "name": "Purification Calculator",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Sharia purification amount calculation",
+      "brd": [
+        "ARCD-1096"
+      ],
+      "tags": [
+        "differentiator"
+      ],
+      "area": "Calculator",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-067",
+      "name": "Dividend Calculator",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Interactive dividend income estimator",
+      "area": "Calculator",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-037",
+      "name": "Bundle Benefits (ARG)",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Al Rajhi Group-wide fee discounts",
+      "brd": [
+        "ARCD 18697"
+      ],
+      "area": "Engagement",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-038",
+      "name": "Smart Saving Plan",
+      "journey": "Platform",
+      "status": "Gap",
+      "definition": "Bulk ARB deposits to mutual funds",
+      "area": "Investment"
+    },
+    {
+      "id": "XJ-039",
+      "name": "Spin the Wheel",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Gamified commission discounts at milestones",
+      "brd": [
+        "ARCD-16056",
+        "ARCD-97344"
+      ],
+      "area": "Engagement",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-040",
+      "name": "Prepaid Commission Bundle",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Commission-free trading period subscription",
+      "brd": [
+        "ARCD-17031"
+      ],
+      "area": "Services",
+      "source": "BRD"
+    },
+    {
+      "id": "CM-001",
+      "name": "Mokafaa Points Redemption",
+      "journey": "Cash Management",
+      "status": "Live",
+      "definition": "Loyalty points → investment portfolios",
+      "brd": [
+        "ARCD 67739"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "CM-002",
+      "name": "ARC Debit Card",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "UCM wallet-linked debit card",
+      "brd": [
+        "ARCD 72647"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "CM-003",
+      "name": "Buy Round-Up",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "Spare change investing on each buy",
+      "brd": [
+        "ARCD 73671"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-099",
+      "name": "Social / Copy Trading",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Follow & replicate professional traders",
+      "brd": [
+        "ARCD-72352"
+      ],
+      "area": "Content",
+      "screen": "Copy Trading",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-042",
+      "name": "Referral / Gift Campaigns",
+      "journey": "Platform",
+      "status": "Gap",
+      "definition": "Date-specific gift campaigns to segments",
+      "brd": [
+        "ARCD-42865",
+        "ARCD-23093"
+      ],
+      "area": "Engagement",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-043",
+      "name": "Language Preference",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Arabic/English for notifications",
+      "brd": [
+        "ARCD-37611"
+      ],
+      "area": "Settings",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "XJ-044",
+      "name": "Charity / Donation Screen",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Charity investment offerings",
+      "area": "Charity",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "CF-006",
+      "name": "Crowd Funds Orders",
+      "journey": "Crowd Fund",
+      "status": "Live",
+      "definition": "Crowd fund order history",
+      "area": "Portfolio",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-045",
+      "name": "Social Community Feed",
+      "journey": "Platform",
+      "status": "Gap",
+      "definition": "Stock-specific discussions + sentiment tracking",
+      "competitors": [
+        "Moomoo"
+      ],
+      "competitor_notes": [
+        "comments, Sahm, polls"
+      ],
+      "priority": 20,
+      "area": "Engagement",
+      "impact": 5
+    },
+    {
+      "id": "XJ-001",
+      "name": "Zakat Calculator",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Zakat on investment holdings",
+      "brd": [
+        "ARCD-1283"
+      ],
+      "tags": [
+        "differentiator"
+      ],
+      "area": "Calculator",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-004",
+      "name": "ZATCA Purification Invoice",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Compliant e-invoice for purification",
+      "brd": [
+        "ARCD-14553"
+      ],
+      "area": "Services",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-005",
+      "name": "Economic Calendar",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Global economic events and indicators",
+      "brd": [
+        "ARCD 61046"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-006",
+      "name": "News Screener",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Personalized news dashboard with alerts",
+      "brd": [
+        "ARCD-82616"
+      ],
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "competitor-signal-2026-08",
+        "sub-of:SAU-067"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 20,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-016",
+      "name": "Session Timeout Settings",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Configure auto-timeout duration",
+      "area": "Settings",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-017",
+      "name": "Always On Display",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Keep screen on while using app",
+      "area": "Settings",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-018",
+      "name": "Index Feed Bar Settings",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Configure live market ticker bar",
+      "area": "Settings",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "XJ-020",
+      "name": "Configurable Price Alerts",
+      "journey": "Platform",
+      "status": "Live",
+      "definition": "Multi-type alerts: price, earnings, events, analysis",
+      "competitors": [
+        "Derayah",
+        "Investing.com",
+        "Moomoo",
+        "Sahm"
+      ],
+      "priority": 16,
+      "area": "Alert and Notification",
+      "impact": 4
+    },
+    {
+      "id": "XJ-021",
+      "name": "Education",
+      "journey": "Platform",
+      "status": "Gap",
+      "definition": "Interactive tutorials for new users",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Education",
+      "figma_link": "(Figma link pending)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-025",
+      "name": "First Engagement",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Guided first-trade experience post-signup (3,766 screens)",
+      "tags": [
+        "deep-discovery; account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "ONB-026",
+      "name": "Fast Onboarding",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Streamlined reduced-step KYC (364 screens)",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "MF-017",
+      "name": "Fund Recommender",
+      "journey": "Mutual Funds",
+      "status": "Planned",
+      "definition": "Suitability-based fund recommendations (17+ variants)",
+      "brd": [
+        "ARCD-72386"
+      ],
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "XJ-024",
+      "name": "Guest Mode (Extended)",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "8,012 screens designed for discovery mode",
+      "brd": [
+        "ARCD-75522"
+      ],
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "All account types",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "XJ-027",
+      "name": "Personalized Events Calendar",
+      "journey": "Platform",
+      "status": "Gap",
+      "definition": "Earnings/dividends filtered by watchlist & holdings",
+      "competitors": [
+        "Sahm"
+      ],
+      "priority": 20,
+      "tags": [
+        "sahm-gap"
+      ],
+      "area": "Customization",
+      "impact": 2
+    },
+    {
+      "id": "ONB-027",
+      "name": "Minor Account + Guardian Controls",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "Granular custodian controls for minor accounts — Saudi nationals only; ARC-unique (no competitor)",
+      "brd": [
+        "#8-10"
+      ],
+      "tags": [
+        "differentiator"
+      ],
+      "area": "Minor",
+      "figma_link": "(Figma link pending)",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "XJ-030",
+      "name": "ZATCA E-Invoices",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "definition": "Compliant invoices for wallet + purification — regulatory edge (ARC-unique — no competitor offers this)",
+      "brd": [
+        "#94",
+        "#138"
+      ],
+      "tags": [
+        "differentiator"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "ONB-028",
+      "name": "Corporate — Other Local Entities",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Onboarding flow for non-company corporate entities (associations, government bodies, etc.)",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4577-162614",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-029",
+      "name": "Corporate — Approval Flow",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Approval screen shown when a corporate account application is accepted.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4577-162671",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-030",
+      "name": "Corporate — Under Review",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Status screen shown while a corporate account application is under review.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4577-173130",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-031",
+      "name": "Corporate — Additional Requirements",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Screen prompting the corporate applicant to upload additional required documents.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4577-175710",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-032",
+      "name": "Corporate — Rejected",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Notification screen when a corporate account application is rejected.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4577-178255",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-033",
+      "name": "Corporate — Local Company Onboarding",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Full onboarding flow for local Saudi companies including CR validation and entity details.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4712-62448",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-034",
+      "name": "Corporate — Profile & Settings",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Corporate user profile and account settings management screens.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4712-70427",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-035",
+      "name": "Corporate — Requirements Upload",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Document upload screen for corporate onboarding requirements and supporting files.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4712-75825",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-036",
+      "name": "Corporate — Terms & Conditions",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Terms and conditions acceptance screen for corporate account opening.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4712-88606",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-037",
+      "name": "Corporate — Status Tracking",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Application status tracker allowing corporate users to monitor their onboarding progress.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4712-88625",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-038",
+      "name": "Corporate — Pending Actions",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Pending action items dashboard for corporate users requiring attention.",
+      "brd": [
+        "ARCD-2958"
+      ],
+      "tags": [
+        "deep-discovery",
+        "corporate-onboarding"
+      ],
+      "area": "Corporate",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4741-9133",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-039",
+      "name": "Guest Mode",
+      "journey": "Onboarding",
+      "status": "Planned",
+      "definition": "Allows users to browse the app without an account in a limited-access mode.",
+      "brd": [
+        "ARCD-75522"
+      ],
+      "tags": [
+        "deep-discovery; account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4384-15751",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "ONB-040",
+      "name": "Tutorials",
+      "journey": "Onboarding",
+      "status": "Live",
+      "definition": "In-app tutorial screens teaching trading basics, app navigation, and key features.",
+      "tags": [
+        "deep-discovery; account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4316-5097",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "MF-020",
+      "name": "Mutual Fund — Holding Overview",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Detailed holding view for individual mutual fund positions.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-44719",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "Figma"
+    },
+    {
+      "id": "MF-021",
+      "name": "Mutual Fund — Holdings Filter",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "definition": "Filter mutual fund portfolio holdings.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-42621",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "Figma"
+    },
+    {
+      "id": "CF-001",
+      "name": "Crowdfund Portfolio Home",
+      "journey": "Crowd Fund",
+      "status": "Live",
+      "definition": "Portfolio view for crowdfunding investment products.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-50528",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "Figma"
+    },
+    {
+      "id": "CF-002",
+      "name": "Crowdfund — Holding Overview",
+      "journey": "Crowd Fund",
+      "status": "Live",
+      "definition": "Detailed holding view for crowdfund investments.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-52851",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "Figma"
+    },
+    {
+      "id": "CF-003",
+      "name": "Crowdfund — Holdings Filter",
+      "journey": "Crowd Fund",
+      "status": "Live",
+      "definition": "Filter crowdfund portfolio holdings.",
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-51068",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "Figma"
+    },
+    {
+      "id": "RBO-009",
+      "name": "Mashura Portfolio Home",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Robo advisory portfolio dashboard showing managed positions.",
+      "brd": [
+        "ARCD-85842"
+      ],
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-55624",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "RBO-010",
+      "name": "Mashura — Holding Overview",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "definition": "Detailed holding view for robo advisory positions.",
+      "brd": [
+        "ARCD-85842"
+      ],
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "figma_link": "https://www.figma.com/design/4ybkyLURbOhzauw8ugkHGp?node-id=2007-56570",
+      "figma_status": "Designed",
+      "figma_file": "Portfolios",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "XJ-049",
+      "name": "ARC Chatbot",
+      "journey": "Platform",
+      "status": "Gap",
+      "brd": [
+        "ARCD-86222"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Support",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-050",
+      "name": "Daily Brief",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "brd": [
+        "ARCD-72377"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 43,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-051",
+      "name": "Auto Zakat",
+      "journey": "Platform",
+      "status": "Planned",
+      "brd": [
+        "ARCD-72339"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Charity",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-052",
+      "name": "Mock Trading",
+      "journey": "Platform",
+      "status": "Gap",
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Education"
+    },
+    {
+      "id": "XJ-053",
+      "name": "Samsung PAY",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "brd": [
+        "ARCD-18747"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-054",
+      "name": "Investment Calculator",
+      "journey": "Platform",
+      "status": "Live",
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Calculator"
+    },
+    {
+      "id": "XJ-055",
+      "name": "Custom Index Against Benchmark",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "brd": [
+        "ARCD-60887"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 44,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-057",
+      "name": "Subscription Engine",
+      "journey": "Platform",
+      "status": "Planned",
+      "brd": [
+        "ARCD-2632"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Investment",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-058",
+      "name": "Stock Key Fact",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "brd": [
+        "ARCD-72344"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "renamed-from:Stocks Key Facts",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 34,
+      "impact": 3,
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-059",
+      "name": "Global Notification Center",
+      "journey": "Platform",
+      "status": "Planned",
+      "brd": [
+        "ARCD-75525",
+        "ARCD-20124"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Alert and Notification",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-060",
+      "name": "Investment Customisation",
+      "journey": "Platform",
+      "status": "Live",
+      "brd": [
+        "ARCD-72345"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Content",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-061",
+      "name": "Dark/Light Theme",
+      "journey": "Platform",
+      "status": "Live",
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Settings"
+    },
+    {
+      "id": "XJ-062",
+      "name": "App Widgets",
+      "journey": "Platform",
+      "status": "Live",
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "App Widgets"
+    },
+    {
+      "id": "XJ-063",
+      "name": "Personal Investment Manager",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "brd": [
+        "ARCD-60444"
+      ],
+      "tags": [
+        "ceo-assessment",
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 45,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-064",
+      "name": "Font Size",
+      "journey": "Platform",
+      "status": "Live",
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Settings"
+    },
+    {
+      "id": "XJ-065",
+      "name": "Live Prices Subscription",
+      "journey": "Platform",
+      "status": "Live",
+      "brd": [
+        "ARCD-91702"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Subscription",
+      "source": "BRD"
+    },
+    {
+      "id": "CM-004",
+      "name": "T+2 Card",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "brd": [
+        "ARCD-72391"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "CM-005",
+      "name": "Client Money (Overnight Investments)",
+      "journey": "Cash Management",
+      "status": "Planned",
+      "brd": [
+        "ARCD-2647"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Cash Management",
+      "source": "BRD"
+    },
+    {
+      "id": "ONB-043",
+      "name": "Data Consent Management",
+      "journey": "Onboarding",
+      "status": "Live",
+      "tags": [
+        "ceo-assessment; account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "All account types"
+    },
+    {
+      "id": "MF-024",
+      "name": "Reinvest Dividends (MF)",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Orders",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-032",
+      "name": "Conditional Orders (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Support for conditional order types (if-then logic) on US market orders.",
+      "brd": [
+        "ARCD-40288"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-033",
+      "name": "Stop Loss",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Stop loss order type for US market positions to limit downside risk.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-034",
+      "name": "Take Profit",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Take profit order type for US market positions to lock in gains at target price.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-035",
+      "name": "Basket Order",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Create and execute multiple US stock orders simultaneously as a basket.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-036",
+      "name": "Quick Reorder (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "One-tap reorder of previous US market trades from order history.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-037",
+      "name": "Bracket Order (OCO)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "One-cancels-other bracket orders combining stop loss and take profit for US trades.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-038",
+      "name": "Order Filter Panel (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Advanced filtering panel for US market order history by status, date, and type.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-039",
+      "name": "Technical Analysis",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Full technical analysis charting with indicators and drawing tools for US stocks.",
+      "area": "Market",
+      "screen": "Market Page"
+    },
+    {
+      "id": "SAU-107",
+      "name": "Earnings Calendar",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Calendar view of upcoming and past company earnings announcements for Saudi-listed stocks.",
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 17,
+      "impact": 2
+    },
+    {
+      "id": "US-040",
+      "name": "Market-on-Close (MOC) (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Market-on-close order type for US market — execute at closing auction price.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-041",
+      "name": "Short Selling (US)",
+      "journey": "LMS/SBL",
+      "status": "Gap",
+      "definition": "Short selling capability for US market positions.",
+      "area": "SBL",
+      "screen": "Order Page"
+    },
+    {
+      "id": "US-042",
+      "name": "Attached Order (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Attached order type linking a child order to a parent order for US trades.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-043",
+      "name": "Slicing Order (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Slicing order type to split large US orders into smaller tranches for reduced market impact.",
+      "brd": [
+        "ARCD-88151"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-044",
+      "name": "Chain Order (US)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Chain order type executing a sequence of US orders one after another.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-045",
+      "name": "Trailing Order (IBKR)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Trailing stop order that adjusts dynamically with US stock price movement.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-046",
+      "name": "Iceberg Order",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Iceberg order type showing only a portion of total order size for US markets.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-048",
+      "name": "Instant Settlement",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Accelerated settlement (T+0 or T+1) for US market trades.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-049",
+      "name": "Portfolio P&L View (IBKR)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Profit and loss overview for US market portfolio holdings.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-050",
+      "name": "Update Avg Cost Price (US)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Manually adjust average cost price for US holdings to reflect transfers or corporate actions.",
+      "brd": [
+        "ARCD-2650"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-051",
+      "name": "Portfolio Holdings",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Detailed view of all US market holdings with current value and quantity.",
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-052",
+      "name": "Official Letter",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Generate and download a PDF letter of US portfolio holdings.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-053",
+      "name": "Performance Chart (IBKR)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Portfolio performance chart tracking US holdings over time.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-054",
+      "name": "Peer Portfolio Comparison (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Compare US portfolio performance against peer investor benchmarks.",
+      "brd": [
+        "ARCD-60816"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-056",
+      "name": "Portfolio Health Score (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Composite health score for US portfolio based on diversification, risk, and performance.",
+      "brd": [
+        "ARCD-52378"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-057",
+      "name": "Allocation Tracker (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Track US portfolio allocation vs target allocation by sector and asset class.",
+      "brd": [
+        "ARCD-61176"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-058",
+      "name": "Goal Tracker (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Track investment goals and progress for US market portfolio.",
+      "brd": [
+        "ARCD-55733"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-059",
+      "name": "Holdings Filter Panel (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Advanced filtering for US holdings by sector, performance, and holding period.",
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-060",
+      "name": "Liquidate Holdings (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "One-action liquidation of selected US market holdings.",
+      "area": "Orders",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-062",
+      "name": "Downloadable Reports (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Download US portfolio reports in PDF or Excel format.",
+      "brd": [
+        "ARCD-1720"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-063",
+      "name": "Visual Asset Allocation (US)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Visual chart showing US portfolio asset allocation breakdown.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-064",
+      "name": "Sectors",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Filter US stocks by sector and index membership.",
+      "area": "Market",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-065",
+      "name": "Sector & Exchange Volatility (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Volatility indicators by sector and exchange for US markets.",
+      "brd": [
+        "ARCD-58777"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-066",
+      "name": "Market News",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Market-wide news feed.",
+      "area": "Market",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-067",
+      "name": "Analysis Changes",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Feed of analyst rating upgrades/downgrades across the market.",
+      "brd": [
+        "ARCD-60979"
+      ],
+      "competitors": [
+        "Derayah",
+        "Awaed"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "US-069",
+      "name": "Watchlist",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Dedicated US market watchlist with real-time prices and daily change.",
+      "area": "Watchlist",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-070",
+      "name": "Watchlist Story",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Instagram-style story view for US watchlist stocks with key metrics.",
+      "area": "Watchlist",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-072",
+      "name": "StoryTeller (US)",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Narrative-driven stock summaries for US watchlist and portfolio holdings.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-076",
+      "name": "Auto Dividend Reinvest (US)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Automatically reinvest US stock dividends into the same holding.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-077",
+      "name": "Trade on Chart",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Execute US trades directly from the price chart interface.",
+      "area": "Orders",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-081",
+      "name": "Auto-Watchlist on Buy (US)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Automatically add US stocks to watchlist when purchased.",
+      "area": "Watchlist",
+      "screen": "Market Page"
+    },
+    {
+      "id": "SAU-110",
+      "name": "ETF View",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Detailed ETF profile page showing holdings, performance, dividends, and sector exposure for Saudi ETFs.",
+      "tags": [
+        "renamed-from:ETF Exposure View",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 24,
+      "impact": 2
+    },
+    {
+      "id": "SAU-111",
+      "name": "Whale/Institutional Trades",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Track large institutional and whale trades on Tadawul.",
+      "competitors": [
+        "Derayah",
+        "Abyan",
+        "Moomoo",
+        "Robinhood"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us",
+        "renamed-from:Whale / Institutional Tracking",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 27,
+      "impact": 2
+    },
+    {
+      "id": "SAU-112",
+      "name": "Unusual Activity",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Alerts for unusual trading volume or price activity on Saudi stocks.",
+      "competitors": [
+        "Sahm"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 28,
+      "impact": 2
+    },
+    {
+      "id": "SAU-113",
+      "name": "Futures Trading",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Trading Saudi market futures and derivatives contracts.",
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us",
+        "relocated:v1.5"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 26,
+      "impact": 2
+    },
+    {
+      "id": "SAU-114",
+      "name": "Fast Order (No Confirmation)",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Quick order execution without confirmation dialog for experienced traders.",
+      "competitors": [
+        "Derayah"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us",
+        "renamed-from:Fast Order (No Confirm)",
+        "v1.5"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 24,
+      "impact": 2
+    },
+    {
+      "id": "SAU-116",
+      "name": "Dividend Calendar",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Dividend history, yield, and upcoming ex-dates for Saudi-listed stocks.",
+      "tags": [
+        "renamed-from:Dividends Calendar",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 18,
+      "impact": 2
+    },
+    {
+      "id": "SAU-120",
+      "name": "Orders",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Full list of all submitted orders with status, type, and date.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 11,
+      "impact": 3
+    },
+    {
+      "id": "US-087",
+      "name": "List of Orders",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Full list of all submitted orders with status, type, and date.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-090",
+      "name": "Transfer Holdings",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "In-specie transfer between portfolios",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-091",
+      "name": "Watchlist — Edit / Reorder",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Edit watchlist: reorder, remove, or rename watchlists.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Watchlist",
+      "screen": "Market Page"
+    },
+    {
+      "id": "SAU-121",
+      "name": "AI Assistant",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "AI chat for news, charts, earnings analysis",
+      "competitors": [
+        "Derayah",
+        "Sahm",
+        "Abyan"
+      ],
+      "tags": [
+        "parity-mirror",
+        "competitor-signal-2026-08",
+        "evidence-market:us",
+        "renamed-from:AI-Powered Assistant",
+        "v1.4",
+        "initiative:ai-guided-investing"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 33,
+      "impact": 3
+    },
+    {
+      "id": "SAU-122",
+      "name": "Profile",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Detailed US stock info with financials",
+      "tags": [
+        "parity-mirror",
+        "renamed-from:Stock Profile",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 21,
+      "impact": 3
+    },
+    {
+      "id": "SAU-123",
+      "name": "Stock Search",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Search by ticker/name in Arabic/English",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 4,
+      "impact": 5
+    },
+    {
+      "id": "US-092",
+      "name": "US Margin Lending",
+      "journey": "LMS/SBL",
+      "status": "Gap",
+      "definition": "Digital Sharia-compliant margin lending application",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "LMS"
+    },
+    {
+      "id": "US-098",
+      "name": "Sukuk Trading",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Bond/Sukuk trading natively",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-099",
+      "name": "Limit Order",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Limit buy/sell at specified price",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "SAU-124",
+      "name": "Sharia Stock",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "General + ARC-specific Shariah filter",
+      "tags": [
+        "parity-mirror",
+        "renamed-from:Shariah Compliance Lists",
+        "v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 15,
+      "impact": 4
+    },
+    {
+      "id": "SAU-125",
+      "name": "Market",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Buy/sell US-listed stocks (NYSE, NASDAQ)",
+      "tags": [
+        "parity-mirror",
+        "renamed-from:Market Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 2,
+      "impact": 5
+    },
+    {
+      "id": "US-102",
+      "name": "Custom Index Against Benchmark",
+      "journey": "US Trading",
+      "status": "Planned",
+      "brd": [
+        "ARCD-60887"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-103",
+      "name": "Stocks Key Facts",
+      "journey": "US Trading",
+      "status": "Gap",
+      "brd": [
+        "ARCD-72344"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-104",
+      "name": "Personal Investment Manager",
+      "journey": "US Trading",
+      "status": "Planned",
+      "brd": [
+        "ARCD-60444"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-105",
+      "name": "News Screener",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Personalized news dashboard with alerts",
+      "brd": [
+        "ARCD-82616"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-106",
+      "name": "Liquidity Indicators",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Volume, bid-ask spread, turnover",
+      "brd": [
+        "ARCD-41013"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "ONB-044",
+      "name": "How-To Guides",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Step-by-step how-to guides (deposit, trade)",
+      "tags": [
+        "deep-discovery; account-types: ARB",
+        "Corporate",
+        "Global",
+        "Local",
+        "Minor"
+      ],
+      "area": "Education",
+      "figma_link": "https://www.figma.com/design/PgN7nzg8CcueY12mu6TIVe?node-id=4316-5097",
+      "figma_status": "Designed",
+      "figma_file": "OnBoarding (KYC)",
+      "source": "Figma"
+    },
+    {
+      "id": "US-107",
+      "name": "Intl Indices Historical Data",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Pre-aggregated index historical data",
+      "brd": [
+        "ARCD-68581"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-108",
+      "name": "Daily Brief",
+      "journey": "US Trading",
+      "status": "Planned",
+      "brd": [
+        "ARCD-72377"
+      ],
+      "tags": [
+        "ceo-assessment"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "US-109",
+      "name": "Options Order",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Options chain with Greeks and market data",
+      "brd": [
+        "ARCD-72350",
+        "ARCD-13645"
+      ],
+      "area": "Orders",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-126",
+      "name": "Options",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Full options on DOTS system",
+      "brd": [
+        "ARCD-1983",
+        "ARCD-2330"
+      ],
+      "tags": [
+        "renamed-from:Options Order",
+        "v1.5",
+        "sub-of:SAU-219"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 15,
+      "figma_link": "(Figma link pending)",
+      "impact": 3,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-110",
+      "name": "Portfolio P&L View (GTN)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Profit and loss overview for US market portfolio holdings.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-111",
+      "name": "Performance Chart (GTN)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Portfolio performance chart tracking US holdings over time.",
+      "area": "Portfolio",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-113",
+      "name": "Fractional Shares (GTN)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Buy partial shares of expensive stocks",
+      "competitors": [
+        "IBKR",
+        "Moomoo",
+        "Robinhood"
+      ],
+      "priority": 20,
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 4
+    },
+    {
+      "id": "US-114",
+      "name": "Trailing Order (GTN)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Trailing stop order that adjusts dynamically with US stock price movement.",
+      "area": "Orders",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "US-116",
+      "name": "Options",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Options chain with Greeks and market data",
+      "brd": [
+        "ARCD-72350",
+        "ARCD-13645"
+      ],
+      "tags": [
+        "stock-page-dup-of:US-005"
+      ],
+      "area": "Stock Page",
+      "screen": "Market Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-117",
+      "name": "Bulls vs Bears",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Bullish/bearish case via Benzinga",
+      "brd": [
+        "ARCD-61067"
+      ],
+      "tags": [
+        "stock-page",
+        "no-competitor-offers-this",
+        "benchmark:trading-gaps-2025"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-118",
+      "name": "Why Is It Moving",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "AI-driven price movement explanations",
+      "brd": [
+        "ARCD-60875"
+      ],
+      "tags": [
+        "stock-page"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-119",
+      "name": "Government Trades",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "US Congress stock disclosures",
+      "brd": [
+        "ARCD-72957"
+      ],
+      "tags": [
+        "stock-page-dup-of:US-008"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-120",
+      "name": "Trending Stocks",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "High-attention US stocks",
+      "brd": [
+        "ARCD-72979"
+      ],
+      "tags": [
+        "stock-page-dup-of:US-009"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-121",
+      "name": "Level 2 Order Book (US)",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Market depth for US stocks",
+      "competitors": [
+        "Moomoo",
+        "IBKR"
+      ],
+      "priority": 25,
+      "tags": [
+        "stock-page"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "impact": 2
+    },
+    {
+      "id": "US-122",
+      "name": "Stock Dividends",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Dividend history, yield and ex-dates for the individual stock.",
+      "brd": [
+        "ARCD-72987"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "figma_link": "(Figma link pending)",
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "US-123",
+      "name": "Insider Trades",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Executive insider trading disclosures",
+      "brd": [
+        "ARCD-68490"
+      ],
+      "tags": [
+        "stock-page-dup-of:US-031"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "US-124",
+      "name": "Stock News",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "News filtered to the individual stock.",
+      "area": "Stock Page",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-125",
+      "name": "Whale / Institutional Tracking",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Unusual large-volume transaction alerts",
+      "competitors": [
+        "Moomoo",
+        "Robinhood",
+        "Derayah",
+        "Abyan",
+        "Webull"
+      ],
+      "priority": 15,
+      "tags": [
+        "benchmark:trading-gaps-2025"
+      ],
+      "area": "Stock Page",
+      "screen": "Market Page",
+      "impact": 5
+    },
+    {
+      "id": "US-126",
+      "name": "Unusual Activity",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Options/equity volume spike detection",
+      "competitors": [
+        "Sahm",
+        "Webull"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025"
+      ],
+      "area": "Stock Page",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-127",
+      "name": "Analyst Ratings",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Consensus analyst ratings and price targets for US stocks.",
+      "brd": [
+        "ARCD-60979"
+      ],
+      "competitors": [
+        "Derayah",
+        "Awaed"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "US-128",
+      "name": "Multi Views",
+      "journey": "US Trading",
+      "status": "Live",
+      "area": "Watchlist",
+      "screen": "Market Page"
+    },
+    {
+      "id": "US-129",
+      "name": "Transaction List",
+      "journey": "US Trading",
+      "status": "Live",
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "SAU-130",
+      "name": "Stock Dividend",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Dividend history, yield and ex-dates for the individual stock.",
+      "competitors": [
+        "Sahm"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi",
+        "renamed-from:Stock Dividends",
+        "v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 35,
+      "impact": 2
+    },
+    {
+      "id": "SAU-132",
+      "name": "Stock News",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "News filtered to the individual stock.",
+      "brd": [
+        "ARCD-24713",
+        "ARCD-39221"
+      ],
+      "tags": [
+        "deep-discovery"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 8,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-60820",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-133",
+      "name": "Whale/Institutional Trades",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Track large institutional and whale trades on Tadawul.",
+      "competitors": [
+        "Derayah",
+        "Abyan",
+        "Moomoo",
+        "Robinhood"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us",
+        "renamed-from:Whale / Institutional Tracking",
+        "v1.4",
+        "sub-of:SAU-135"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 16,
+      "impact": 2
+    },
+    {
+      "id": "SAU-134",
+      "name": "Unusual Activity",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Alerts for unusual trading volume or price activity on Saudi stocks.",
+      "competitors": [
+        "Sahm"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 36,
+      "impact": 2
+    },
+    {
+      "id": "SAU-135",
+      "name": "Analyst Ratings",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Analyst buy/hold/sell ratings and price targets on the individual stock.",
+      "brd": [
+        "ARCD-60979"
+      ],
+      "competitors": [
+        "Derayah",
+        "Awaed"
+      ],
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:us"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 11,
+      "figma_link": "https://www.figma.com/design/muzIamMJ7ycvstbVnWbXvi?node-id=2018-58217",
+      "figma_status": "Designed",
+      "figma_file": "Watchlist",
+      "impact": 2,
+      "source": "BRD + Figma"
+    },
+    {
+      "id": "SAU-136",
+      "name": "Multi Views",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "area": "Watchlist"
+    },
+    {
+      "id": "SAU-137",
+      "name": "Transactions",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 13,
+      "impact": 3
+    },
+    {
+      "id": "SAU-138",
+      "name": "Partial Execution",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Display the total cost of a partially executed order including commission breakdown.",
+      "brd": [
+        "ARCD-1386"
+      ],
+      "tags": [
+        "renamed-from:Partial Execution Cost",
+        "v1.5",
+        "sub-of:SAU-220"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 21,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "US-130",
+      "name": "Partial Execution Cost",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Display the total cost of a partially executed order including commission breakdown.",
+      "brd": [
+        "ARCD-1386"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-068",
+      "name": "Cross-Product Gain-Loss Chart",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Unified gain-loss chart showing performance across all ARC products (local, international, funds).",
+      "brd": [
+        "ARCD-60382"
+      ],
+      "area": "Market Data",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-069",
+      "name": "Global Last Transaction View",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Cross-product view showing the last transaction across all portfolios and products.",
+      "brd": [
+        "ARCD-60858"
+      ],
+      "area": "Market Data",
+      "source": "BRD"
+    },
+    {
+      "id": "XJ-070",
+      "name": "Portfolio-to-Mobile Linking",
+      "journey": "Platform",
+      "status": "Planned",
+      "definition": "Link customer portfolio access to a single verified mobile number for security.",
+      "brd": [
+        "ARCD-83211"
+      ],
+      "area": "Settings",
+      "source": "BRD"
+    },
+    {
+      "id": "US-131",
+      "name": "Price Chart Corporate Actions Adjustment",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Automatically adjust historical price charts for corporate actions (splits, dividends, rights issues).",
+      "brd": [
+        "ARCD-93703"
+      ],
+      "area": "Stock Page",
+      "screen": "Stock Page",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-140",
+      "name": "Portfolio Backtesting",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Backtest portfolio allocation against historical market data to evaluate strategy performance.",
+      "brd": [
+        "Portfolio-Backtesting"
+      ],
+      "tags": [
+        "sub-of:SAU-186"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 46,
+      "impact": 2,
+      "source": "BRD"
+    },
+    {
+      "id": "US-132",
+      "name": "Portfolio Backtesting",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Backtest portfolio allocation against historical market data to evaluate strategy performance.",
+      "brd": [
+        "Portfolio-Backtesting"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "MF-025",
+      "name": "Investment Breakdown (Capital vs Dividends)",
+      "journey": "Mutual Funds",
+      "status": "Planned",
+      "definition": "Split mutual fund total cost into manual contributions vs reinvested dividends, with separate P/L metrics for each",
+      "brd": [
+        "ARCD-91653"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "source": "BRD"
+    },
+    {
+      "id": "SAU-141",
+      "name": "Holding Details",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Dedicated screen showing one holding in detail: cost, P&L, quantity, avg price, and transactions for that stock",
+      "tags": [
+        "benchmark:trading-gaps-2025",
+        "evidence-market:saudi",
+        "no-competitor-offers-this",
+        "sub-of:SAU-177"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 8,
+      "impact": 4
+    },
+    {
+      "id": "SAU-142",
+      "name": "Holdings",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Customize what columns and data are displayed in the holdings list",
+      "tags": [
+        "sub-of:SAU-175"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 19,
+      "impact": 2
+    },
+    {
+      "id": "SAU-143",
+      "name": "Holdings Distribution",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Breakdown of holdings by sector, market, and currency",
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 14,
+      "impact": 3
+    },
+    {
+      "id": "US-133",
+      "name": "View Holdings Details",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Dedicated screen showing one holding in detail: cost, P&L, quantity, avg price, and transactions for that stock",
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-134",
+      "name": "Customize Holdings View",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Customize what columns and data are displayed in the holdings list",
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-135",
+      "name": "Holdings Distribution",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Breakdown of holdings by sector, market, and currency",
+      "area": "Portfolio",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "SAU-144",
+      "name": "Saved Themes",
+      "journey": "Saudi Market",
+      "status": "Gap",
+      "definition": "Save a frequently-used market filter and recall it in one tap.",
+      "competitors": [
+        "Malaa"
+      ],
+      "tags": [
+        "social-signal",
+        "competitor-shipped",
+        "renamed-from:Saved Screeners",
+        "v1.4",
+        "sub-of:SAU-039"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 22,
+      "impact": 3
+    },
+    {
+      "id": "US-136",
+      "name": "Quick Trade Ticket",
+      "journey": "US Trading",
+      "status": "Gap",
+      "definition": "Analyse and execute on a single screen — order ticket embedded natively in the analysis view.",
+      "competitors": [
+        "Robinhood"
+      ],
+      "tags": [
+        "social-signal",
+        "competitor-shipped"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 4
+    },
+    {
+      "id": "MF-026",
+      "name": "Saudi SME Equity Fund",
+      "journey": "Mutual Funds",
+      "status": "Gap",
+      "definition": "Sharia-compliant Saudi small/mid-cap growth equity fund on the shelf.",
+      "competitors": [
+        "BSF Capital"
+      ],
+      "tags": [
+        "social-signal",
+        "competitor-shipped"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "impact": 3
+    },
+    {
+      "id": "RBO-011",
+      "name": "In-line Portfolio Allocation Editing",
+      "journey": "Robo Advisory",
+      "status": "Gap",
+      "definition": "Add an asset or change its allocation weight directly from the portfolio view.",
+      "competitors": [
+        "Abyan"
+      ],
+      "tags": [
+        "social-signal",
+        "competitor-shipped"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "impact": 3
+    },
+    {
+      "id": "SAU-145",
+      "name": "Edit",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Modify the price, quantity, or type of a working order without cancelling and re-entering it.",
+      "tags": [
+        "parity-mirror",
+        "renamed-from:Edit Order",
+        "v1.5",
+        "sub-of:SAU-220"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 19,
+      "impact": 4
+    },
+    {
+      "id": "US-139",
+      "name": "Edit Order",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Modify the price, quantity, or type of a working order without cancelling and re-entering it.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 4
+    },
+    {
+      "id": "SAU-146",
+      "name": "Cancel",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Cancel a working order before execution.",
+      "tags": [
+        "parity-mirror",
+        "renamed-from:Cancel Order",
+        "v1.5",
+        "sub-of:SAU-220"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 18,
+      "impact": 4
+    },
+    {
+      "id": "US-140",
+      "name": "Cancel Order",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Cancel a working order before execution.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 4
+    },
+    {
+      "id": "SAU-147",
+      "name": "Orders History",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Full history of past orders with status, execution detail, and date range.",
+      "tags": [
+        "parity-mirror",
+        "sub-of:SAU-036"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 23,
+      "impact": 3
+    },
+    {
+      "id": "US-141",
+      "name": "Orders History",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Full history of past orders with status, execution detail, and date range.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 3
+    },
+    {
+      "id": "SAU-148",
+      "name": "Customize Orders View",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Customize which columns and data are displayed in the orders list.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 25,
+      "impact": 2
+    },
+    {
+      "id": "US-142",
+      "name": "Customize Orders View",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Customize which columns and data are displayed in the orders list.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 2
+    },
+    {
+      "id": "SAU-149",
+      "name": "Convert to Market Price",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Convert a working limit order to a market order for immediate execution.",
+      "tags": [
+        "parity-mirror",
+        "renamed-from:Convert to Market Order",
+        "v1.5",
+        "sub-of:SAU-220"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 20,
+      "impact": 3
+    },
+    {
+      "id": "US-143",
+      "name": "Convert to Market Order",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Convert a working limit order to a market order for immediate execution.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "impact": 3
+    },
+    {
+      "id": "SAU-150",
+      "name": "Dividends List",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Dividends received across the holdings in the portfolio.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 17,
+      "impact": 2
+    },
+    {
+      "id": "US-144",
+      "name": "Portfolio Dividends",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Dividends received across the holdings in the portfolio.",
+      "tags": [
+        "parity-mirror"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "impact": 2
+    },
+    {
+      "id": "SAU-151",
+      "name": "Today Gain",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Aggregate day gain/loss across every portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 1,
+      "impact": 3
+    },
+    {
+      "id": "SAU-152",
+      "name": "Market Value",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Aggregate market value across every portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 2,
+      "impact": 4
+    },
+    {
+      "id": "SAU-153",
+      "name": "Total Cash",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Aggregate cash balance across every portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 3,
+      "impact": 4
+    },
+    {
+      "id": "SAU-154",
+      "name": "Total Gain",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Aggregate total gain/loss across every portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 4,
+      "impact": 4
+    },
+    {
+      "id": "SAU-155",
+      "name": "All Holdings List",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Consolidated holdings list spanning every portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 5,
+      "impact": 4
+    },
+    {
+      "id": "SAU-156",
+      "name": "Holding Details",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Holding detail screen reached from the consolidated holdings list.",
+      "tags": [
+        "portfolio-ia-2026-08-16",
+        "sub-of:SAU-155"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 6,
+      "impact": 4
+    },
+    {
+      "id": "SAU-157",
+      "name": "Orders Across All Portfolios",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Orders across every portfolio in one list.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 8,
+      "impact": 3
+    },
+    {
+      "id": "SAU-158",
+      "name": "Order Details",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Order detail screen reached from the consolidated orders list.",
+      "tags": [
+        "portfolio-ia-2026-08-16",
+        "sub-of:SAU-157"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 9,
+      "impact": 3
+    },
+    {
+      "id": "SAU-159",
+      "name": "Holdings Distribution Across All Portfolios",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Holdings distribution across every portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 10,
+      "impact": 3
+    },
+    {
+      "id": "SAU-160",
+      "name": "Today Gain",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Day gain/loss for the selected portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 3,
+      "impact": 3
+    },
+    {
+      "id": "SAU-161",
+      "name": "Market Value",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Market value of the selected portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 4,
+      "impact": 4
+    },
+    {
+      "id": "SAU-162",
+      "name": "Total Cash",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Cash balance of the selected portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 5,
+      "impact": 4
+    },
+    {
+      "id": "SAU-163",
+      "name": "Total Gain",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Total gain/loss for the selected portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 6,
+      "impact": 4
+    },
+    {
+      "id": "SAU-164",
+      "name": "Order Details",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Detail screen for a single order.",
+      "tags": [
+        "portfolio-ia-2026-08-16",
+        "sub-of:SAU-120"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 12,
+      "impact": 3
+    },
+    {
+      "id": "SAU-165",
+      "name": "Disable Portfolio",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Deactivate a portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 29,
+      "impact": 2
+    },
+    {
+      "id": "SAU-166",
+      "name": "Rename Portfolio",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Rename a portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 34,
+      "impact": 2
+    },
+    {
+      "id": "SAU-167",
+      "name": "Copy Portfolio Number",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Copy the portfolio number to clipboard.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 35,
+      "impact": 2
+    },
+    {
+      "id": "SAU-168",
+      "name": "Hide Balance",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Mask portfolio balances on screen.",
+      "tags": [
+        "portfolio-ia-2026-08-16"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 36,
+      "impact": 2
+    },
+    {
+      "id": "SAU-169",
+      "name": "Select Stocks",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Liquidate selected holdings rather than the whole portfolio.",
+      "tags": [
+        "portfolio-ia-2026-08-16",
+        "sub-of:SAU-080"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 32,
+      "impact": 3
+    },
+    {
+      "id": "SAU-172",
+      "name": "Orders",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Customize which columns and data are displayed in the orders list.",
+      "tags": [
+        "duplicate-of:SAU-148",
+        "sub-of:SAU-175"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 20
+    },
+    {
+      "id": "SAU-175",
+      "name": "Customizations",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Container: customization options for the portfolio view.",
+      "tags": [
+        "portfolio-spec-2026-08-17"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 18,
+      "impact": 2
+    },
+    {
+      "id": "SAU-176",
+      "name": "All Stocks",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Liquidate every holding in the portfolio.",
+      "tags": [
+        "portfolio-spec-2026-08-17",
+        "sub-of:SAU-080",
+        "renamed-per-baseline-v1.2.1"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 31,
+      "impact": 3
+    },
+    {
+      "id": "SAU-177",
+      "name": "Holdings List",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Holdings in the selected portfolio.",
+      "tags": [
+        "portfolio-spec-2026-08-17",
+        "recreated:SAU-073 removed in the 2026-08-16 23:01 restructure"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 7,
+      "impact": 5
+    },
+    {
+      "id": "SAU-178",
+      "name": "Update Avg Cost Price",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Manual cost price correction, from the consolidated holding detail.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-156"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 7,
+      "impact": 3
+    },
+    {
+      "id": "SAU-179",
+      "name": "Overview",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Overview report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 22,
+      "impact": 2
+    },
+    {
+      "id": "SAU-180",
+      "name": "Gain/Loss",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Gain/Loss report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 23,
+      "impact": 2
+    },
+    {
+      "id": "SAU-181",
+      "name": "Statement",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Statement report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 24,
+      "impact": 2
+    },
+    {
+      "id": "SAU-182",
+      "name": "Orders",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Orders report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 25,
+      "impact": 2
+    },
+    {
+      "id": "SAU-183",
+      "name": "Transfer",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Transfer report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 26,
+      "impact": 2
+    },
+    {
+      "id": "SAU-184",
+      "name": "Market",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Market report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 27,
+      "impact": 2
+    },
+    {
+      "id": "SAU-185",
+      "name": "Finance",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Finance report.",
+      "tags": [
+        "portfolio-spec-v3",
+        "sub-of:SAU-081"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 28,
+      "impact": 2
+    },
+    {
+      "id": "SAU-186",
+      "name": "Portfolio Analysis",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "definition": "Container: portfolio analysis and planning tools.",
+      "tags": [
+        "portfolio-spec-v3"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 37,
+      "impact": 2
+    },
+    {
+      "id": "SAU-187",
+      "name": "Share",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Share the consolidated all-portfolios view.",
+      "tags": [
+        "portfolio-spec-v3",
+        "baseline-v1.1"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 11,
+      "impact": 2
+    },
+    {
+      "id": "SAU-188",
+      "name": "Share",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Share a single portfolio view.",
+      "tags": [
+        "portfolio-spec-v3",
+        "baseline-v1.1"
+      ],
+      "area": "Portfolio",
+      "screen": "One Portfolio View",
+      "display_order": 47,
+      "impact": 2
+    },
+    {
+      "id": "SAU-189",
+      "name": "Hide Balance",
+      "journey": "Saudi Market",
+      "status": "Live",
+      "definition": "Mask balances on the consolidated all-portfolios view.",
+      "tags": [
+        "portfolio-spec-v3",
+        "baseline-v1.2"
+      ],
+      "area": "Portfolio",
+      "screen": "All Portfolios View",
+      "display_order": 12,
+      "impact": 2
+    },
+    {
+      "id": "SAU-190",
+      "name": "Market Chart",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 1,
+      "impact": 2
+    },
+    {
+      "id": "SAU-191",
+      "name": "Market Hours",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 2,
+      "impact": 2
+    },
+    {
+      "id": "SAU-192",
+      "name": "Market Summary",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 3,
+      "impact": 2
+    },
+    {
+      "id": "SAU-193",
+      "name": "Sector Details",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-095"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 6,
+      "impact": 2
+    },
+    {
+      "id": "SAU-194",
+      "name": "Stocks",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 8,
+      "impact": 2
+    },
+    {
+      "id": "SAU-195",
+      "name": "Top Gainers",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 10,
+      "impact": 2
+    },
+    {
+      "id": "SAU-196",
+      "name": "Top Losers",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 11,
+      "impact": 2
+    },
+    {
+      "id": "SAU-197",
+      "name": "Most Active by Quantity",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 12,
+      "impact": 2
+    },
+    {
+      "id": "SAU-198",
+      "name": "Most Active by Value",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 13,
+      "impact": 2
+    },
+    {
+      "id": "SAU-199",
+      "name": "Top Traders",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-194"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 14,
+      "impact": 2
+    },
+    {
+      "id": "SAU-200",
+      "name": "Economic Calendar",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Market Page",
+      "display_order": 16,
+      "impact": 2
+    },
+    {
+      "id": "SAU-201",
+      "name": "Earnings Calendar",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 2,
+      "impact": 2
+    },
+    {
+      "id": "SAU-202",
+      "name": "Trending Tag",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 3,
+      "impact": 2
+    },
+    {
+      "id": "SAU-203",
+      "name": "Stock Details",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 4,
+      "impact": 2
+    },
+    {
+      "id": "SAU-204",
+      "name": "Traders Summary",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-203"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 6,
+      "impact": 2
+    },
+    {
+      "id": "SAU-205",
+      "name": "Key Statistics",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-203"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 7,
+      "impact": 2
+    },
+    {
+      "id": "SAU-206",
+      "name": "Options Chain",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-012"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 10,
+      "impact": 2
+    },
+    {
+      "id": "SAU-207",
+      "name": "Analyst Ratings Summary",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-135"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 12,
+      "impact": 2
+    },
+    {
+      "id": "SAU-208",
+      "name": "Analyst Ratings Details",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-207"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 13,
+      "impact": 2
+    },
+    {
+      "id": "SAU-209",
+      "name": "Financial",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 17,
+      "impact": 2
+    },
+    {
+      "id": "SAU-210",
+      "name": "Statements",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-209"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 18,
+      "impact": 2
+    },
+    {
+      "id": "SAU-211",
+      "name": "Earnings",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-209"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 19,
+      "impact": 2
+    },
+    {
+      "id": "SAU-212",
+      "name": "Actions",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-209"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 20,
+      "impact": 2
+    },
+    {
+      "id": "SAU-213",
+      "name": "Holding",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 23,
+      "impact": 2
+    },
+    {
+      "id": "SAU-214",
+      "name": "Traders",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 24,
+      "impact": 2
+    },
+    {
+      "id": "SAU-215",
+      "name": "Share Stock",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 27,
+      "impact": 2
+    },
+    {
+      "id": "SAU-216",
+      "name": "Add to Watchlist",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 28,
+      "impact": 2
+    },
+    {
+      "id": "SAU-217",
+      "name": "Stock Performance Chart",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 29,
+      "impact": 2
+    },
+    {
+      "id": "SAU-218",
+      "name": "Historical Data",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "market-ia-v1.4",
+        "sub-of:SAU-217"
+      ],
+      "area": "Market",
+      "screen": "Stock Page",
+      "display_order": 30,
+      "impact": 2
+    },
+    {
+      "id": "SAU-219",
+      "name": "Order Types",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "orders-ia-v1.5"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 1,
+      "impact": 2
+    },
+    {
+      "id": "SAU-220",
+      "name": "Order Details",
+      "journey": "Saudi Market",
+      "status": "Planned",
+      "tags": [
+        "orders-ia-v1.5"
+      ],
+      "area": "Orders",
+      "screen": "Orders Page",
+      "display_order": 16,
+      "impact": 2
+    },
+    {
+      "id": "US-145",
+      "name": "All Portfolios Today Gain",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Aggregate day gain/loss across every portfolio.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-146",
+      "name": "All Portfolios Market Value",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Aggregate market value across every portfolio.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-147",
+      "name": "All Portfolios Total Cash",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Aggregate cash balance across every portfolio.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-148",
+      "name": "All Portfolios Total Gain",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Aggregate total gain/loss across every portfolio.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-149",
+      "name": "All Portfolios Order Details",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Order detail screen reached from the consolidated orders list.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-150",
+      "name": "All Portfolios Update Avg Cost Price",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Manual cost price correction, from the consolidated holding detail.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-151",
+      "name": "All Portfolios Share",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Share the consolidated all-portfolios view.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-152",
+      "name": "All Portfolios Hide Balance",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Mask balances on the consolidated all-portfolios view.",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "US-153",
+      "name": "Orders",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Full list of all submitted orders with status, type, and date.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-154",
+      "name": "Transactions",
+      "journey": "US Trading",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-155",
+      "name": "Holding Details",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Dedicated screen showing one holding in detail: cost, P&L, quantity, avg price, and transactions for that stock",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-156",
+      "name": "Holdings",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Customize what columns and data are displayed in the holdings list",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-157",
+      "name": "Holdings Distribution",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Breakdown of holdings by sector, market, and currency",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-158",
+      "name": "Today Gain",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Day gain/loss for the selected portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-159",
+      "name": "Market Value",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Market value of the selected portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-160",
+      "name": "Total Cash",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Cash balance of the selected portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-161",
+      "name": "Total Gain",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Total gain/loss for the selected portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-162",
+      "name": "Order Details",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Detail screen for a single order.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-163",
+      "name": "Disable Portfolio",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Deactivate a portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-164",
+      "name": "Rename Portfolio",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Rename a portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-165",
+      "name": "Copy Portfolio Number",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Copy the portfolio number to clipboard.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-166",
+      "name": "Hide Balance",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Mask portfolio balances on screen.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-167",
+      "name": "Select Stocks",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Liquidate selected holdings rather than the whole portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-168",
+      "name": "Customize Orders View",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Customize which columns and data are displayed in the orders list.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-169",
+      "name": "Customizations",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Container: customization options for the portfolio view.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-170",
+      "name": "All Stocks",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Liquidate every holding in the portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-171",
+      "name": "Holdings List",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Holdings in the selected portfolio.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-172",
+      "name": "Overview",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Overview report.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-173",
+      "name": "Gain/Loss",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Gain/Loss report.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-174",
+      "name": "Statement",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Statement report.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-175",
+      "name": "Orders (Reports)",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Orders report.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-176",
+      "name": "Market",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Market report.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-177",
+      "name": "Finance",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Finance report.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-178",
+      "name": "Portfolio Analysis",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Container: portfolio analysis and planning tools.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-179",
+      "name": "Share",
+      "journey": "US Trading",
+      "status": "Live",
+      "definition": "Share a single portfolio view.",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "US-180",
+      "name": "Options",
+      "journey": "US Trading",
+      "status": "Planned",
+      "definition": "Full options on DOTS system",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-181",
+      "name": "Earnings Calendar",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-182",
+      "name": "Trending Tag",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-183",
+      "name": "Stock Details",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-184",
+      "name": "Traders Summary",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-185",
+      "name": "Key Statistics",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-186",
+      "name": "Options Chain",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-187",
+      "name": "Analyst Ratings Summary",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-188",
+      "name": "Analyst Ratings Details",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-189",
+      "name": "Financial",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-190",
+      "name": "Statements",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-191",
+      "name": "Earnings",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-192",
+      "name": "Actions",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-193",
+      "name": "Holding",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-194",
+      "name": "Traders",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-195",
+      "name": "Share Stock",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-196",
+      "name": "Add to Watchlist",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "US-197",
+      "name": "Stock Performance Chart",
+      "journey": "US Trading",
+      "status": "Planned",
+      "area": "Discover",
+      "screen": "Stock Page"
+    },
+    {
+      "id": "MF-027",
+      "name": "Today Gain",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-028",
+      "name": "Market Value",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-029",
+      "name": "Total Cash",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-030",
+      "name": "Total Gain",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-031",
+      "name": "All Holdings List",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-032",
+      "name": "Holding Details",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-033",
+      "name": "Holdings Distribution",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-034",
+      "name": "Hide Balance",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-035",
+      "name": "Share",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "MF-036",
+      "name": "Today Gain",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-037",
+      "name": "Market Value",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-038",
+      "name": "Total Cash",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-039",
+      "name": "Total Gain",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-040",
+      "name": "Hide Balance",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-041",
+      "name": "Holdings List",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-042",
+      "name": "Holdings Distribution",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-043",
+      "name": "Transfer",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-044",
+      "name": "Reports",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-045",
+      "name": "Customizations",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-046",
+      "name": "Share",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-047",
+      "name": "Overview",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-048",
+      "name": "Gain/Loss",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-049",
+      "name": "Statement",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-050",
+      "name": "Portfolio Analysis",
+      "journey": "Mutual Funds",
+      "status": "Planned",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-051",
+      "name": "Performance Chart",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-052",
+      "name": "Disable Portfolio",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-053",
+      "name": "Rename Portfolio",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-054",
+      "name": "Copy Portfolio Number",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "MF-055",
+      "name": "Order Details",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "MF-056",
+      "name": "Orders History",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "MF-057",
+      "name": "Order Filter",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "MF-058",
+      "name": "Cancel Order",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "MF-059",
+      "name": "Edit Order",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "MF-060",
+      "name": "Partial Execution",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "MF-061",
+      "name": "Customize Orders View",
+      "journey": "Mutual Funds",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-012",
+      "name": "Today Gain",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-013",
+      "name": "Market Value",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-014",
+      "name": "Total Cash",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-015",
+      "name": "Total Gain",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-016",
+      "name": "All Holdings List",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-017",
+      "name": "Holding Details",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-018",
+      "name": "Holdings Distribution",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-019",
+      "name": "Hide Balance",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-020",
+      "name": "Share",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "All Portfolios View"
+    },
+    {
+      "id": "RBO-021",
+      "name": "Today Gain",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-022",
+      "name": "Market Value",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-023",
+      "name": "Total Cash",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-024",
+      "name": "Total Gain",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-025",
+      "name": "Hide Balance",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-026",
+      "name": "Holdings List",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-027",
+      "name": "Holdings Distribution",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-028",
+      "name": "Transfer",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-029",
+      "name": "Reports",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-030",
+      "name": "Customizations",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-031",
+      "name": "Share",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-032",
+      "name": "Overview",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-033",
+      "name": "Gain/Loss",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-034",
+      "name": "Statement",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-035",
+      "name": "Portfolio Analysis",
+      "journey": "Robo Advisory",
+      "status": "Planned",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-036",
+      "name": "Performance Chart",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-037",
+      "name": "Disable Portfolio",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-038",
+      "name": "Rename Portfolio",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-039",
+      "name": "Copy Portfolio Number",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Track",
+      "screen": "One Portfolio View"
+    },
+    {
+      "id": "RBO-040",
+      "name": "Subscribe",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-041",
+      "name": "Withdraw",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-042",
+      "name": "Rebalance",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-043",
+      "name": "Order Details",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-044",
+      "name": "Orders History",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-045",
+      "name": "Order Filter",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-046",
+      "name": "Cancel Order",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    },
+    {
+      "id": "RBO-047",
+      "name": "Customize Orders View",
+      "journey": "Robo Advisory",
+      "status": "Live",
+      "area": "Transact",
+      "screen": "Orders Page"
+    }
+  ]
+}

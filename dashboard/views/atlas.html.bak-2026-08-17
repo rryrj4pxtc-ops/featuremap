@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARC Features Mind Map</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','Noto Sans Display',sans-serif;background:#000045;color:#fff;overflow:hidden}
+#header{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(180deg,#000045 0%,#000045ee 85%,#00004500 100%);padding:14px 24px 24px}
+#header h1{font-size:20px;font-weight:700}
+#header .sub{font-size:12px;color:#A2E3FF;margin-bottom:10px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.sb{background:#09009E;border-radius:6px;padding:6px 14px;border-top:3px solid #221AFB}
+.sb .n{font-size:20px;font-weight:700}.sb .l{font-size:9px;color:#A2E3FF}
+.sb.live .n{color:#20C992}.sb.live{border-top-color:#20C992}
+.sb.plan .n{color:#00B2FF}.sb.plan{border-top-color:#00B2FF}
+.sb.gap .n{color:#F43653}.sb.gap{border-top-color:#F43653}
+.sb.diff .n{color:#F1B53D}.sb.diff{border-top-color:#F1B53D}
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn{background:#09009E;border:1px solid #221AFB;color:#fff;padding:5px 12px;border-radius:5px;cursor:pointer;font-size:11px;transition:all .2s}
+.btn:hover,.btn.on{background:#221AFB;border-color:#A2E3FF}
+#search{position:fixed;top:14px;right:24px;z-index:200}
+#search input{background:#09009E;border:1px solid #221AFB;color:#fff;padding:7px 12px;border-radius:6px;font-size:12px;width:220px;outline:none}
+#search input:focus{border-color:#A2E3FF}
+#search input::placeholder{color:#666}
+#legend{position:fixed;bottom:14px;left:14px;background:#090075cc;border-radius:6px;padding:10px 14px;z-index:100;font-size:10px}
+#legend .i{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+#legend .d{width:10px;height:10px;border-radius:50%}
+#tip{position:fixed;display:none;background:#09009E;border:1px solid #221AFB;border-radius:8px;padding:12px 16px;max-width:420px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5);font-size:12px;line-height:1.5}
+#tip .t{font-size:14px;font-weight:700;color:#A2E3FF;margin-bottom:4px}
+#tip .s{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-bottom:6px}
+#tip .desc{color:#ddd;margin-bottom:6px}
+#tip .m{color:#888;font-size:11px}
+#tip .comp{color:#F43653;font-size:11px;margin-top:4px}
+svg{width:100vw;height:100vh}
+.link{fill:none;stroke-opacity:.35}
+.node circle{stroke-width:2px;cursor:pointer;transition:all .2s}
+.node circle:hover{stroke-width:3px;filter:brightness(1.3)}
+.node text{pointer-events:none;font-family:'Segoe UI','Noto Sans Display',sans-serif}
+</style>
+</head>
+<body>
+<div id="header">
+<h1>ARC Features Mind Map</h1>
+<div class="sub">Product → Feature (derived status) → Details · Al Rajhi Capital Digital Experience</div>
+<div class="stats" id="stats"></div>
+<div class="btns">
+<button class="btn on" onclick="showProducts()">Products Only</button>
+<button class="btn" onclick="expandAll()">Expand All</button>
+<button class="btn" onclick="collapseAll()">Collapse All</button>
+<button class="btn" onclick="filterStatus('all')">Show All</button>
+<button class="btn" onclick="filterStatus('Live')">Live</button>
+<button class="btn" onclick="filterStatus('Gap')">Gap</button>
+<button class="btn" onclick="filterStatus('Gap (unconfirmed)')">Gap (unconf.)</button>
+<button class="btn" onclick="filterStatus('Planned')">Planned</button>
+<button class="btn" onclick="filterStatus('Unverified')">Unverified</button>
+<button class="btn" onclick="filterStatus('Diff')">Diff</button>
+<button class="btn" onclick="filterStatus('conflict')">Conflicts</button>
+<button class="btn" onclick="resetZoom()">Reset Zoom</button>
+</div>
+</div>
+<div id="search"><input type="text" placeholder="Search features..." oninput="search(this.value)"></div>
+<div id="legend">
+<div class="i"><div class="d" style="background:#20C992"></div> Live</div>
+<div class="i"><div class="d" style="background:#F43653"></div> Gap</div>
+<div class="i"><div class="d" style="background:#F43653;opacity:.5"></div> Gap (unconfirmed)</div>
+<div class="i"><div class="d" style="background:#00B2FF"></div> Planned</div>
+<div class="i"><div class="d" style="background:#808080"></div> Unverified</div>
+<div class="i"><div class="d" style="background:#F1B53D"></div> Diff</div>
+<div class="i"><div class="d" style="background:transparent;border:2px solid #00B2FF"></div> ↻ Evidence-refined — live status differs from the hand-typed sheet</div>
+</div>
+<div id="tip"></div>
+<svg id="canvas"></svg>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+// Feature status colors
+const C = {Live:"#20C992",Planned:"#00B2FF",Gap:"#F43653","Gap (unconfirmed)":"#F4365388",Diff:"#F1B53D",Unverified:"#808080",Unknown:"#808080"};
+const NAVY="#000045",BLUE="#221AFB",DB="#09009E";
+
+const JOURNEY_ORDER = [
+  "Onboarding","Saudi Market","US Trading",
+  "Mutual Funds","Crowd Fund","Robo Advisory",
+  "LMS/SBL","IPOs","Cash Management",
+  "Platform"
+];
+
+function fmtDate(iso){
+  if(!iso) return null;
+  try{const d=new Date(iso+"T00:00:00");const m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];return d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();}catch(e){return iso;}
+}
+
+function makeFeatureNode(f){
+  const status=f.derived_status||f.status||"Unknown";
+  const comp=(f.competitors||[]).join(", ");
+  const brd=(f.brd||[]).join(", ");
+  const tags=(f.tags||[]).join(", ");
+  const conflict=!!f.status_conflict;
+  const o={name:f.name,status:status,color:C[status]||BLUE,isFeature:true,conflict:conflict};
+  if(conflict) o.handTyped=f.status;
+  if(f.definition) o.desc=f.definition;
+  if(f.source) o.source=f.source;
+  if(brd) o.brd=brd;
+  if(comp) o.comp=comp;
+  if(f.priority!=null) o.score=f.priority;
+  if(f.figma_link) o.figma_link=f.figma_link;
+  if(f.figma_file) o.figma_file=f.figma_file;
+  if(f.live_date) o.live_date=f.live_date;
+  if(f.went_live) o.went_live=f.went_live;
+  if(f.area) o.area=f.area;
+  if(f.screen) o.screen=f.screen;
+  if(tags) o.tags=tags;
+  const kids=[];
+  if(o.desc) kids.push({name:o.desc,color:"#555",detail:true});
+  if(f.backends){
+    const bs=Object.keys(f.backends).map(b=>b+"="+f.backends[b]).join("  ");
+    kids.push({name:"Backends: "+bs,color:"#00B2FF",detail:true});
+  }
+  if(comp) kids.push({name:"Competitors: "+comp,color:"#F43653",detail:true});
+  if(o.score!=null) kids.push({name:"Priority: "+o.score+"/25",color:"#F1B53D",detail:true});
+  if(o.source) kids.push({name:"Source: "+o.source+(brd?" \u00b7 "+brd:""),color:"#555",detail:true});
+  if(kids.length) o._children=kids;
+  return o;
+}
+
+function buildHierarchy(features){
+  const byJourney={};
+  JOURNEY_ORDER.forEach(j=>byJourney[j]=[]);
+  features.forEach(f=>{
+    const j=f.journey||"Platform";
+    if(!byJourney[j]) byJourney[j]=[];
+    byJourney[j].push(f);
+  });
+
+  const children=[];
+  JOURNEY_ORDER.forEach(j=>{
+    const feats=byJourney[j];
+    if(!feats||!feats.length) return;
+
+    // Journeys with area grouping: 4-level tree (journey → area → screen/feature).
+    // Functional area model (2026-08): the 9 converted journeys use the 6 functional
+    // areas; Platform uses its cluster areas; Onboarding keeps the account-type axis.
+    const FN=["Discover","Transact","Track","Manage","Learn","Onboard"];
+    const MPO=["Market","Portfolio","Orders"];   // product journeys use Market/Portfolio/Orders
+    const AREA_JOURNEYS={
+      "Saudi Market":MPO,"US Trading":MPO,"Mutual Funds":MPO,"Robo Advisory":MPO,
+      "IPOs":MPO,"LMS/SBL":["LMS","SBL"],"Cash Management":MPO,"Crowd Fund":MPO,
+      "Platform":["Auth","Calculator","Compliance","Content","Market Data","Services","Family","Education","Alert and Notification","Customization","Subscription","App Widgets","Investment","Engagement","Charity","Settings","Support","Notifications"],
+      "Onboarding":["All account types","Saudi","Minor","Local","Global","Corporate"]
+    };
+    if(AREA_JOURNEYS[j]){
+      const byArea={};
+      const noArea=[];
+      feats.forEach(f=>{
+        if(f.area){
+          if(!byArea[f.area]) byArea[f.area]={screens:{},flat:[]};
+          if(f.screen){
+            if(!byArea[f.area].screens[f.screen]) byArea[f.area].screens[f.screen]=[];
+            byArea[f.area].screens[f.screen].push(f);
+          } else {
+            byArea[f.area].flat.push(f);
+          }
+        } else {
+          noArea.push(f);
+        }
+      });
+      // Preferred order from config, then append any other areas present in the data
+      // (so new areas always render even if not yet listed above).
+      const areaOrder=AREA_JOURNEYS[j].slice();
+      Object.keys(byArea).forEach(a=>{ if(!areaOrder.includes(a)) areaOrder.push(a); });
+      const areaChildren=[];
+      areaOrder.forEach(a=>{
+        if(!byArea[a]) return;
+        const areaKids=[];
+        // Add screen groups
+        Object.keys(byArea[a].screens).sort().forEach(s=>{
+          areaKids.push({name:s,color:"#09009E",children:byArea[a].screens[s].map(makeFeatureNode)});
+        });
+        // Add features directly under area (no screen)
+        byArea[a].flat.forEach(f=>areaKids.push(makeFeatureNode(f)));
+        areaChildren.push({name:a,color:"#005A90",children:areaKids});
+      });
+      // Append unassigned features directly under journey
+      noArea.forEach(f=>areaChildren.push(makeFeatureNode(f)));
+      children.push({name:j,color:"#005A90",children:areaChildren});
+    } else {
+      // Other journeys: 2-level (journey → feature)
+      children.push({name:j,color:"#005A90",children:feats.map(makeFeatureNode)});
+    }
+  });
+
+  return {name:"ARC Platform",color:BLUE,children:children};
+}
+
+function updateStats(features){
+  const total=features.length;
+  const st=f=>f.derived_status||f.status||"Unknown";
+  const live=features.filter(f=>st(f)==="Live").length;
+  const planned=features.filter(f=>st(f)==="Planned").length;
+  const gap=features.filter(f=>st(f)==="Gap").length;
+  const gapU=features.filter(f=>st(f)==="Gap (unconfirmed)").length;
+  const diff=features.filter(f=>st(f)==="Diff").length;
+  const unv=features.filter(f=>st(f)==="Unverified").length;
+  const conflicts=features.filter(f=>f.status_conflict).length;
+  document.getElementById("stats").innerHTML=
+    '<div class="sb"><div class="n">'+total+'</div><div class="l">Features</div></div>'+
+    '<div class="sb live"><div class="n">'+live+'</div><div class="l">Live</div></div>'+
+    '<div class="sb gap"><div class="n">'+gap+'</div><div class="l">Gap</div></div>'+
+    '<div class="sb gap" style="border-top-color:#F4365388"><div class="n" style="color:#F4365388">'+gapU+'</div><div class="l">Gap (unconf.)</div></div>'+
+    '<div class="sb plan"><div class="n">'+planned+'</div><div class="l">Planned</div></div>'+
+    '<div class="sb diff"><div class="n">'+diff+'</div><div class="l">Diff</div></div>'+
+    '<div class="sb" style="border-top-color:#808080"><div class="n" style="color:#808080">'+unv+'</div><div class="l">Unverified</div></div>'+
+    (conflicts?'<div class="sb" style="border-top-color:#FF7514"><div class="n" style="color:#FF7514">'+conflicts+'</div><div class="l">Conflicts</div></div>':'');
+}
+
+// --- Load data and boot ---
+const base=location.pathname.replace(/\/views\/atlas\.html.*$/,"");
+fetch(base+"/data/features_derived.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(json=>{
+  const features=json.features||[];
+  updateStats(features);
+  const data=buildHierarchy(features);
+  boot(data);
+}).catch(err=>{
+  document.getElementById("stats").innerHTML='<div class="sb" style="border-top-color:#F43653"><div class="n" style="color:#F43653;font-size:14px">Failed to load features_derived.json: '+err.message+'</div><div class="l">Run: python3 derive_status.py first</div></div>';
+});
+
+function boot(data){
+
+const W=window.innerWidth, H=window.innerHeight;
+const svg=d3.select("#canvas").attr("width",W).attr("height",H);
+const g=svg.append("g");
+const zoomBehavior=d3.zoom().scaleExtent([.15,3]).on("zoom",e=>g.attr("transform",e.transform));
+svg.call(zoomBehavior);
+
+const treeFn=d3.tree().nodeSize([20,320]);
+const root=d3.hierarchy(data);
+root.x0=H/2; root.y0=0;
+
+// Start: only products visible
+root.children.forEach(c=>{
+  if(c.children){c._children=c.children;c.children=null;}
+});
+
+let idx=0;
+const dur=350;
+
+function upd(src){
+  treeFn(root);
+  const nodes=root.descendants(), links=root.links();
+  nodes.forEach(d=>d.y=d.depth*300);
+
+  // NODES
+  const nd=g.selectAll("g.node").data(nodes,d=>d.id||(d.id=++idx));
+  const ne=nd.enter().append("g").attr("class","node")
+    .attr("transform",`translate(${src.y0},${src.x0})`)
+    .on("click",(e,d)=>{
+      if(d.data.detail) return; // don't toggle details
+      if(d.children){d._children=d.children;d.children=null;}
+      else if(d._children){d.children=d._children;d._children=null;}
+      upd(d);
+    })
+    .on("mouseover",ttShow).on("mousemove",ttMove).on("mouseout",ttHide);
+
+  ne.append("circle").attr("r",0)
+    .style("fill",d=>d._children?(d.data.color||BLUE):d.data.detail?"transparent":(d.data.color||DB))
+    .style("stroke",d=>d.data.detail?"transparent":(d.data.color||BLUE));
+
+  ne.append("text").attr("dy",".35em")
+    .attr("x",d=>{
+      if(d.data.detail) return 8;
+      return d.children||d._children?-14:14;
+    })
+    .attr("text-anchor",d=>{
+      if(d.data.detail) return "start";
+      return d.children||d._children?"end":"start";
+    })
+    .text(d=>{
+      let t=d.data.name;
+      if(d.data.status && !d.data.detail){
+        const p={"Live":"● ","Gap":"✕ ","Gap (unconfirmed)":"? ","Diff":"★ ","Planned":"○ ","Unverified":"◌ "};
+        t=(p[d.data.status]||"")+t;
+        if(d.data.conflict) t+=" ↻";
+      }
+      if(d.data.detail && t.length>80) t=t.substring(0,77)+"...";
+      return t;
+    })
+    .style("fill",d=>{
+      if(d.data.detail) return "#888";
+      if(d.data.status==="Live") return "#20C992";
+      if(d.data.status==="Gap") return "#F43653";
+      if(d.data.status==="Gap (unconfirmed)") return "#F4365388";
+      if(d.data.status==="Diff") return "#F1B53D";
+      if(d.data.status==="Planned") return "#A2E3FF";
+      if(d.data.status==="Unverified") return "#808080";
+      return "#fff";
+    })
+    .style("font-size",d=>d.data.detail?"10px":d.depth===0?"15px":d.depth===1?"12px":"11px")
+    .style("font-weight",d=>d.depth<=1?"700":d.data.detail?"400":"500");
+
+  // Status badge for leaf nodes
+  ne.filter(d=>d.data.status && !d.data.detail && d.data.comp)
+    .append("text")
+    .attr("dy",".35em").attr("x",14)
+    .attr("text-anchor","start")
+    .text(d=>"")
+    .style("font-size","9px").style("fill","#F43653");
+
+  const nu=ne.merge(nd);
+  nu.transition().duration(dur).attr("transform",d=>`translate(${d.y},${d.x})`);
+  nu.select("circle")
+    .attr("r",d=>d.data.detail?0:d.depth===0?10:d._children?7:4)
+    .style("fill",d=>d._children?(d.data.color||BLUE):d.children?DB:(d.data.color||DB))
+    .style("stroke",d=>{
+      if(d.data.detail) return "transparent";
+      if(d.data.conflict) return "#00B2FF";
+      return d.data.color||BLUE;
+    })
+    .style("stroke-width",d=>d.data.conflict?"3px":"2px");
+
+  const nx=nd.exit().transition().duration(dur)
+    .attr("transform",`translate(${src.y},${src.x})`).remove();
+  nx.select("circle").attr("r",0);
+  nx.select("text").style("fill-opacity",0);
+
+  // LINKS
+  const lk=g.selectAll("path.link").data(links,d=>d.target.id);
+  const le=lk.enter().insert("path","g").attr("class","link")
+    .attr("d",()=>{const o={x:src.x0,y:src.y0};return diag(o,o);})
+    .style("stroke",d=>d.target.data.detail?"#333":(d.target.data.color||BLUE));
+  le.merge(lk).transition().duration(dur)
+    .attr("d",d=>diag(d.source,d.target))
+    .style("stroke",d=>d.target.data.detail?"#333":(d.target.data.color||BLUE))
+    .style("stroke-width",d=>d.target.data.detail?"1px":d.target.depth<=1?"2px":"1.5px");
+  lk.exit().transition().duration(dur)
+    .attr("d",()=>{const o={x:src.x,y:src.y};return diag(o,o);}).remove();
+
+  nodes.forEach(d=>{d.x0=d.x;d.y0=d.y;});
+}
+
+function diag(s,d){return`M${s.y} ${s.x}C${(s.y+d.y)/2} ${s.x},${(s.y+d.y)/2} ${d.x},${d.y} ${d.x}`;}
+
+// Human-readable reason the derived status differs from the hand-typed sheet.
+// Mirrors the rule order in scripts/derive_status.py.
+function reasonFor(d){
+  switch(d.status){
+    case "Live":              return "a verified-live record exists within the last 90 days";
+    case "Planned":           return "no verified-live confirmation on file, but a BRD or Figma design exists";
+    case "Gap":               return "competitors offer this and there is no verified-live confirmation for ARC";
+    case "Gap (unconfirmed)": return "only weak/indirect competitor evidence, and no verified-live confirmation";
+    case "Unverified":        return "no verified-live confirmation and no BRD, Figma, or competitor evidence to classify it";
+    default:                  return "the derived status differs from the hand-typed value";
+  }
+}
+
+// Tooltip
+const tip=document.getElementById("tip");
+function ttShow(e,d){
+  if(d.data.detail||!d.data.isFeature) return;
+  let h=`<div class="t">${d.data.name}</div>`;
+  if(d.data.status){
+    const bg=C[d.data.status]||"#333";
+    h+=`<span class="s" style="background:${bg}">${d.data.status}</span> `;
+  }
+  if(d.data.conflict) h+=`<div class="m" style="color:#00B2FF">↻ Refined by evidence: was <b>${d.data.handTyped||"?"}</b> → now <b>${d.data.status}</b><br><span style="color:#A2E3FF">because ${reasonFor(d.data)}</span></div>`;
+  if(d.data.desc) h+=`<div class="desc">${d.data.desc}</div>`;
+  const m=[];
+  if(d.data.source) m.push(d.data.source);
+  if(d.data.brd) m.push(d.data.brd);
+  if(m.length) h+=`<div class="m">${m.join(" · ")}</div>`;
+  if(d.data.comp) h+=`<div class="comp">Competitors: ${d.data.comp}</div>`;
+  if(d.data.score) h+=`<div class="m" style="color:#F1B53D">Priority Score: ${d.data.score}/25</div>`;
+  if(d.data.area) h+=`<div class="m" style="color:#A2E3FF">Area: ${d.data.area}${d.data.screen?" → "+d.data.screen:""}</div>`;
+  if(d.data.figma_file) h+=`<div class="m" style="color:#A2E3FF">Figma source: ${d.data.figma_file}</div>`;
+  if(d.data.figma_link) h+=`<div class="m"><a href="${d.data.figma_link}" target="_blank" rel="noopener" style="color:#A2E3FF;text-decoration:underline">Open in Figma &rarr;</a></div>`;
+  if(d.data.live_date) h+=`<div class="m" style="color:#00B2FF">Target: ${fmtDate(d.data.live_date)}</div>`;
+  if(d.data.went_live) h+=`<div class="m" style="color:#20C992">Went Live: ${fmtDate(d.data.went_live)}</div>`;
+  if(d.data.tags) h+=`<div class="m" style="color:#F1B53D">Tags: ${d.data.tags}</div>`;
+  tip.innerHTML=h; tip.style.display="block";
+}
+function ttMove(e){tip.style.left=(e.clientX+16)+"px";tip.style.top=(e.clientY-10)+"px";}
+function ttHide(){tip.style.display="none";}
+
+// Controls
+function showProducts(){
+  root.children.forEach(c=>{
+    if(c.children){c._children=c.children;c.children=null;}
+    else if(c._children) collapse(c);
+  });
+  upd(root); resetZoom();
+}
+function expandAll(){expand(root);upd(root);}
+function collapseAll(){root.children.forEach(c=>collapse(c));upd(root);resetZoom();}
+function collapse(d){if(d.children){d._children=d.children;d._children.forEach(collapse);d.children=null;}}
+function expand(d){if(d._children){d.children=d._children;d._children=null;}if(d.children)d.children.forEach(expand);}
+function resetZoom(){svg.transition().duration(500).call(zoomBehavior.transform,d3.zoomIdentity.translate(180,H/2).scale(.55));}
+
+function filterStatus(st){
+  expand(root);
+  upd(root);
+  setTimeout(()=>{
+    g.selectAll("g.node").style("opacity",d=>{
+      if(!d.data.isFeature && !d.data.detail) return 1;
+      if(st==="all") return 1;
+      if(st==="conflict"){
+        if(d.data.detail) return d.parent&&d.parent.data.conflict?1:.08;
+        return d.data.conflict?1:.08;
+      }
+      if(d.data.detail) return d.parent&&d.parent.data.status===st?1:.08;
+      return d.data.status===st?1:.08;
+    });
+  },dur+50);
+}
+
+function search(q){
+  if(!q||q.length<2){g.selectAll("g.node").style("opacity",1);return;}
+  const s=q.toLowerCase();
+  g.selectAll("g.node").style("opacity",d=>{
+    if(!d.data.isFeature && !d.data.detail) return 1;
+    const hit=d.data.name.toLowerCase().includes(s)||(d.data.desc&&d.data.desc.toLowerCase().includes(s))||(d.data.comp&&d.data.comp.toLowerCase().includes(s));
+    return hit?1:.08;
+  });
+}
+
+upd(root);
+resetZoom();
+} // end boot()
+</script>
+</body>
+</html>

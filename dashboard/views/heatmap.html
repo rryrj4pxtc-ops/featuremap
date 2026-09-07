@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parity Heatmap — ARC Digital Experience</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,'Noto Sans Display',sans-serif;background:#000045;color:#fff;padding:24px;min-height:100vh}
+a{color:#A2E3FF;text-decoration:none}
+a:hover{text-decoration:underline}
+h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.sub{font-size:12px;color:#A2E3FF;margin-bottom:20px}
+.back{font-size:12px;margin-bottom:16px;display:inline-block}
+
+/* Heatmap grid */
+.hm-wrap{overflow-x:auto;margin-bottom:24px}
+table.hm{border-collapse:collapse;font-size:11px;min-width:700px}
+table.hm th{padding:8px 10px;background:#09009E;color:#A2E3FF;font-weight:600;text-align:center;border:1px solid #090075;white-space:nowrap}
+table.hm th.corner{background:#000045}
+table.hm th.journey{text-align:left;min-width:160px}
+table.hm td{padding:8px 10px;text-align:center;border:1px solid #090075;cursor:pointer;font-weight:700;font-size:12px;transition:all .15s}
+table.hm td:hover{outline:2px solid #A2E3FF;outline-offset:-2px;z-index:1;position:relative}
+table.hm td.na{color:#555;cursor:default}
+
+/* Legend */
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;font-size:11px}
+.legend .item{display:flex;align-items:center;gap:5px}
+.legend .swatch{width:14px;height:14px;border-radius:3px}
+
+/* Side panel */
+#panel{position:fixed;top:0;right:-420px;width:400px;height:100vh;background:#09009E;border-left:2px solid #221AFB;z-index:300;overflow-y:auto;transition:right .3s;padding:20px}
+#panel.open{right:0}
+#panel .close{position:absolute;top:12px;right:14px;background:none;border:none;color:#A2E3FF;font-size:20px;cursor:pointer}
+#panel h3{font-size:16px;margin-bottom:4px}
+#panel .pj{font-size:12px;color:#A2E3FF;margin-bottom:12px}
+#panel table{width:100%;border-collapse:collapse;font-size:12px}
+#panel th{text-align:left;padding:6px 8px;color:#A2E3FF;border-bottom:1px solid #221AFB}
+#panel td{padding:6px 8px;border-bottom:1px solid #090075}
+.pill{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600}
+.pill.live{background:#20C99233;color:#20C992}
+.pill.planned{background:#00B2FF33;color:#00B2FF}
+.pill.gap{background:#F4365333;color:#F43653}
+.pill.gap-unconfirmed{background:#F4365322;color:#F4365388}
+.pill.diff{background:#F1B53D33;color:#F1B53D}
+.pill.unverified{background:#80808033;color:#808080}
+
+/* Overlay */
+#overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.5);z-index:290;display:none}
+#overlay.open{display:block}
+
+/* Footer */
+.footer{font-size:10px;color:#555;margin-top:32px;text-align:center}
+.loading{text-align:center;padding:60px;color:#A2E3FF;font-size:14px}
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back">&larr; Back to Dashboard</a>
+<h1>Parity Heatmap</h1>
+<div class="sub">Journey &times; Competitor gap matrix &middot; Click a cell to see matching features &middot; <b>Internal Parity</b> = cross-market gaps (Saudi&harr;US) with no rival benchmark</div>
+
+<div id="app" class="loading">Loading data&hellip;</div>
+<div id="overlay" onclick="closePanel()"></div>
+<div id="panel"><button class="close" onclick="closePanel()">&times;</button><div id="panel-body"></div></div>
+
+<script>
+(function(){
+  const JOURNEYS = [
+    "Onboarding","Saudi Market","US Trading",
+    "Mutual Funds","Crowd Fund","Robo Advisory",
+    "LMS/SBL","IPOs","Cash Management","Platform"
+  ];
+
+  const base = location.pathname.replace(/\/views\/heatmap\.html.*$/,"");
+
+  Promise.all([
+    fetch(base+"/data/features_derived.json").then(r=>{if(!r.ok)throw new Error("features_derived.json: "+r.status);return r.json()}),
+    fetch(base+"/data/benchmarks.json").then(r=>{if(!r.ok)throw new Error("benchmarks.json: "+r.status);return r.json()})
+  ]).then(([fJson,bJson])=>render(fJson,bJson)).catch(err=>{
+    document.getElementById("app").innerHTML = "<p style='color:#F43653'>Failed to load data: "+esc(err.message)+"</p><p style='margin-top:8px;font-size:12px;color:#A2E3FF'>Run <code>python3 scripts/xlsx-to-features-json.py</code> first.</p>";
+  });
+
+  // Store for panel access
+  let allFeatures = [];
+
+  function render(fJson, bJson){
+    // Containers are scaffolding, not delivered features — excluded from every KPI
+    // and maturity count (baseline v1.6.1). They still render in the atlas tree.
+    allFeatures = (fJson.features || []).filter(f=>!f.is_container && f.row_type!=='detail');
+    const meta = fJson._meta || {};
+    const benchmarks = (bJson.benchmarks || []).map(b=>b.name);
+
+    // Collect competitors actually referenced in features
+    const refComps = new Set();
+    allFeatures.forEach(f=>(f.competitors||[]).forEach(c=>refComps.add(c)));
+    // Use benchmarks order, but only show competitors that appear in data
+    const competitors = benchmarks.filter(c=>refComps.has(c));
+    // Add any referenced competitors not in benchmarks
+    refComps.forEach(c=>{if(!competitors.includes(c)) competitors.push(c);});
+
+    if(!competitors.length){
+      document.getElementById("app").innerHTML = "<p style='color:#F1B53D'>No competitor data found in features. Populate the competitors column in the Excel.</p>";
+      return;
+    }
+
+    // Build matrix: journey x competitor → {gaps, live}
+    const matrix = {};
+    JOURNEYS.forEach(j=>{
+      matrix[j] = {};
+      competitors.forEach(c=>{
+        matrix[j][c] = {gaps:0, live:0, total:0};
+      });
+    });
+
+    const ds = f => f.derived_status||f.status||"Unknown";
+    allFeatures.forEach(f=>{
+      if(!f.journey || !JOURNEYS.includes(f.journey)) return;
+      (f.competitors||[]).forEach(c=>{
+        if(!matrix[f.journey][c]) matrix[f.journey][c] = {gaps:0,live:0,total:0};
+        matrix[f.journey][c].total++;
+        const st=ds(f);
+        if(st==="Gap"||st==="Gap (unconfirmed)") matrix[f.journey][c].gaps++;
+        if(st==="Live") matrix[f.journey][c].live++;
+      });
+    });
+
+    let h = "";
+
+    // Legend
+    h += '<div class="legend">';
+    h += '<div class="item"><div class="swatch" style="background:#20C992"></div> 0 gaps (full parity)</div>';
+    h += '<div class="item"><div class="swatch" style="background:#F1B53D"></div> 1-2 gaps</div>';
+    h += '<div class="item"><div class="swatch" style="background:#F43653"></div> 3+ gaps</div>';
+    h += '<div class="item"><div class="swatch" style="background:#090075"></div> No overlap</div>';
+    h += '<div class="item"><div class="swatch" style="background:#00B2FF"></div> Internal parity gaps (no rival)</div>';
+    h += '</div>';
+
+    // Table
+    h += '<div class="hm-wrap"><table class="hm">';
+    h += '<tr><th class="corner journey">Journey</th>';
+    competitors.forEach(c=>{h += '<th>'+esc(c)+'</th>';});
+    h += '<th>Internal Parity</th><th>Total Gaps</th></tr>';
+
+    JOURNEYS.forEach(j=>{
+      const jFeats = allFeatures.filter(f=>f.journey===j);
+      if(!jFeats.length) return;
+      const totalGaps = jFeats.filter(f=>{const s=ds(f);return s==="Gap"||s==="Gap (unconfirmed)";}).length;
+      const internalGaps = jFeats.filter(f=>{const s=ds(f);return (s==="Gap"||s==="Gap (unconfirmed)") && !(f.competitors&&f.competitors.length);}).length;
+
+      h += '<tr><th class="journey">'+esc(j)+'</th>';
+      competitors.forEach(c=>{
+        const cell = matrix[j][c];
+        if(cell.total===0){
+          h += '<td class="na">&mdash;</td>';
+        } else {
+          const bg = cell.gaps===0?"#20C992":cell.gaps<=2?"#F1B53D":"#F43653";
+          h += '<td style="background:'+bg+'22;color:'+bg+'" onclick="openPanel(\''+escAttr(j)+'\',\''+escAttr(c)+'\')">';
+          h += cell.gaps + ' gap' + (cell.gaps!==1?'s':'');
+          h += '</td>';
+        }
+      });
+      const intColor = internalGaps===0?"#20C992":internalGaps<=5?"#00B2FF":"#F1B53D";
+      h += '<td style="font-weight:700;color:'+intColor+'" title="Cross-market / internal gaps with no rival benchmark">'+internalGaps+'</td>';
+      const gapColor = totalGaps===0?"#20C992":totalGaps<=3?"#F1B53D":"#F43653";
+      h += '<td style="font-weight:700;color:'+gapColor+'">'+totalGaps+'</td>';
+      h += '</tr>';
+    });
+    h += '</table></div>';
+
+    // Footer
+    h += '<div class="footer">Data: '+esc(meta.last_updated||"unknown")+' &middot; '+allFeatures.length+' features &middot; '+competitors.length+' competitors</div>';
+
+    document.getElementById("app").innerHTML = h;
+  }
+
+  // Panel
+  window.openPanel = function(journey, competitor){
+    const matching = allFeatures.filter(f=>f.journey===journey && (f.competitors||[]).includes(competitor));
+    if(!matching.length) return;
+
+    let h = '<h3>'+esc(journey)+' &times; '+esc(competitor)+'</h3>';
+    h += '<div class="pj">'+matching.length+' feature'+(matching.length!==1?'s':'')+' referencing this competitor</div>';
+    h += '<table><tr><th>Feature</th><th>Status</th><th>Priority</th></tr>';
+    matching.sort((a,b)=>{
+      const pa = a.priority!=null?a.priority:999;
+      const pb = b.priority!=null?b.priority:999;
+      return pa-pb;
+    }).forEach(f=>{
+      const fst=f.derived_status||f.status||"Unknown";
+      const clsMap={"Live":"live","Gap":"gap","Gap (unconfirmed)":"gap-unconfirmed","Planned":"planned","Diff":"diff","Unverified":"unverified"};
+      const cls=clsMap[fst]||"";
+      h += '<tr>';
+      h += '<td>'+esc(f.name)+'<br><span style="color:#A2E3FF;font-size:10px">'+esc(f.id||"")+'</span>'+(f.status_conflict?'<span style="color:#FF7514;font-size:9px"> ⚠</span>':'')+'</td>';
+      h += '<td><span class="pill '+cls+'">'+esc(fst)+'</span></td>';
+      h += '<td style="color:#F1B53D;font-weight:700">'+(f.priority!=null?f.priority:"—")+'</td>';
+      h += '</tr>';
+    });
+    h += '</table>';
+    document.getElementById("panel-body").innerHTML = h;
+    document.getElementById("panel").classList.add("open");
+    document.getElementById("overlay").classList.add("open");
+  };
+
+  window.closePanel = function(){
+    document.getElementById("panel").classList.remove("open");
+    document.getElementById("overlay").classList.remove("open");
+  };
+
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function escAttr(s){return String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+})();
+</script>
+<script src="_trustbar.js"></script>
+</body>
+</html>

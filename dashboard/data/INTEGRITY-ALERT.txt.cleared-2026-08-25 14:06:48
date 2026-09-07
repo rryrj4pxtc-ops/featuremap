@@ -1,0 +1,14 @@
+INTEGRITY ALERT — 2026-08-25 13:59:31
+
+features-master.xlsx changed outside the guardrail.
+
+INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.0.1):
+    md5   b4b01ab69b8912f1ae0d0bcc755ba5df -> 0f9af42576c8ed60606af95949acbd41
+    size  132635 -> 132854 bytes
+
+Restore with:
+    cp 'structure-BASELINE-v2.0.1-2026-08-25.xlsx' features-master.xlsx
+Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+
+If this was a guarded edit, re-record the manifest (guardrail step 10) and this clears.
+If not: restore from the latest snapshot and tell Ahmed before regenerating anything.

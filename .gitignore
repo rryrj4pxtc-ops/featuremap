@@ -1,0 +1,8 @@
+.env
+.env.*
+*.pem
+credentials.json
+secrets/
+.DS_Store
+dashboard/figma-raw/
+.git-arc-backup/

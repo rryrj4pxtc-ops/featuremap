@@ -1,0 +1,373 @@
+{
+  "_meta": {
+    "schema_version": "1.5",
+    "last_updated": "2026-08-24",
+    "generated_by": "xlsx-to-features-json.py"
+  },
+  "brds": [
+    {
+      "brd_code": "#123",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#124",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#130",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#138",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#25-29",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#67",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#76",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#8-10",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "#94",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 18697",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 1923",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 19542",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 20124",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 45978",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 52378",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 55733",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 60444",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 61046",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 67739",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 72647",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD 73671",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1096",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1283",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-14242",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-14312",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-14352",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-14553",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1553",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1594",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-16056",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1634",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-17031",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1922",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-1983",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2067",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-22937",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-22970",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2367",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2424",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-26191",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2627",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2632",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2644",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2650",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2651",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2654",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2792",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-2933",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-32980",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-34470",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-37611",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-39221",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-41012",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-41013",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-42865",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-47480",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-47782",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-47866",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-48329",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-50707",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-53753",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-58762",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-58777",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-60436",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-60816",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-60875",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-60979",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-61067",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-61176",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-68490",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-68518",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-68581",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-70106",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72195",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72196",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72218",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72350",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72352",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72957",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72979",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-72987",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-73474",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-74031",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-75522",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-79680",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-82616",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-84906",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-85537",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-8609",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD-86486",
+      "status": "Draft"
+    },
+    {
+      "brd_code": "ARCD_9245",
+      "status": "Draft"
+    }
+  ]
+}

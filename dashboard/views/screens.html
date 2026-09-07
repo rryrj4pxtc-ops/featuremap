@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screens — ARC Digital Experience</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,'Noto Sans Display',sans-serif;background:#000045;color:#fff;padding:24px;min-height:100vh}
+a{color:#A2E3FF;text-decoration:none}
+a:hover{text-decoration:underline}
+h1{font-size:22px;font-weight:700;margin-bottom:4px}
+.sub{font-size:12px;color:#A2E3FF;margin-bottom:20px}
+.back{font-size:12px;margin-bottom:16px;display:inline-block}
+
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.kpi{background:#09009E;border-radius:8px;padding:14px 20px;border-top:3px solid #221AFB;min-width:100px;flex:1}
+.kpi .v{font-size:26px;font-weight:700}
+.kpi .l{font-size:10px;color:#A2E3FF;margin-top:2px}
+.kpi.linked{border-top-color:#20C992}.kpi.linked .v{color:#20C992}
+.kpi.review{border-top-color:#F1B53D}.kpi.review .v{color:#F1B53D}
+.kpi.none{border-top-color:#F43653}.kpi.none .v{color:#F43653}
+.kpi.chrome{border-top-color:#555}.kpi.chrome .v{color:#808080}
+
+.filters{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+.filters label{font-size:11px;color:#A2E3FF}
+.filters select,.filters input{background:#09009E;border:1px solid #221AFB;color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;font-family:inherit}
+.filters select:focus,.filters input:focus{outline:none;border-color:#A2E3FF}
+.filter-group{display:flex;flex-direction:column;gap:4px}
+
+.tree{margin-bottom:32px}
+.group{margin-bottom:8px}
+.group-header{background:#09009E;border-radius:6px 6px 0 0;padding:10px 16px;font-weight:700;font-size:13px;cursor:pointer;border-left:3px solid #221AFB;display:flex;justify-content:space-between;align-items:center}
+.group-header:hover{background:#0900CB}
+.group-header .toggle{color:#A2E3FF;font-size:16px;transition:transform .2s}
+.group-header.collapsed .toggle{transform:rotate(-90deg)}
+.group-body{border-left:3px solid #090075}
+.group-body.hidden{display:none}
+.group-header .count{font-size:10px;color:#A2E3FF;font-weight:400;margin-left:8px}
+
+.node{background:#090075;padding:10px 16px;border-bottom:1px solid #000045;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;font-size:12px}
+.node:hover{background:#09009E}
+.node:last-child{border-radius:0 0 6px 6px}
+.node .name{font-weight:600;font-size:12px}
+.node .meta{font-size:10px;color:#A2E3FF;margin-top:2px}
+.node .feat-name{font-size:10px;color:#20C992;margin-top:1px}
+.node .reason{font-size:9px;color:#555;margin-top:2px;cursor:help;max-width:600px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.node .reason:hover{white-space:normal}
+.node .sample{font-size:9px;color:#555;margin-top:1px;font-style:italic}
+.node .right{text-align:right;white-space:nowrap}
+
+.pill{display:inline-block;padding:1px 6px;border-radius:3px;font-size:9px;font-weight:600;margin-right:4px}
+.pill.field{background:#00B2FF33;color:#00B2FF}
+.pill.action{background:#20C99233;color:#20C992}
+.pill.navigation{background:#F1B53D33;color:#F1B53D}
+.pill.group{background:#221AFB33;color:#A2E3FF}
+.pill.screen{background:#221AFB;color:#fff}
+.pill.chrome{background:#55555533;color:#808080}
+
+.brd{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9px;font-weight:600;margin-left:3px}
+.brd.linked{background:#20C99233;color:#20C992}
+.brd.review{background:#F1B53D33;color:#F1B53D}
+
+.footer{font-size:10px;color:#555;margin-top:32px;text-align:center}
+.loading{text-align:center;padding:60px;color:#A2E3FF;font-size:14px}
+.empty{text-align:center;padding:40px;color:#555;font-size:13px}
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back">&larr; Back to Dashboard</a>
+<h1>Screens — Element &times; Feature &times; BRD Map</h1>
+<div class="sub">Every screen, every element, linked to its feature and BRD &middot; Al Rajhi Capital Digital Experience</div>
+
+<div id="app" class="loading">Loading screens.json&hellip;</div>
+
+<script>
+(function(){
+  const base = location.pathname.replace(/\/views\/screens\.html.*$/,"");
+
+  Promise.all([
+    fetch(base+"/data/screens.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}),
+    fetch(base+"/data/features_derived.json").then(r=>r.ok?r.json():{features:[]}).catch(()=>({features:[]})),
+    fetch(base+"/data/brds.json").then(r=>r.ok?r.json():{brds:[]}).catch(()=>({brds:[]}))
+  ]).then(([screenData, featData, brdData])=>{
+    const featMap = {};
+    // Containers excluded from screen KPI counts (baseline v1.6.1).
+    (featData.features||[]).filter(f=>!f.is_container && f.row_type!=='detail').forEach(f=>{ featMap[f.id] = f; });
+    const brdMap = {};
+    (brdData.brds||[]).forEach(b=>{ brdMap[b.brd_code] = b; });
+    render(screenData, featMap, brdMap);
+  }).catch(err=>{
+    document.getElementById("app").innerHTML = "<p style='color:#F43653'>Failed to load data: "+esc(err.message)+"</p>";
+  });
+
+  let allNodes = [];
+  let featMap = {};
+  let brdMap = {};
+
+  function render(json, fm, bm){
+    featMap = fm;
+    brdMap = bm;
+    const meta = json._meta || {};
+    allNodes = json.screens || [];
+
+    const leaf = allNodes.filter(n=>n.type!=="group");
+    const linked = leaf.filter(n=>n.linked_brd&&n.linked_brd.length>0&&!n.linked_brd.includes("REVIEW")&&n.type!=="chrome");
+    const review = leaf.filter(n=>n.linked_brd&&n.linked_brd.includes("REVIEW")&&n.type!=="chrome");
+    const chrome = leaf.filter(n=>n.type==="chrome");
+    const none = leaf.filter(n=>(!n.linked_brd||n.linked_brd.length===0)&&n.type!=="chrome");
+
+    // Get unique files
+    const files = [...new Set(allNodes.map(n=>n.figma_file).filter(Boolean))];
+
+    let h = "";
+
+    // KPIs
+    h += '<div class="kpis">';
+    h += kpi(allNodes.length,"Total Nodes","");
+    h += kpi(leaf.filter(n=>n.type==="screen").length,"Screens","");
+    h += kpi(linked.length,"BRD Linked","linked");
+    h += kpi(review.length,"Needs Review","review");
+    h += kpi(chrome.length,"Chrome","chrome");
+    h += '</div>';
+
+    // Filters
+    h += '<div class="filters">';
+    h += '<div class="filter-group"><label>Figma File</label><select id="f-file"><option value="">All Files</option>';
+    files.forEach(f=>{ h += '<option value="'+esc(f)+'">'+esc(f)+'</option>'; });
+    h += '</select></div>';
+    h += '<div class="filter-group"><label>Link Status</label><select id="f-status"><option value="">All</option><option value="linked">Confident</option><option value="review">REVIEW</option><option value="unlinked">Unlinked</option></select></div>';
+    h += '<div class="filter-group"><label>Show Chrome</label><select id="f-chrome"><option value="hide">Hide</option><option value="show">Show</option></select></div>';
+    h += '<div class="filter-group"><label>Search</label><input id="f-search" type="text" placeholder="element name..."></div>';
+    h += '</div>';
+
+    // Tree container
+    h += '<div id="tree" class="tree"></div>';
+
+    // Footer
+    h += '<div class="footer">Files: '+esc((meta.files_processed||[]).join(", "))
+      +' &middot; '+esc(meta.last_updated||"")
+      +' &middot; '+allNodes.length+' nodes</div>';
+
+    document.getElementById("app").innerHTML = h;
+
+    // Wire filters
+    ["f-file","f-status","f-chrome","f-search"].forEach(id=>{
+      document.getElementById(id).addEventListener(id==="f-search"?"input":"change", rebuildTree);
+    });
+
+    rebuildTree();
+  }
+
+  function rebuildTree(){
+    const fFile = document.getElementById("f-file").value;
+    const fStatus = document.getElementById("f-status").value;
+    const fChrome = document.getElementById("f-chrome").value;
+    const fSearch = document.getElementById("f-search").value.toLowerCase().trim();
+
+    // Filter nodes
+    const visible = new Set();
+    allNodes.forEach(n=>{
+      if(fFile && n.figma_file !== fFile) return;
+      if(fChrome === "hide" && n.type === "chrome") return;
+      if(fSearch && !n.name.toLowerCase().includes(fSearch)) return;
+      if(fStatus === "linked" && (!n.linked_feature_id || !n.linked_brd || n.linked_brd.includes("REVIEW") || n.type==="chrome")) return;
+      if(fStatus === "review" && (!n.linked_brd || !n.linked_brd.includes("REVIEW"))) return;
+      if(fStatus === "unlinked" && (n.linked_feature_id || (n.linked_brd && n.linked_brd.length > 0))) return;
+      visible.add(n.id);
+    });
+
+    // Also include parents of visible nodes
+    const withParents = new Set(visible);
+    allNodes.forEach(n=>{
+      if(visible.has(n.id)){
+        let pid = n.parent_id;
+        while(pid){
+          withParents.add(pid);
+          const p = allNodes.find(x=>x.id===pid);
+          pid = p ? p.parent_id : null;
+        }
+      }
+    });
+
+    // Build tree
+    const byParent = {};
+    allNodes.forEach(n=>{
+      if(!withParents.has(n.id)) return;
+      const pid = n.parent_id || "__root__";
+      if(!byParent[pid]) byParent[pid] = [];
+      byParent[pid].push(n);
+    });
+
+    let h = "";
+    const roots = byParent["__root__"] || [];
+    if(roots.length === 0){
+      h = '<div class="empty">No nodes match the current filters.</div>';
+    } else {
+      roots.forEach(root=>{
+        h += renderGroup(root, byParent, visible);
+      });
+    }
+
+    document.getElementById("tree").innerHTML = h;
+
+    // Wire toggles
+    document.querySelectorAll(".group-header").forEach(el=>{
+      el.addEventListener("click",function(){
+        this.classList.toggle("collapsed");
+        const body = this.nextElementSibling;
+        if(body) body.classList.toggle("hidden");
+      });
+    });
+  }
+
+  function countVisible(nodeId, byParent, visible){
+    const children = byParent[nodeId] || [];
+    let c = 0;
+    children.forEach(ch=>{
+      if(ch.type==="group"||ch.type==="screen") c += countVisible(ch.id, byParent, visible);
+      else if(visible.has(ch.id)) c++;
+    });
+    return c;
+  }
+
+  function renderGroup(node, byParent, visible){
+    const children = byParent[node.id] || [];
+    let h = '<div class="group">';
+    const vc = countVisible(node.id, byParent, visible);
+
+    if(node.type==="group" || node.type==="screen"){
+      h += '<div class="group-header">';
+      h += '<span><span class="pill '+node.type+'">'+esc(node.type)+'</span> '+esc(node.name);
+      h += '<span class="count">'+vc+' elements</span></span>';
+      h += '<span class="toggle">&#9660;</span>';
+      h += '</div>';
+      h += '<div class="group-body">';
+
+      if(node.type==="screen" && node.linked_feature_id && visible.has(node.id)){
+        h += renderLeaf(node);
+      }
+
+      children.forEach(child=>{
+        if(child.type==="group"||child.type==="screen"){
+          h += renderGroup(child, byParent, visible);
+        } else if(visible.has(child.id)){
+          h += renderLeaf(child);
+        }
+      });
+      h += '</div>';
+    } else if(visible.has(node.id)){
+      h += renderLeaf(node);
+    }
+
+    h += '</div>';
+    return h;
+  }
+
+  function renderLeaf(node){
+    const feat = node.linked_feature_id ? featMap[node.linked_feature_id] : null;
+    let h = '<div class="node">';
+    h += '<div>';
+    h += '<div class="name"><span class="pill '+esc(node.type)+'">'+esc(node.type)+'</span> '+esc(node.name)+'</div>';
+    h += '<div class="meta">';
+    if(node.linked_feature_id){
+      h += '<strong>'+esc(node.linked_feature_id)+'</strong>';
+      if(feat) h += ' &middot; '+esc(feat.derived_status||feat.status||"")+(feat.status_conflict?' <span style="color:#FF7514">⚠</span>':'');
+      h += ' &middot; ';
+    }
+    h += esc(node.figma_file||"");
+    h += '</div>';
+    if(feat){
+      h += '<div class="feat-name">'+esc(feat.name);
+      if(feat.definition) h += ' — '+esc(feat.definition.substring(0,80))+(feat.definition.length>80?'...':'');
+      h += '</div>';
+    }
+    if(node.match_reason) h += '<div class="reason" title="'+esc(node.match_reason)+'">'+esc(node.match_reason)+'</div>';
+    if(node.sample_value) h += '<div class="sample">'+esc(node.sample_value)+'</div>';
+    h += '</div>';
+    h += '<div class="right">';
+    if(node.linked_brd && node.linked_brd.length > 0){
+      node.linked_brd.forEach(b=>{
+        const cls = b==="REVIEW"?"review":"linked";
+        h += '<span class="brd '+cls+'">'+esc(b)+'</span> ';
+      });
+    } else {
+      h += '<span style="color:#555;font-size:9px">&mdash;</span>';
+    }
+    if(node.figma_url){
+      h += '<br><a href="'+esc(node.figma_url)+'" target="_blank" rel="noopener" style="font-size:9px">Figma</a>';
+    }
+    h += '</div>';
+    h += '</div>';
+    return h;
+  }
+
+  function kpi(v,l,cls){
+    return '<div class="kpi '+cls+'"><div class="v">'+v+'</div><div class="l">'+esc(l)+'</div></div>';
+  }
+  function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+})();
+</script>
+<script src="_trustbar.js"></script>
+</body>
+</html>

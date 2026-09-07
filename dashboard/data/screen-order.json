@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "purpose": "Render order for baseline-locked screens. VIEW LAYER ONLY — never written back to features-master.xlsx.",
+    "source": "ARC-SAUDI-PORTFOLIO-BASELINE.md v1.2 (2026-08-17) — that file was renamed ARC-STRUCTURE-BASELINE.md on 2026-08-18",
+    "note": "Top-level ids in spec order; childOrder gives sibling order under each parent. Parentage itself comes from the sub-of: tags in the data. Screens not listed here keep the default ordering.",
+    "superseded": "SUPERSEDED 2026-08-17 by the display_order column (AB) in features-master.xlsx. Nothing reads this file; kept as the provenance record of the v1.2 ordering."
+  },
+  "topLevel": {
+    "All Portfolios View": [
+      "SAU-151",
+      "SAU-152",
+      "SAU-153",
+      "SAU-154",
+      "SAU-155",
+      "SAU-157",
+      "SAU-159",
+      "SAU-187",
+      "SAU-189"
+    ],
+    "One Portfolio View": [
+      "SAU-075",
+      "SAU-020",
+      "SAU-160",
+      "SAU-161",
+      "SAU-162",
+      "SAU-163",
+      "SAU-177",
+      "SAU-120",
+      "SAU-137",
+      "SAU-143",
+      "SAU-026",
+      "SAU-102",
+      "SAU-150",
+      "SAU-175",
+      "SAU-081",
+      "SAU-165",
+      "SAU-080",
+      "SAU-078",
+      "SAU-166",
+      "SAU-167",
+      "SAU-168",
+      "SAU-186",
+      "SAU-188"
+    ]
+  },
+  "childOrder": {
+    "SAU-155": [
+      "SAU-156"
+    ],
+    "SAU-156": [
+      "SAU-178"
+    ],
+    "SAU-157": [
+      "SAU-158"
+    ],
+    "SAU-177": [
+      "SAU-141"
+    ],
+    "SAU-141": [
+      "SAU-022",
+      "SAU-098"
+    ],
+    "SAU-120": [
+      "SAU-164"
+    ],
+    "SAU-175": [
+      "SAU-142",
+      "SAU-172"
+    ],
+    "SAU-081": [
+      "SAU-179",
+      "SAU-180",
+      "SAU-181",
+      "SAU-182",
+      "SAU-183",
+      "SAU-184",
+      "SAU-185"
+    ],
+    "SAU-080": [
+      "SAU-176",
+      "SAU-169"
+    ],
+    "SAU-186": [
+      "SAU-084",
+      "SAU-086",
+      "SAU-087",
+      "SAU-090",
+      "SAU-092",
+      "XJ-050",
+      "XJ-055",
+      "XJ-063",
+      "SAU-140"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features Map Dashboard — ARC Digital Experience</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,'Noto Sans Display',sans-serif;background:#000045;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px}
+h1{font-size:26px;font-weight:700;margin-bottom:4px;text-align:center}
+.sub{font-size:13px;color:#A2E3FF;margin-bottom:32px;text-align:center}
+.cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;max-width:900px}
+.card{background:#09009E;border-radius:12px;padding:28px 24px;border-top:4px solid #221AFB;width:260px;text-decoration:none;color:#fff;transition:all .2s}
+.card:hover{transform:translateY(-4px);border-top-color:#A2E3FF;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.card h2{font-size:18px;margin-bottom:8px}
+.card p{font-size:12px;color:#A2E3FF;line-height:1.5}
+.card .icon{font-size:32px;margin-bottom:12px}
+.footer{margin-top:48px;font-size:10px;color:#555;text-align:center}
+</style>
+</head>
+<body>
+
+<h1>ARC Features Map</h1>
+<div class="sub">Al Rajhi Capital &middot; Digital Experience Department</div>
+
+<div class="cards">
+  <a class="card" href="views/cockpit.html">
+    <div class="icon">&#9632;</div>
+    <h2>Cockpit</h2>
+    <p>KPI summary, journey health, quarterly pipeline, top gaps, differentiators, and attention queue.</p>
+  </a>
+  <a class="card" href="views/heatmap.html">
+    <div class="icon">&#9638;</div>
+    <h2>Parity Heatmap</h2>
+    <p>Journey &times; competitor gap matrix. Click any cell to drill into matching features.</p>
+  </a>
+  <a class="card" href="views/atlas.html">
+    <div class="icon">&#9672;</div>
+    <h2>Feature Atlas</h2>
+    <p>Interactive D3 mind map of all features. Expand, filter, search, and explore the full tree.</p>
+  </a>
+  <a class="card" href="views/screens.html">
+    <div class="icon">&#9881;</div>
+    <h2>Screens</h2>
+    <p>Every screen, every element, linked to its feature and BRD. Filter by file, status, and type.</p>
+  </a>
+</div>
+
+<div class="footer">Source: features_derived.json (evidence-based) &middot; Pipeline: xlsx-to-features-json.py &rarr; derive_status.py</div>
+
+
+<script>
+// cache-bust: stamp every view link so a stale cached copy can never be served
+document.addEventListener('DOMContentLoaded', function () {
+  var v = Date.now();
+  document.querySelectorAll('a.card').forEach(function (a) {
+    a.href = a.getAttribute('href').split('?')[0] + '?v=' + v;
+  });
+});
+</script>
+<script src="views/_trustbar.js"></script>
+</body>
+</html>

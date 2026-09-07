@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "purpose": "Screen navigation metadata. A screen with a nav_parent renders as a child NODE of that parent screen instead of hanging off the journey. VIEW LAYER ONLY — never written back to features-master.xlsx, and it changes no Level, screen, count or contract.",
+    "rule": "Generic: a screen listed here nests under its nav_parent within the same area. nav_anchor (a feature row ID) anchors it as a CHILD of that row — the list -> detail-page pattern. Without nav_anchor, nav_position places it among the parent screen's children (1-based; omit to append last). A screen listed here renders even with zero feature rows, so a registered screen is visible before it has content.",
+    "source": "Ahmed Alghamdi · 2026-08-25 · unified market contract, Stock Page reached from Market Page",
+    "updated": "2026-08-25"
+  },
+  "nav": [
+    {
+      "journey": "Saudi Market",
+      "area": "Market",
+      "screen": "Stock Page",
+      "nav_parent": "Market Page",
+      "nav_position": null,
+      "note": "Spec item 16 — after the last Market Page feature."
+    },
+    {
+      "journey": "US Trading",
+      "area": "Market",
+      "screen": "Stock Page",
+      "nav_parent": "Market Page",
+      "nav_position": null,
+      "note": "Spec item 16 — after the last Market Page feature."
+    },
+    {
+      "journey": "Saudi Market",
+      "area": "Market",
+      "screen": "ETF Page",
+      "nav_parent": "Market Page",
+      "note": "Anchored to the ETF list feature row — renders as its child, not a sibling. list -> detail-page pattern.",
+      "nav_anchor": "SAU-110"
+    },
+    {
+      "journey": "US Trading",
+      "area": "Market",
+      "screen": "ETF Page",
+      "nav_parent": "Market Page",
+      "note": "Anchored to the ETF list feature row — renders as its child, not a sibling. list -> detail-page pattern.",
+      "nav_anchor": "US-017"
+    },
+    {
+      "journey": "Saudi Market",
+      "area": "Market",
+      "screen": "Sukuk Page",
+      "nav_parent": "Market Page",
+      "nav_anchor": "SAU-046",
+      "note": "Anchored to the Sukuk list feature row. Awaits its outline — renders empty until rows carry screen='Sukuk Page'."
+    },
+    {
+      "journey": "US Trading",
+      "area": "Market",
+      "screen": "Sukuk Page",
+      "nav_parent": "Market Page",
+      "nav_anchor": "US-098",
+      "note": "Anchored to the Sukuk list feature row. Awaits its outline — renders empty until rows carry screen='Sukuk Page'."
+    }
+  ]
+}

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARC Features Mind Map</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','Noto Sans Display',sans-serif;background:#000045;color:#fff;overflow:hidden}
+#header{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(180deg,#000045 0%,#000045ee 85%,#00004500 100%);padding:14px 24px 24px}
+#header h1{font-size:20px;font-weight:700}
+#header .sub{font-size:12px;color:#A2E3FF;margin-bottom:10px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.sb{background:#09009E;border-radius:6px;padding:6px 14px;border-top:3px solid #221AFB}
+.sb .n{font-size:20px;font-weight:700}.sb .l{font-size:9px;color:#A2E3FF}
+.sb.live .n{color:#20C992}.sb.live{border-top-color:#20C992}
+.sb.plan .n{color:#00B2FF}.sb.plan{border-top-color:#00B2FF}
+.sb.gap .n{color:#F43653}.sb.gap{border-top-color:#F43653}
+.sb.diff .n{color:#F1B53D}.sb.diff{border-top-color:#F1B53D}
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn{background:#09009E;border:1px solid #221AFB;color:#fff;padding:5px 12px;border-radius:5px;cursor:pointer;font-size:11px;transition:all .2s}
+.btn:hover,.btn.on{background:#221AFB;border-color:#A2E3FF}
+#search{position:fixed;top:14px;right:24px;z-index:200}
+#search input{background:#09009E;border:1px solid #221AFB;color:#fff;padding:7px 12px;border-radius:6px;font-size:12px;width:220px;outline:none}
+#search input:focus{border-color:#A2E3FF}
+#search input::placeholder{color:#666}
+#legend{position:fixed;bottom:14px;left:14px;background:#090075cc;border-radius:6px;padding:10px 14px;z-index:100;font-size:10px}
+#legend .i{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+#legend .d{width:10px;height:10px;border-radius:50%}
+#tip{position:fixed;display:none;background:#09009E;border:1px solid #221AFB;border-radius:8px;padding:12px 16px;max-width:420px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5);font-size:12px;line-height:1.5}
+#tip .t{font-size:14px;font-weight:700;color:#A2E3FF;margin-bottom:4px}
+#tip .s{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-bottom:6px}
+#tip .desc{color:#ddd;margin-bottom:6px}
+#tip .m{color:#888;font-size:11px}
+#tip .comp{color:#F43653;font-size:11px;margin-top:4px}
+svg{width:100vw;height:100vh}
+.link{fill:none;stroke-opacity:.35}
+.node circle{stroke-width:2px;cursor:pointer;transition:all .2s}
+.node circle:hover{stroke-width:3px;filter:brightness(1.3)}
+.node text{pointer-events:none;font-family:'Segoe UI','Noto Sans Display',sans-serif}
+</style>
+</head>
+<body>
+<div id="header">
+<h1>ARC Features Mind Map</h1>
+<div class="sub">Product → Feature (Live / Planned / Gap) → Details · Al Rajhi Capital Digital Experience</div>
+<div class="stats">
+<div class="sb"><div class="n">164</div><div class="l">Features</div></div>
+<div class="sb live"><div class="n">24</div><div class="l">Live</div></div>
+<div class="sb plan"><div class="n">139</div><div class="l">Planned</div></div>
+<div class="sb gap"><div class="n">62</div><div class="l">Gaps</div></div>
+<div class="sb diff"><div class="n">14</div><div class="l">Differentiators</div></div>
+</div>
+<div class="btns">
+<button class="btn on" onclick="showProducts()">Products Only</button>
+<button class="btn" onclick="expandAll()">Expand All</button>
+<button class="btn" onclick="collapseAll()">Collapse All</button>
+<button class="btn" onclick="filterStatus('all')">Show All</button>
+<button class="btn" onclick="filterStatus('Live')">Live Only</button>
+<button class="btn" onclick="filterStatus('Planned')">Planned Only</button>
+<button class="btn" onclick="filterStatus('Gap')">Gaps Only</button>
+<button class="btn" onclick="resetZoom()">Reset Zoom</button>
+</div>
+</div>
+<div id="search"><input type="text" placeholder="Search features..." oninput="search(this.value)"></div>
+<div id="legend">
+<div class="i"><div class="d" style="background:#20C992"></div> Live</div>
+<div class="i"><div class="d" style="background:#00B2FF"></div> Planned</div>
+<div class="i"><div class="d" style="background:#F43653"></div> Gap (missing in ARC)</div>
+<div class="i"><div class="d" style="background:#F1B53D"></div> Differentiator</div>
+</div>
+<div id="tip"></div>
+<svg id="canvas"></svg>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+// Feature status colors
+const C = {Live:"#20C992",Planned:"#00B2FF",Gap:"#F43653",Diff:"#F1B53D",Unknown:"#808080"};
+const NAVY="#000045",BLUE="#221AFB",DB="#09009E";
+
+// Helper: create feature node
+function f(name,status,desc,source,brd,comp,score){
+  const o = {name,status,color:C[status]||BLUE};
+  if(desc) o.desc=desc;
+  if(source) o.source=source;
+  if(brd) o.brd=brd;
+  if(comp) o.comp=comp;
+  if(score) o.score=score;
+  // Detail children
+  const kids = [];
+  if(desc) kids.push({name:desc,color:"#555",detail:true});
+  if(comp) kids.push({name:"Competitors: "+comp,color:"#F43653",detail:true});
+  if(score) kids.push({name:"Priority: "+score+"/25",color:"#F1B53D",detail:true});
+  if(source) kids.push({name:"Source: "+source+(brd?" · "+brd:""),color:"#555",detail:true});
+  if(kids.length) o._children = kids;
+  return o;
+}
+
+const data = {
+  name: "ARC Platform",
+  color: BLUE,
+  children: [
+    // ===== ONBOARDING =====
+    {name:"Onboarding",color:"#005A90",children:[
+      f("Digital Account Opening (Saudi)","Live","Standard onboarding for Saudi nationals via SuperApp","BRD + Figma","ARCD-47480"),
+      f("Minor Account Onboarding","Live","Guardian-initiated onboarding for minor children","BRD + Figma","ARCD 45978"),
+      f("Update National Address","Live","Self-service national address update","BRD + Figma","ARCD-14242"),
+      f("Session Upgrade & OTP","Live","One-time session upgrade for high-value actions","BRD + Figma","ARCD-84906"),
+      f("GCC Customer Onboarding","Planned","Onboarding for GCC nationals with ID + face verification","BRD + Figma","ARCD-47480"),
+      f("Family Onboarding (Non-Saudi)","Planned","Digital onboarding for non-Saudi family members","BRD + Figma","ARCD-26191"),
+      f("Expired ID Handling","Planned","Detect expired IDs and route to renewal","BRD + Figma","ARCD-73474"),
+      f("GCC Customer ID Update","Planned","Existing GCC clients update expired docs","BRD + Figma","ARCD-47480"),
+      f("Foreign Customer ID Verification","Planned","Real-time ID + face scan for foreign customers","BRD + Figma","ARCD-79680"),
+      f("FATCA/CRS KYC Update","Planned","Update tax indicia for compliance","BRD + Figma","ARCD-58762"),
+      f("Minor Trading Restrictions","Planned","Guardian configures trade limits on minor accounts","BRD","ARCD 45978"),
+      f("Guardian Trading for Minor","Planned","Execute trades on behalf of minor","BRD + Figma"),
+      f("IBKR Intl Brokerage Onboarding","Planned","Create International Brokerage account via IBKR","BRD + Figma","ARCD-70106"),
+      f("Splash Screen & App Launch","Planned","Initial splash before authentication","Figma"),
+      f("Login Screen","Planned","Username/password entry","Figma"),
+      f("Add/Create Password","Planned","New client password setup","Figma"),
+      f("Face ID / Biometric Setup","Planned","3-step Face ID setup flow","Figma"),
+      f("Change Password","Planned","Self-service password update","Figma"),
+      f("Non-ARB Bank Account Entry","Planned","External bank details for non-ARB clients","Figma"),
+      f("KYC Confirmation Screens","Planned","Success/error modals across KYC","Figma"),
+      f("Family Members Overview","Planned","Home screen showing linked family accounts","Figma"),
+      f("Progress Indicator / Stepper","Gap","Visual stepper in onboarding — reduces drop-off",null,null,"Derayah, Derayah Smart"),
+      f("Pre-filled KYC from National ID","Gap","Pre-fill fields from ID data — faster registration",null,null,"Derayah"),
+      f("Onboarding Checklist / Guide","Gap","Activation guide for new users after signup",null,null,"Sahm, Derayah Smart"),
+    ]},
+    // ===== SAUDI TRADING =====
+    {name:"Saudi Trading",color:"#005A90",children:[
+      f("Place Market Order","Live","Buy/sell market order on Tadawul","BRD + Figma","ARCD-14312"),
+      f("Place Limit Order","Live","Limit buy/sell at specified price","BRD + Figma","ARCD-1553"),
+      f("Margin Lending (Murabaha)","Live","Digital Sharia-compliant margin lending application","BRD","ARCD-1634"),
+      f("Nomu Subscription","Live","Parallel market subscription for retail","BRD + Figma","ARCD-1922"),
+      f("Block Codes (AML)","Live","AML trading block code management","BRD","ARCD-2792"),
+      f("TILA Price Display","Live","Real-time vs delayed price management","BRD","ARCD-2933"),
+      f("Market-on-Close (MOC)","Planned","Execute at official closing price","BRD","ARCD_9245"),
+      f("Auto Margin Approval","Planned","Automated compliance/risk approval","BRD","ARCD 1923"),
+      f("Margin Contract Renewal","Planned","Digital renewal at maturity","BRD","ARCD-2367"),
+      f("Margin Early Payment","Planned","Early partial/full repayment","BRD","ARCD-2367"),
+      f("Margin Phase 2 (Commodities)","Planned","Commodity contractor + promissory notes","BRD","ARCD-2424"),
+      f("Derivatives (Options) Trading","Planned","Full options on DOTS system","BRD + Figma","ARCD-1983"),
+      f("SBL Program","Planned","Securities borrowing & lending for yield/short","BRD","ARCD-53753"),
+      f("SBL Digital Acceptance","Planned","Digital enrollment and suitability","BRD","ARCD-86486"),
+      f("Short Selling","Planned","Sell borrowed securities short","BRD","ARCD-53753"),
+      f("Tadawulaty SSO","Planned","Single sign-on to Edaa platform","BRD","ARCD-22970"),
+      f("Tadawul News Push","Planned","Real-time market news notifications","BRD","ARCD-39221"),
+      f("Top Trending Stocks","Planned","Top 20-30 most-searched stocks hourly","BRD","ARCD-41012"),
+      f("Nomu IPO (Institutional)","Planned","Institutional Nomu subscriptions","BRD + Figma","ARCD-47866"),
+      f("Portfolio P&L View","Planned","Historical performance chart","BRD + Figma","ARCD-2654"),
+      f("P&L History (Sold Stocks)","Planned","Complete sold stocks P&L report","BRD","ARCD 60444"),
+      f("Update Avg Cost Price","Planned","Manual cost price correction","BRD","ARCD-2650"),
+      f("Buying Power Swap","Planned","Local ↔ International buying power transfer","BRD","ARCD-2644"),
+      f("Instant Settlement (T+0/T+1)","Planned","Same-day or next-day settlement option","BRD + Figma","ARCD-14352"),
+      f("Sector & Exchange Volatility","Planned","Historical volatility indicators","BRD","ARCD-58777"),
+      f("Tradable Rights Screen","Planned","Huqooq available in portfolio","Figma"),
+      f("Market Home — Tablet","Planned","Tablet-optimized market layout","Figma"),
+      f("UAE Market Orders","Planned","UAE market stock orders","Figma"),
+      f("Conditional Order Detail","Planned","Stop/trigger order view","Figma"),
+      f("Basket Order Detail","Planned","Group stock order management","Figma"),
+      f("Iceberg Order Detail","Planned","Slicing order view","Figma"),
+      f("Interval Order Detail","Planned","Scheduled order view","Figma"),
+      f("Stop Loss Detail","Planned","Active stop loss view","Figma"),
+      f("Take Profit Detail","Planned","Active take profit view","Figma"),
+      f("Basket Order Create","Planned","Create basket with conditions","Figma"),
+      f("Order Filter Panel","Planned","Filter by status/type/market","Figma"),
+      f("Orders Empty State","Planned","Empty state when no orders","Figma"),
+      f("Level 2 Order Book","Gap","Market depth — active traders consider non-negotiable",null,null,"Moomoo (60 levels), Derayah, Alinma, IBKR",25),
+      f("Stock Screener","Gap","Filter stocks by fundamentals, technicals, sector",null,null,"Moomoo, Investing.com, Derayah",25),
+      f("Advanced Technical Analysis","Gap","Native drawing tools, 60+ indicators, pattern detection",null,null,"Moomoo, TradingView, thinkorswim, Sahm",25),
+      f("Stock Comparison Tool","Gap","Side-by-side multi-stock comparison with overlaid charts",null,null,"Moomoo (6 stocks), Derayah (2 stocks)",20),
+      f("Conditional Orders (Full BRD)","Gap","ARC has Figma only — competitors have full production",null,null,"Derayah, AlJazira, Sahm, Alinma",20),
+      f("Money Flow Tracking","Gap","Inflow/outflow breakdown by trade size",null,null,"Moomoo, Sahm",20),
+      f("Quick Reorder","Gap","One-tap repeat previous trade — reduces friction",null,null,"Sahm",16),
+      f("Major Shareholder Data","Gap","Top shareholders of listed companies",null,null,"Saudi competitors"),
+      f("Sukuk Trading","Gap","Bond/Sukuk trading natively",null,null,"Saudi competitors"),
+      f("Bracket Order (OCO)","Gap","Combined stop-loss + take-profit in one order",null,null,"thinkorswim, Saudi competitors"),
+      f("Chart Trading","Gap","Place orders directly on the price chart",null,null,"TradingView, thinkorswim, NinjaTrader, IBKR"),
+    ]},
+    // ===== US TRADING =====
+    {name:"US Trading",color:"#005A90",children:[
+      f("Place US Market Order","Live","Buy/sell US-listed stocks (NYSE, NASDAQ)","BRD + Figma","ARCD-70106"),
+      f("US Stock Profile Page","Live","Detailed US stock info with financials","BRD + Figma","ARCD-14312"),
+      f("Shariah Compliance Lists","Live","General + ARC-specific Shariah filter","BRD","ARCD-2067"),
+      f("Enhanced US Stock Search","Planned","Search by ticker/name in Arabic/English","BRD","ARCD-50707"),
+      f("US Options Page","Planned","Options chain with Greeks and market data","BRD + Figma","ARCD-72350"),
+      f("Bulls vs Bears Summary","Planned","Bullish/bearish case via Benzinga","BRD","ARCD-61067"),
+      f("Why Is It Moving","Planned","AI-driven price movement explanations","BRD","ARCD-60875"),
+      f("Government Trading Data","Planned","US Congress stock disclosures","BRD","ARCD-72957"),
+      f("Trending Tickers (US)","Planned","High-attention US stocks","BRD","ARCD-72979"),
+      f("US Market Settings","Planned","US-specific configuration screen","Figma"),
+      f("Level 2 Order Book (US)","Gap","Market depth for US stocks",null,null,"Moomoo, IBKR",25),
+      f("Stock Screener (US)","Gap","Filter US stocks by fundamentals/technicals",null,null,"Moomoo, Investing.com",25),
+      f("Pre/Post Market Trading","Gap","Extended hours trading — baseline for US market",null,null,"Moomoo, Robinhood, IBKR",25),
+      f("Fractional Shares","Gap","Buy partial shares of expensive stocks",null,null,"Moomoo, Robinhood, IBKR",20),
+      f("AI-Powered Assistant","Gap","AI chat for news, charts, earnings analysis",null,null,"Moomoo AI",20),
+      f("Stock Compare (US)","Gap","Multi-stock side-by-side comparison",null,null,"Moomoo (6 stocks), Investing.com",20),
+      f("ETF Exposure View","Gap","Which ETFs hold a given stock and weight",null,null,"Moomoo, Investing.com",16),
+      f("Whale / Institutional Tracking","Gap","Unusual large-volume transaction alerts",null,null,"Moomoo",15),
+      f("Unusual Activity Alerts","Gap","Options/equity volume spike detection",null,null,"US competitors"),
+      f("US Bonds Trading","Gap","Fixed income trading capability",null,null,"US competitors"),
+      f("US Futures Trading","Gap","Futures product for US markets",null,null,"US competitors"),
+      f("Arabic US Stock Names","Gap","Translated US stock names in Arabic",null,null,"US local competitors"),
+      f("Arabic US Market News","Gap","Translated Benzinga news in Arabic",null,null,"US local competitors"),
+      f("Fast Order (No Confirm)","Gap","One-tap execution without confirmation",null,null,"US competitors"),
+      f("Major Shareholder (US)","Gap","Institutional ownership breakdown",null,null,"US competitors"),
+    ]},
+    // ===== PORTFOLIO MONITORING =====
+    {name:"Portfolio Monitoring",color:"#005A90",children:[
+      f("Saudi Portfolio Holdings","Live","Current holdings with quantities, cost, P&L","BRD + Figma","ARCD-2654"),
+      f("Holdings Letter (PDF)","Live","Authenticated PDF holdings report download","BRD + Figma"),
+      f("Performance Chart","Planned","Graphical portfolio performance over time","BRD + Figma","ARCD-2654"),
+      f("Peer Portfolio Comparison","Planned","Benchmark P&L vs anonymized peers","BRD + Figma","ARCD-60816"),
+      f("Portfolio Insights","Planned","Diversification, concentration, sector analysis","BRD + Figma","ARCD-60816"),
+      f("Portfolio Health Score","Planned","Composite quality metric (diversification + risk + perf)","BRD + Figma","ARCD 52378"),
+      f("Allocation Tracker","Planned","Target vs actual allocation across markets","BRD","ARCD-61176"),
+      f("Goal Tracker","Planned","Link assets to financial goals, track progress","BRD","ARCD 55733"),
+      f("Storyteller (Quarterly)","Planned","Personalized narrative investment report","BRD + Figma","ARCD 19542"),
+      f("Analyst Ratings","Planned","Real-time stock ratings from analyst firms","BRD","ARCD-60979"),
+      f("Earnings Calendar (Intl)","Planned","Upcoming company earnings announcements","BRD"),
+      f("Holdings Filter Panel","Planned","Filter/sort holdings by criteria","Figma"),
+      f("Saudi Portfolio Selector","Planned","Choose between multiple portfolios","Figma"),
+      f("Sector/Index/Shariah Filters","Planned","Filter holdings by sector/index/Shariah","Figma"),
+      f("Transfer Holdings","Planned","In-specie transfer between portfolios","Figma"),
+      f("Add to Watchlist","Planned","Quick-add held stock to watchlist","Figma"),
+      f("Liquidate Holdings","Planned","Bulk liquidation flow","Figma"),
+      f("US Portfolio Selector","Planned","Choose between US portfolios","Figma"),
+      f("Analysis Dashboard","Planned","Top stocks, gains/losses, allocation analytics","Figma"),
+      f("Downloadable Reports","Planned","Portfolio performance reports with filters","Figma"),
+      f("Preference Settings","Planned","Display preferences for portfolio view","Figma"),
+      f("Gain/Loss Tax Report","Gap","Comprehensive report across all asset classes",null,null,"Derayah, Saudi competitors",20),
+      f("Visual Asset Allocation","Gap","Granular live allocation breakdown by class",null,null,"Moomoo, Investing.com"),
+      f("Batch Close Positions","Gap","Close multiple positions at once",null,null,"Moomoo"),
+      f("Auto Dividend Reinvest","Gap","Automatic dividend reinvestment option",null,null,"Derayah"),
+    ]},
+    // ===== WEALTH VISIBILITY =====
+    {name:"Wealth Visibility",color:"#005A90",children:[
+      f("Cash-In from ARB","Live","Transfer from Al Rajhi Bank to portfolio","BRD + Figma","ARCD-2651"),
+      f("Aggregated Cash & Buying Power","Planned","Total across all portfolios and wallets","BRD","ARCD-72218"),
+      f("UCM Multi-Currency Wallet","Planned","Additional currencies + improved UI","BRD","ARCD-72195"),
+      f("Multi Virtual IBANs","Planned","Auto-route incoming wire transfers","BRD","ARCD-72196"),
+      f("ZATCA Wallet Invoices","Planned","Compliant e-invoices for wallet transactions","BRD"),
+      f("Apple Pay / Digital Wallet","Gap","Deposit via Apple Pay — digital wallet funding",null,null,"Derayah (Apple Pay)"),
+    ]},
+    // ===== MUTUAL FUNDS =====
+    {name:"Mutual Funds",color:"#005A90",children:[
+      f("Subscribe to SAR Fund","Live","SAR-denominated mutual fund subscription","BRD + Figma","ARCD-47782"),
+      f("USD Fund via SAR Account","Planned","Auto FX conversion for USD fund","BRD + Figma","ARCD-32980"),
+      f("Cancel Subscription Order","Planned","Cancel pending fund orders","BRD + Figma"),
+      f("Cancel Fund Portfolio","Planned","Close SAR/USD fund portfolio","BRD"),
+      f("Fund Performance Chart","Planned","Investment performance over time","BRD + Figma","ARCD-47782"),
+      f("Dividend History","Planned","Total dividends received per fund","BRD","ARCD-47782"),
+      f("Funds by Asset Class","Planned","Organize catalog by equity/sukuk/etc","BRD","ARCD-47782"),
+      f("Historical Performance","Planned","Fund historical performance chart","BRD","ARCD-47782"),
+      f("Blocked Amounts Display","Planned","Show pending buy as blocked amounts","BRD","ARCD-48329"),
+      f("Margin on Funds (Collateral)","Planned","Use fund units as margin collateral","BRD","ARCD-8609"),
+      f("Switch Funds Flow","Planned","Switch between fund products","Figma"),
+      f("Private Funds / PE Access","Gap","Private equity and private fund products",null,null,"AlJazira Capital, Derayah",20),
+      f("SIP for Mutual Funds","Gap","Recurring systematic investment plan",null,null,"AlJazira Capital (SIP), Derayah Smart",20),
+      f("Compare Funds","Gap","Side-by-side fund comparison tool",null,null,"Competitors"),
+      f("Top Fund Holders","Gap","Show top holders of a mutual fund",null,null,"Competitors"),
+      f("Fund Financial Reports","Gap","In-app audited financial reports per fund",null,null,"Competitors"),
+    ]},
+    // ===== ROBO ADVISORY =====
+    {name:"Robo Advisory",color:"#005A90",children:[
+      f("Robo Onboarding","Live","Suitability questions + risk profile assessment","BRD + Figma","ARCD-74031"),
+      f("Create Robo Portfolio","Planned","New portfolio with risk profile assignment","BRD + Figma","ARCD-74031"),
+      f("Robo Cash Withdrawal","Planned","Native withdrawal from Robo portfolio","BRD + Figma","ARCD-74031"),
+      f("Mashura Reports","Planned","Robo advisory reporting screens","Figma"),
+      f("Goal-Based Portfolio (Full)","Gap","End-to-end goal-based investment product, not just tracker",null,null,"Derayah Smart, AlJazira (10+ Goals)",15),
+      f("Try-Before-Invest Simulator","Gap","Pre-built strategies with simulation mode",null,null,"Derayah Smart"),
+      f("Robo Calculator","Gap","Projected growth calculator over time",null,null,"Derayah Smart"),
+      f("Strategy Comparison","Gap","Compare conservative vs aggressive vs balanced",null,null,"Derayah Smart"),
+    ]},
+    // ===== IPOs =====
+    {name:"IPOs",color:"#005A90",children:[
+      f("Main Market IPO Subscribe","Live","IPO subscription on Saudi Exchange main market","BRD + Figma","ARCD-1594"),
+      f("IPO Details & Status","Live","View listings and subscription status","BRD + Figma","ARCD-1594"),
+      f("Nomu IPO Subscribe","Planned","Parallel market IPO subscription","BRD","ARCD-1922"),
+      f("Nomu IPO (Institutional)","Planned","Institutional Nomu subscriptions","BRD","ARCD-47866"),
+      f("Auto-Subscribe Plan","Planned","Recurring subscription engine across products","BRD + Figma","ARCD-2632"),
+      f("Qualified Client Verification","Planned","CMA eligibility checks for private fund IPOs","BRD","ARCD-22937"),
+      f("Discover Home","Planned","Landing page for IPOs and opportunities","Figma"),
+      f("US Market IPO","Gap","US IPO subscription capability",null,null,"Competitors with US access"),
+      f("IPO Popup Banner","Gap","Popup announcement for new IPO awareness",null,null,"AlJazira Capital"),
+    ]},
+    // ===== CORPORATE ACTIONS =====
+    {name:"Corporate Actions",color:"#005A90",children:[
+      f("Dividends Calendar (Intl)","Planned","Financial calendar of dividend announcements","BRD + Figma","ARCD-72987"),
+      f("Insider Trades Feed","Planned","Executive insider trading disclosures","BRD","ARCD-68490"),
+      f("Purification Calculator","Planned","Sharia purification amount calculation","BRD","ARCD-1096"),
+      f("Dividend Calculator","Planned","Interactive dividend income estimator","Figma"),
+      f("Rights Issue (Digital)","Gap","End-to-end digital rights subscription flow",null,null,"Derayah, Alinma Tadawul"),
+    ]},
+    // ===== INVESTOR ENGAGEMENT =====
+    {name:"Investor Engagement",color:"#005A90",children:[
+      f("Bundle Benefits (ARG)","Live","Al Rajhi Group-wide fee discounts","BRD","ARCD 18697"),
+      f("Smart Saving Plan","Live","Bulk ARB deposits to mutual funds","BRD"),
+      f("Spin the Wheel","Planned","Gamified commission discounts at milestones","BRD","ARCD-16056"),
+      f("Prepaid Commission Bundle","Planned","Commission-free trading period subscription","BRD","ARCD-17031"),
+      f("Mokafaa Points Redemption","Planned","Loyalty points → investment portfolios","BRD","ARCD 67739"),
+      f("ARC Debit Card","Planned","UCM wallet-linked debit card","BRD","ARCD 72647"),
+      f("Buy Round-Up","Planned","Spare change investing on each buy","BRD","ARCD 73671"),
+      f("Social / Copy Trading","Planned","Follow & replicate professional traders","BRD","ARCD-72352"),
+      f("Gifting List","Planned","Date-based gifting tool for operations","BRD","ARCD-42865"),
+      f("Referral / Gift Campaigns","Planned","Date-specific gift campaigns to segments","BRD","ARCD-42865"),
+      f("Language Preference","Planned","Arabic/English for notifications","BRD + Figma","ARCD-37611"),
+      f("Email Templates Revamp","Planned","Redesigned email notifications","BRD","ARCD 20124"),
+      f("Charity / Donation Screen","Planned","Charity investment offerings","Figma"),
+      f("Crowdfund Portfolios","Planned","Crowd investment portfolio view","Figma"),
+      f("Crowd Funds Orders","Planned","Crowd fund order history","Figma"),
+      f("Social Community Feed","Gap","Stock-specific discussions + sentiment tracking",null,null,"Moomoo (comments, polls), Sahm",20),
+    ]},
+    // ===== CROSS-JOURNEY =====
+    {name:"Cross-Journey",color:"#005A90",children:[
+      f("Zakat Calculator","Live","Zakat on investment holdings","BRD","ARCD-1283"),
+      f("TradingView Charts","Live","Advanced interactive price charts","BRD + Figma","ARCD-1553"),
+      f("Guest Mode","Planned","Browse app without KYC in read-only","BRD + Figma","ARCD-75522"),
+      f("ZATCA Purification Invoice","Planned","Compliant e-invoice for purification","BRD","ARCD-14553"),
+      f("Economic Calendar","Planned","Global economic events and indicators","BRD","ARCD 61046"),
+      f("News Screener","Planned","Personalized news dashboard with alerts","BRD","ARCD-82616"),
+      f("TradingView Premium","Planned","ARC-subsidized chart subscription","BRD","ARCD-2627"),
+      f("CRM Case Management","Planned","End-to-end digital support cases","BRD","ARCD-85537"),
+      f("3D Secure (Mada/CC)","Planned","OTP verification for linked cards","BRD","ARCD-68518"),
+      f("Card Transaction Limits","Planned","Daily limits per client for cards","BRD","ARCD-68518"),
+      f("GCC Cash-Out","Planned","Withdrawal to external bank for GCC","BRD","ARCD-34470"),
+      f("Intl Indices Historical Data","Planned","Pre-aggregated index historical data","BRD","ARCD-68581"),
+      f("Commission Discount Display","Planned","Show applicable discount on trades","BRD","ARCD-60436"),
+      f("Enhanced Saudi Stock Profile","Planned","Additional financials and metrics","BRD","ARCD-14312"),
+      f("Liquidity Indicators","Planned","Volume, bid-ask spread, turnover","BRD","ARCD-41013"),
+      f("Session Timeout Settings","Planned","Configure auto-timeout duration","Figma"),
+      f("Always On Display","Planned","Keep screen on while using app","Figma"),
+      f("Index Feed Bar Settings","Planned","Configure live market ticker bar","Figma"),
+      f("Registered Devices","Planned","Manage registered devices/revoke access","Figma"),
+      f("Configurable Price Alerts","Gap","Multi-type alerts: price, earnings, events, analysis",null,null,"Moomoo, Investing.com, Derayah, Sahm",16),
+    ]},
+    // ===== DEEP DISCOVERIES =====
+    {name:"Deep Discoveries (Figma)",color:"#FF7514",children:[
+      f("Tutorials & Education","Planned","Interactive tutorials for new users","Figma"),
+      f("First Engagement","Planned","Guided first-trade experience post-signup (3,766 screens)","Figma"),
+      f("Fast Onboarding","Planned","Streamlined reduced-step KYC (364 screens)","Figma"),
+      f("Digital StoryTeller","Planned","Visual portfolio narratives (1,845 screens)","Figma"),
+      f("Ramadan Campaign","Planned","Seasonal themed home experience","Figma"),
+      f("Discover & Search","Planned","Unified search across all products","Figma"),
+      f("Stock Stories","Planned","Swipeable story cards for stock events","Figma"),
+      f("Fund Recommender","Planned","Suitability-based fund recommendations (17+ variants)","Figma"),
+      f("Saudi Options (Native)","Planned","Full native options trading flow","Figma"),
+      f("Guest Mode (Extended)","Planned","8,012 screens designed for discovery mode","Figma"),
+    ]},
+    // ===== SAHM-SPECIFIC GAPS =====
+    {name:"Sahm Gaps (New)",color:"#F43653",children:[
+      f("Social Proof Nudge","Gap","\"98% of users invest in US market\" — behavioral activation",null,null,"Sahm",12),
+      f("1-Click Language Switch","Gap","Instant in-app language toggle accessible anywhere",null,null,"Sahm",12),
+      f("Trading Incentive Banners","Gap","Home page promotional surface for trading offers",null,null,"Sahm",9),
+      f("Cashback Prediction Game","Gap","Market prediction competitions with cashback rewards",null,null,"Sahm",12),
+      f("Chart Touch-and-Hold","Gap","Press-and-hold to reveal intra-day price at any point",null,null,"Sahm",16),
+      f("Thematic ETF Spotlight","Gap","Oil/Gold/Tech themed ETF discovery groups",null,null,"Sahm",12),
+      f("Expanded US Inventory","Gap","Sahm: 12,800 stocks vs ARC: 7,200 — breadth gap",null,null,"Sahm (12,800 incl 2,000 Shariah)",16),
+      f("Auto-Watchlist on Buy","Gap","Owned stocks automatically added to watchlist",null,null,"Sahm",12),
+      f("Always-On Price View","Gap","Bid/ask/spread visible in portrait mode always",null,null,"Sahm",16),
+      f("Free Live Index Prices","Gap","No subscription needed for live index data",null,null,"Sahm, Abyan",16),
+      f("Chart Axis to Market Close","Gap","X-axis extends to close time for full session context",null,null,"Sahm",9),
+      f("Personalized Events Calendar","Gap","Earnings/dividends filtered by watchlist & holdings",null,null,"Sahm",20),
+      f("Standard S&D Layout","Gap","Demand right / Supply left — market convention",null,null,"Sahm",12),
+      f("Advanced Trade Button","Gap","Multiple order types + most-traded shortcut at entry",null,null,"Sahm",16),
+      f("Tab-Based Navigation","Gap","Industry-standard tab nav vs long vertical scroll",null,null,"Sahm",16),
+    ]},
+    // ===== DIFFERENTIATORS =====
+    {name:"ARC Differentiators",color:"#F1B53D",children:[
+      f("Murabaha Margin Lending","Diff","Full Sharia-compliant digital margin — no competitor matches","BRD","#25-29"),
+      f("Purification Calculator","Diff","Religious purification on investment returns — unique","BRD","#119, #138"),
+      f("Zakat Calculator","Diff","Integrated Zakat on holdings — no competitor","BRD","#137"),
+      f("Multi Shariah Lists","Diff","General + ARC Shariah filter — more sophisticated than competitors","BRD","#67"),
+      f("Minor Account + Guardian Controls","Diff","Granular custodian controls — no competitor","BRD + Figma","#8-10"),
+      f("Mokafaa Loyalty → Invest","Diff","Loyalty points fund portfolios — ARG ecosystem exclusive","BRD","#124"),
+      f("ARG Group Bundle Engine","Diff","Group-wide benefits & fee discounts — exclusive","BRD","#123"),
+      f("Peer Portfolio Comparison","Diff","Anonymous P&L benchmarking vs peers — unique","BRD + Figma","#71"),
+      f("Portfolio Health Score","Diff","Composite portfolio quality metric — not seen elsewhere","BRD + Figma","#73"),
+      f("Storyteller Report","Diff","Narrative quarterly performance — no competitor produces this","BRD + Figma","#76"),
+      f("SBL Program","Diff","Share lending + short selling — Sharia-integrated","BRD","#31-33"),
+      f("Gift Campaigns","Diff","Date-specific rewards via UCM wallet — unique architecture","BRD","#130"),
+      f("Tadawulaty SSO","Diff","Direct Edaa platform access — infrastructure advantage","BRD","#34"),
+      f("ZATCA E-Invoices","Diff","Compliant invoices for wallet + purification — regulatory edge","BRD","#94, #138"),
+    ]},
+  ]
+};
+
+const W=window.innerWidth, H=window.innerHeight;
+const svg=d3.select("#canvas").attr("width",W).attr("height",H);
+const g=svg.append("g");
+const zoomBehavior=d3.zoom().scaleExtent([.15,3]).on("zoom",e=>g.attr("transform",e.transform));
+svg.call(zoomBehavior);
+
+const treeFn=d3.tree().nodeSize([20,320]);
+const root=d3.hierarchy(data);
+root.x0=H/2; root.y0=0;
+
+// Start: only products visible
+root.children.forEach(c=>{
+  if(c.children){c._children=c.children;c.children=null;}
+});
+
+let idx=0;
+const dur=350;
+
+function upd(src){
+  treeFn(root);
+  const nodes=root.descendants(), links=root.links();
+  nodes.forEach(d=>d.y=d.depth*300);
+
+  // NODES
+  const nd=g.selectAll("g.node").data(nodes,d=>d.id||(d.id=++idx));
+  const ne=nd.enter().append("g").attr("class","node")
+    .attr("transform",`translate(${src.y0},${src.x0})`)
+    .on("click",(e,d)=>{
+      if(d.data.detail) return; // don't toggle details
+      if(d.children){d._children=d.children;d.children=null;}
+      else if(d._children){d.children=d._children;d._children=null;}
+      upd(d);
+    })
+    .on("mouseover",ttShow).on("mousemove",ttMove).on("mouseout",ttHide);
+
+  ne.append("circle").attr("r",0)
+    .style("fill",d=>d._children?(d.data.color||BLUE):d.data.detail?"transparent":(d.data.color||DB))
+    .style("stroke",d=>d.data.detail?"transparent":(d.data.color||BLUE));
+
+  ne.append("text").attr("dy",".35em")
+    .attr("x",d=>{
+      if(d.data.detail) return 8;
+      return d.children||d._children?-14:14;
+    })
+    .attr("text-anchor",d=>{
+      if(d.data.detail) return "start";
+      return d.children||d._children?"end":"start";
+    })
+    .text(d=>{
+      let t=d.data.name;
+      if(d.data.status && !d.data.detail){
+        if(d.data.status==="Live") t="● "+t;
+        else if(d.data.status==="Gap") t="✕ "+t;
+        else if(d.data.status==="Diff") t="★ "+t;
+        else if(d.data.status==="Planned") t="○ "+t;
+      }
+      // Truncate long detail text
+      if(d.data.detail && t.length>80) t=t.substring(0,77)+"...";
+      return t;
+    })
+    .style("fill",d=>{
+      if(d.data.detail) return "#888";
+      if(d.data.status==="Live") return "#20C992";
+      if(d.data.status==="Gap") return "#F43653";
+      if(d.data.status==="Diff") return "#F1B53D";
+      if(d.data.status==="Planned") return "#A2E3FF";
+      return "#fff";
+    })
+    .style("font-size",d=>d.data.detail?"10px":d.depth===0?"15px":d.depth===1?"12px":"11px")
+    .style("font-weight",d=>d.depth<=1?"700":d.data.detail?"400":"500");
+
+  // Status badge for leaf nodes
+  ne.filter(d=>d.data.status && !d.data.detail && d.data.comp)
+    .append("text")
+    .attr("dy",".35em").attr("x",14)
+    .attr("text-anchor","start")
+    .text(d=>"")
+    .style("font-size","9px").style("fill","#F43653");
+
+  const nu=ne.merge(nd);
+  nu.transition().duration(dur).attr("transform",d=>`translate(${d.y},${d.x})`);
+  nu.select("circle")
+    .attr("r",d=>d.data.detail?0:d.depth===0?10:d._children?7:4)
+    .style("fill",d=>d._children?(d.data.color||BLUE):d.children?DB:(d.data.color||DB))
+    .style("stroke",d=>d.data.detail?"transparent":(d.data.color||BLUE));
+
+  const nx=nd.exit().transition().duration(dur)
+    .attr("transform",`translate(${src.y},${src.x})`).remove();
+  nx.select("circle").attr("r",0);
+  nx.select("text").style("fill-opacity",0);
+
+  // LINKS
+  const lk=g.selectAll("path.link").data(links,d=>d.target.id);
+  const le=lk.enter().insert("path","g").attr("class","link")
+    .attr("d",()=>{const o={x:src.x0,y:src.y0};return diag(o,o);})
+    .style("stroke",d=>d.target.data.detail?"#333":(d.target.data.color||BLUE));
+  le.merge(lk).transition().duration(dur)
+    .attr("d",d=>diag(d.source,d.target))
+    .style("stroke",d=>d.target.data.detail?"#333":(d.target.data.color||BLUE))
+    .style("stroke-width",d=>d.target.data.detail?"1px":d.target.depth<=1?"2px":"1.5px");
+  lk.exit().transition().duration(dur)
+    .attr("d",()=>{const o={x:src.x,y:src.y};return diag(o,o);}).remove();
+
+  nodes.forEach(d=>{d.x0=d.x;d.y0=d.y;});
+}
+
+function diag(s,d){return`M${s.y} ${s.x}C${(s.y+d.y)/2} ${s.x},${(s.y+d.y)/2} ${d.x},${d.y} ${d.x}`;}
+
+// Tooltip
+const tip=document.getElementById("tip");
+function ttShow(e,d){
+  if(d.data.detail||d.depth<2) return;
+  let h=`<div class="t">${d.data.name}</div>`;
+  if(d.data.status){
+    const bg=C[d.data.status]||"#333";
+    h+=`<span class="s" style="background:${bg}">${d.data.status}</span> `;
+  }
+  if(d.data.desc) h+=`<div class="desc">${d.data.desc}</div>`;
+  const m=[];
+  if(d.data.source) m.push(d.data.source);
+  if(d.data.brd) m.push(d.data.brd);
+  if(m.length) h+=`<div class="m">${m.join(" · ")}</div>`;
+  if(d.data.comp) h+=`<div class="comp">Competitors: ${d.data.comp}</div>`;
+  if(d.data.score) h+=`<div class="m" style="color:#F1B53D">Priority Score: ${d.data.score}/25</div>`;
+  tip.innerHTML=h; tip.style.display="block";
+}
+function ttMove(e){tip.style.left=(e.clientX+16)+"px";tip.style.top=(e.clientY-10)+"px";}
+function ttHide(){tip.style.display="none";}
+
+// Controls
+function showProducts(){
+  root.children.forEach(c=>{
+    if(c.children){c._children=c.children;c.children=null;}
+    else if(c._children) collapse(c);
+  });
+  upd(root); resetZoom();
+}
+function expandAll(){expand(root);upd(root);}
+function collapseAll(){root.children.forEach(c=>collapse(c));upd(root);resetZoom();}
+function collapse(d){if(d.children){d._children=d.children;d._children.forEach(collapse);d.children=null;}}
+function expand(d){if(d._children){d.children=d._children;d._children=null;}if(d.children)d.children.forEach(expand);}
+function resetZoom(){svg.transition().duration(500).call(zoomBehavior.transform,d3.zoomIdentity.translate(180,H/2).scale(.55));}
+
+function filterStatus(st){
+  // First expand all, then hide non-matching
+  expand(root);
+  upd(root);
+  setTimeout(()=>{
+    g.selectAll("g.node").style("opacity",d=>{
+      if(d.depth<2) return 1;
+      if(st==="all") return 1;
+      if(d.data.detail) return d.parent&&d.parent.data.status===st?1:.08;
+      return d.data.status===st?1:.08;
+    });
+  },dur+50);
+}
+
+function search(q){
+  if(!q||q.length<2){g.selectAll("g.node").style("opacity",1);return;}
+  const s=q.toLowerCase();
+  g.selectAll("g.node").style("opacity",d=>{
+    if(d.depth<2) return 1;
+    const hit=d.data.name.toLowerCase().includes(s)||(d.data.desc&&d.data.desc.toLowerCase().includes(s))||(d.data.comp&&d.data.comp.toLowerCase().includes(s));
+    return hit?1:.08;
+  });
+}
+
+upd(root);
+resetZoom();
+</script>
+</body>
+</html>

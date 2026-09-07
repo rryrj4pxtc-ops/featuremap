@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "schema_version": "1.5",
+    "last_updated": "2026-08-24",
+    "generated_by": "xlsx-to-features-json.py"
+  },
+  "benchmarks": [
+    {
+      "name": "Derayah",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "Derayah Smart",
+      "region": "Saudi",
+      "type": "Fintech",
+      "primary": true
+    },
+    {
+      "name": "Sahm",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "AlJazira Capital",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "Alinma",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "Abyan",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "Moomoo",
+      "region": "Global",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "Robinhood",
+      "region": "US",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "IBKR",
+      "region": "Global",
+      "type": "Broker",
+      "primary": true
+    },
+    {
+      "name": "TradingView",
+      "region": "Global",
+      "type": "Platform",
+      "primary": false
+    },
+    {
+      "name": "thinkorswim",
+      "region": "US",
+      "type": "Platform",
+      "primary": false
+    },
+    {
+      "name": "Investing.com",
+      "region": "Global",
+      "type": "Data",
+      "primary": false
+    },
+    {
+      "name": "NinjaTrader",
+      "region": "US",
+      "type": "Platform",
+      "primary": false
+    },
+    {
+      "name": "abyan trading",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "Malaa",
+      "region": "Saudi",
+      "type": "Fintech",
+      "primary": false
+    },
+    {
+      "name": "Awaed",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "BSF Capital",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "Webull",
+      "region": "US",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "SNB Capital",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "Riyad Bank",
+      "region": "Saudi",
+      "type": "Broker",
+      "primary": false
+    },
+    {
+      "name": "Raseed",
+      "region": "Saudi",
+      "type": "Fintech"
+    }
+  ]
+}

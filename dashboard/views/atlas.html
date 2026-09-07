@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARC Features Mind Map</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI','Noto Sans Display',sans-serif;background:#000045;color:#fff;overflow:hidden}
+#header{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(180deg,#000045 0%,#000045ee 85%,#00004500 100%);padding:14px 24px 24px}
+#header h1{font-size:20px;font-weight:700}
+#header .sub{font-size:12px;color:#A2E3FF;margin-bottom:10px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.sb{background:#09009E;border-radius:6px;padding:6px 14px;border-top:3px solid #221AFB}
+.sb .n{font-size:20px;font-weight:700}.sb .l{font-size:9px;color:#A2E3FF}
+.sb.live .n{color:#20C992}.sb.live{border-top-color:#20C992}
+.sb.plan .n{color:#00B2FF}.sb.plan{border-top-color:#00B2FF}
+.sb.gap .n{color:#F43653}.sb.gap{border-top-color:#F43653}
+
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn{background:#09009E;border:1px solid #221AFB;color:#fff;padding:5px 12px;border-radius:5px;cursor:pointer;font-size:11px;transition:all .2s}
+.btn:hover,.btn.on{background:#221AFB;border-color:#A2E3FF}
+#search{position:fixed;top:14px;right:24px;z-index:200}
+#search input{background:#09009E;border:1px solid #221AFB;color:#fff;padding:7px 12px;border-radius:6px;font-size:12px;width:220px;outline:none}
+#search input:focus{border-color:#A2E3FF}
+#search input::placeholder{color:#666}
+#legend{position:fixed;bottom:14px;left:14px;background:#090075cc;border-radius:6px;padding:10px 14px;z-index:100;font-size:10px}
+#legend .i{display:flex;align-items:center;gap:6px;margin-bottom:3px}
+#legend .d{width:10px;height:10px;border-radius:50%}
+#tip{position:fixed;display:none;background:#09009E;border:1px solid #221AFB;border-radius:8px;padding:12px 16px;max-width:420px;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,.5);font-size:12px;line-height:1.5}
+#tip .t{font-size:14px;font-weight:700;color:#A2E3FF;margin-bottom:4px}
+#tip .s{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;margin-bottom:6px}
+#tip .desc{color:#ddd;margin-bottom:6px}
+#tip .m{color:#888;font-size:11px}
+#tip .comp{color:#F43653;font-size:11px;margin-top:4px}
+svg{width:100vw;height:100vh}
+.link{fill:none;stroke-opacity:.35}
+.node circle{stroke-width:2px;cursor:pointer;transition:all .2s}
+.node circle:hover{stroke-width:3px;filter:brightness(1.3)}
+.node text{pointer-events:none;font-family:'Segoe UI','Noto Sans Display',sans-serif}
+</style>
+</head>
+<body>
+<div id="header">
+<h1>ARC Features Mind Map</h1>
+<div class="sub">Product → Feature (derived status) → Details · Al Rajhi Capital Digital Experience</div>
+<div class="stats" id="stats"></div>
+<div class="btns">
+<button class="btn on" onclick="showProducts()">Products Only</button>
+<button class="btn" onclick="expandAll()">Expand All</button>
+<button class="btn" onclick="collapseAll()">Collapse All</button>
+<button class="btn" onclick="filterStatus('all')">Show All</button>
+<button class="btn" onclick="filterStatus('Live')">Live</button>
+<button class="btn" onclick="filterStatus('Gap')">Gap</button>
+<button class="btn" onclick="filterStatus('Gap (unconfirmed)')">Gap (unconf.)</button>
+<button class="btn" onclick="filterStatus('Planned')">Planned</button>
+<button class="btn" onclick="filterStatus('Unverified')">Missing evidence</button>
+<button class="btn" onclick="filterStatus('conflict')">Conflicts</button>
+<button class="btn" id="archBtn" onclick="toggleArchived()">Show Archived</button>
+<button class="btn" onclick="resetZoom()">Reset Zoom</button>
+</div>
+</div>
+<div id="search"><input type="text" placeholder="Search features..." oninput="search(this.value)"></div>
+<div id="legend">
+<div class="i"><div class="d" style="background:#20C992"></div> Live</div>
+<div class="i"><div class="d" style="background:#F43653"></div> Gap</div>
+<div class="i"><div class="d" style="background:#F43653;opacity:.5"></div> Gap (unconfirmed)</div>
+<div class="i"><div class="d" style="background:#00B2FF"></div> Planned</div>
+<div class="i"><div class="d" style="background:#808080"></div> Missing evidence</div>
+<div class="i"><div class="d" style="background:transparent;border:2px solid #00B2FF"></div> ↻ Evidence-refined — live status differs from the hand-typed sheet</div>
+</div>
+<div id="tip"></div>
+<svg id="canvas"></svg>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+// Feature status colors
+const C = {Live:"#20C992",Planned:"#00B2FF",Gap:"#F43653","Gap (unconfirmed)":"#F4365388",Unverified:"#808080",Unknown:"#808080"};
+const NAVY="#000045",BLUE="#221AFB",DB="#09009E";
+
+const JOURNEY_ORDER = [
+  "Onboarding","Saudi Market","US Trading",
+  "Mutual Funds","Crowd Fund","Robo Advisory",
+  "LMS/SBL","IPOs","Cash Management",
+  "Platform"
+];
+
+function fmtDate(iso){
+  if(!iso) return null;
+  try{const d=new Date(iso+"T00:00:00");const m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];return d.getDate()+" "+m[d.getMonth()]+" "+d.getFullYear();}catch(e){return iso;}
+}
+
+function makeFeatureNode(f, structuralKids){
+  const status=f.derived_status||f.status||"Unknown";
+  const comp=(f.competitors||[]).join(", ");
+  const brd=(f.brd||[]).join(", ");
+  const tags=(f.tags||[]).join(", ");
+  // Containers show the DERIVED value (computed from their children) and never carry a
+  // ↻ evidence marker — they hold no evidence of their own, so there is nothing to reconcile.
+  const conflict=f.is_container?false:!!f.status_conflict;
+  const o={name:f.name,status:status,color:C[status]||BLUE,isFeature:true,conflict:conflict};
+  if(f.is_container) o.isContainer=true;
+  o.typed=f.is_container?status:(f.status||status);  // contract status from the workbook
+  o.derived=status;                       // evidence-derived state (annotation only)
+  if(conflict) o.handTyped=f.status;
+  if(f.definition) o.desc=f.definition;
+  if(f.source) o.source=f.source;
+  if(brd) o.brd=brd;
+  if(comp) o.comp=comp;
+  if(f.priority!=null) o.score=f.priority;
+  if(f.figma_link) o.figma_link=f.figma_link;
+  if(f.figma_file) o.figma_file=f.figma_file;
+  if(f.live_date) o.live_date=f.live_date;
+  if(f.went_live) o.went_live=f.went_live;
+  if(f.area) o.area=f.area;
+  if(f.screen) o.screen=f.screen;
+  o.id=f.id;            // carried so any check can key by ID — names repeat across journeys
+  if(tags) o.tags=tags;
+  const kids=[];
+  if(o.desc) kids.push({name:o.desc,color:"#555",detail:true});
+  if(f.backends){
+    const bs=Object.keys(f.backends).map(b=>b+"="+f.backends[b]).join("  ");
+    kids.push({name:"Backends: "+bs,color:"#00B2FF",detail:true});
+  }
+  if(comp) kids.push({name:"Competitors: "+comp,color:"#F43653",detail:true});
+  if(o.score!=null) kids.push({name:"Priority: "+o.score+"/25",color:"#F1B53D",detail:true});
+  if(o.source) kids.push({name:"Source: "+o.source+(brd?" \u00b7 "+brd:""),color:"#555",detail:true});
+  if(kids.length) o._children=kids;              // detail rows (tooltip data)
+  // Structural children go on .children so d3.hierarchy picks them up; without
+  // this the nested Level rows exist in the data but never reach the tree.
+  if(structuralKids && structuralKids.length) o.children=structuralKids;
+  return o;
+}
+
+// ── Contracted screens: order from display_order, nesting from sub-of tags ──
+function subParent(f){
+  const t=(f.tags||[]);
+  for(let i=0;i<t.length;i++){ if(String(t[i]).indexOf("sub-of:")===0) return String(t[i]).split(":")[1]; }
+  return null;
+}
+function orderedScreenNodes(screen, feats){
+  // Uniform for every screen: nest by sub-of parentage, order by display_order.
+  // display_order is the contract sequence written into the workbook (col AB), so
+  // adding a screen needs no view change — previously this used a hardcoded
+  // allowlist and any screen missing from it fell back to a flat, unordered map.
+  const hasOrder=feats.some(f=>f.display_order!=null);
+  if(!hasOrder) return null;                   // no contract data — caller keeps old behaviour
+  const kidsOf={};
+  feats.forEach(f=>{ const p=subParent(f); if(p){ (kidsOf[p]=kidsOf[p]||[]).push(f); } });
+  const ord=f=>(f.display_order==null?1e9:f.display_order);
+  function build(f){
+    const kids=(kidsOf[f.id]||[]).slice().sort((a,b)=>ord(a)-ord(b)).map(build);
+    return makeFeatureNode(f,kids);
+  }
+  return feats.filter(f=>!subParent(f)).sort((a,b)=>ord(a)-ord(b)).map(build);
+}
+
+let SHOW_ARCHIVED=false;
+function isArchived(f){
+  const t=f.tags||[];
+  for(let i=0;i<t.length;i++){ if(String(t[i]).indexOf("archived")===0) return true; }
+  return false;
+}
+function buildHierarchy(features){
+  // Archived rows are retired with lineage, not deleted. They stay out of the tree by
+  // default so the backlog reflects live work; the toggle brings them back for audit.
+  if(!SHOW_ARCHIVED) features=features.filter(f=>!isArchived(f));
+  const byJourney={};
+  JOURNEY_ORDER.forEach(j=>byJourney[j]=[]);
+  features.forEach(f=>{
+    const j=f.journey||"Platform";
+    if(!byJourney[j]) byJourney[j]=[];
+    byJourney[j].push(f);
+  });
+
+  const children=[];
+  JOURNEY_ORDER.forEach(j=>{
+    const feats=byJourney[j];
+    if(!feats||!feats.length) return;
+
+    // Journeys with area grouping: 4-level tree (journey → area → screen/feature).
+    // Functional area model (2026-08): the 9 converted journeys use the 6 functional
+    // areas; Platform uses its cluster areas; Onboarding keeps the account-type axis.
+    const FN=["Discover","Transact","Track","Manage","Learn","Onboard"];
+    const MPO=["Market","Portfolio","Orders"];   // product journeys use Market/Portfolio/Orders
+    const AREA_JOURNEYS={
+      "Saudi Market":MPO,"US Trading":MPO,"Mutual Funds":MPO,"Robo Advisory":MPO,
+      "IPOs":MPO,"LMS/SBL":["LMS","SBL"],"Cash Management":MPO,"Crowd Fund":MPO,
+      // Platform area order follows Ahmed's ruling of 2026-08-31 (v2.19). The 12 ruled
+      // clusters first, in the order he gave them, then the areas he has not ruled on yet.
+      // Compliance / Content / Market Data (v2.19) and Support (v2.19.3) were dissolved —
+      // their single rows now hang straight off the journey — so they are deliberately absent.
+      "Platform":["Auth","Language","Family","Subscription","KYC","Session Duration",
+                  "Customization","Portfolio Preference","Sharia List Management",
+                  "Alert and Notification","Calculator","App Widgets",
+                  "Services","Education","Investment","Engagement","Charity","Settings"],
+      "Onboarding":["All account types","Saudi","Minor","Local","Global","Corporate"]
+    };
+    if(AREA_JOURNEYS[j]){
+      const byArea={};
+      const noArea=[];
+      feats.forEach(f=>{
+        if(f.area){
+          if(!byArea[f.area]) byArea[f.area]={screens:{},flat:[]};
+          if(f.screen){
+            if(!byArea[f.area].screens[f.screen]) byArea[f.area].screens[f.screen]=[];
+            byArea[f.area].screens[f.screen].push(f);
+          } else {
+            byArea[f.area].flat.push(f);
+          }
+        } else {
+          noArea.push(f);
+        }
+      });
+      // Preferred order from config, then append any other areas present in the data
+      // (so new areas always render even if not yet listed above).
+      const areaOrder=AREA_JOURNEYS[j].slice();
+      Object.keys(byArea).forEach(a=>{ if(!areaOrder.includes(a)) areaOrder.push(a); });
+      const areaChildren=[];
+      areaOrder.forEach(a=>{
+        if(!byArea[a]) return;
+        const areaKids=[];
+        const screenNames=Object.keys(byArea[a].screens).sort();
+        // Single-screen collapse: one screen means the screen node is a hop that carries
+        // no information the area node doesn't already carry, so its rows hang straight
+        // off the area. The Level4 name survives as a subtitle. Generic — any area that
+        // has exactly one screen collapses, today and in future.
+        const collapse = screenNames.length===1;
+        let collapsedScreen=null;
+        // Build every screen node first, then apply nav nesting. Collapse is decided on the
+        // TOTAL screen count, so nesting a screen never collapses the parent it nests into.
+        const screenNodes={};
+        screenNames.forEach(s=>{
+          const feats=byArea[a].screens[s];
+          const kids=orderedScreenNodes(s,feats) || feats.map(f=>makeFeatureNode(f));
+          if(collapse){ collapsedScreen=s; kids.forEach(k=>areaKids.push(k)); }
+          else screenNodes[s]={name:s,color:"#09009E",children:kids};
+        });
+        // Nav nesting (data/screen-nav.json): a screen with a nav_parent renders as a child
+        // NODE of that parent screen instead of hanging off the journey. Generic — driven
+        // entirely by the config, with no screen named in this code.
+        //
+        // Two anchoring modes:
+        //   nav_anchor  — a FEATURE ROW id; the screen becomes a child of that row. This is the
+        //                 list → detail-page pattern (ETF list → ETF Page).
+        //   nav_position— 1-based among the parent screen's children; omit to append last.
+        //
+        // A screen named in the config renders even with ZERO feature rows, so a registered
+        // screen is visible before it has content. The config is the screen registry.
+        const navRules=(NAV||[]).filter(n=>n.journey===j && n.area===a);
+        navRules.forEach(rule=>{
+          if(!screenNodes[rule.screen] && !collapse)
+            screenNodes[rule.screen]={name:rule.screen,color:"#09009E",children:[],registered:true};
+        });
+        // Depth-first search for a feature node by ID inside a subtree.
+        function findById(node,id){
+          if(!node) return null;
+          if(node.id===id) return node;
+          const kids=(node.children||[]).concat(node._children||[]);
+          for(let i=0;i<kids.length;i++){ const hit=findById(kids[i],id); if(hit) return hit; }
+          return null;
+        }
+        const nested={};
+        navRules.forEach(rule=>{
+          const node=screenNodes[rule.screen];
+          const parent=screenNodes[rule.nav_parent];
+          if(!node || !parent) return;              // parent absent → leave it top-level
+          node.navChild=true;
+          if(rule.nav_anchor){
+            const host=findById(parent,rule.nav_anchor);
+            if(!host) return;                       // anchor row absent → leave it top-level
+            (host.children=host.children||[]).push(node);
+          } else {
+            const sibs=parent.children;
+            const at=(rule.nav_position!=null && rule.nav_position>=1 && rule.nav_position<=sibs.length)
+                     ? rule.nav_position-1 : sibs.length;
+            sibs.splice(at,0,node);
+          }
+          nested[rule.screen]=true;
+        });
+        Object.keys(screenNodes).forEach(s=>{ if(!nested[s]) areaKids.push(screenNodes[s]); });
+        // Screenless rows. When the area HAS screens, a bare row rendered here sits as a peer
+        // of the screen nodes and reads as if it were on one — so group it under an explicit
+        // Backlog node. Where the area has no screens at all (e.g. Watchlist), there is nothing
+        // to confuse it with, so the rows stay direct and no needless hop is added.
+        if(byArea[a].flat.length){
+          // Backlog rows carry no display_order by design, so without an explicit sort the
+          // renderer falls back to workbook row order — which differs between markets and
+          // makes the Saudi-vs-US structural diff fail on the residue rather than the contract.
+          const loose=byArea[a].flat.slice()
+            .sort((x,y)=>(x.name||'').localeCompare(y.name||''))
+            .map(f=>makeFeatureNode(f));
+          if(screenNames.length) areaKids.push({name:"Backlog",color:"#555555",children:loose});
+          else loose.forEach(n=>areaKids.push(n));
+        }
+        const areaNode={name:a,color:"#005A90",children:areaKids};
+        // Carried for the hover tooltip and for anything that needs the Level4 name.
+        // Nothing renders it into the label.
+        if(collapsedScreen) areaNode.screenLabel=collapsedScreen;
+        areaChildren.push(areaNode);
+      });
+      // Un-areaed features hang directly off the journey, beside the area nodes.
+      const looseNodes=noArea.map(f=>makeFeatureNode(f));
+      // Single-area collapse (§2k): the mirror of the single-screen rule above. An area node
+      // that is a journey's only area carries no information the journey node doesn't already
+      // carry, so its rows hang straight off the journey. Two shapes collapse:
+      //   - one area and no loose rows          → the original rule
+      //   - one area named after the journey    → collapses even with loose rows beside it.
+      //     "Cash Management → Cash Management" is pure duplication, and the discarded label
+      //     repeats the journey name, so the loose rows lose nothing by joining its children
+      //     as siblings. Added v2.19.2 — v2.19.1 gave Cash Management its first loose row and
+      //     silently un-collapsed the journey.
+      // Generic — any journey matching either shape collapses, today and in future.
+      const onlyArea=areaChildren.length===1?areaChildren[0]:null;
+      if(onlyArea && (!looseNodes.length || onlyArea.name===j)){
+        children.push({name:j,color:"#005A90",
+                       children:onlyArea.children.concat(looseNodes),
+                       areaLabel:onlyArea.name,screenLabel:onlyArea.screenLabel});
+      } else {
+        children.push({name:j,color:"#005A90",children:areaChildren.concat(looseNodes)});
+      }
+    } else {
+      // Other journeys: 2-level (journey → feature)
+      children.push({name:j,color:"#005A90",children:feats.map(makeFeatureNode)});
+    }
+  });
+
+  return {name:"ARC Platform",color:BLUE,children:children};
+}
+
+function updateStats(features){
+  const total=features.length;
+  const st=f=>f.derived_status||f.status||"Unknown";
+  const live=features.filter(f=>st(f)==="Live").length;
+  const planned=features.filter(f=>st(f)==="Planned").length;
+  const gap=features.filter(f=>st(f)==="Gap").length;
+  const gapU=features.filter(f=>st(f)==="Gap (unconfirmed)").length;
+  const unv=features.filter(f=>st(f)==="Unverified").length;
+  const conflicts=features.filter(f=>f.status_conflict).length;
+  document.getElementById("stats").innerHTML=
+    '<div class="sb"><div class="n">'+total+'</div><div class="l">Features</div></div>'+
+    '<div class="sb live"><div class="n">'+live+'</div><div class="l">Live</div></div>'+
+    '<div class="sb gap"><div class="n">'+gap+'</div><div class="l">Gap</div></div>'+
+    '<div class="sb gap" style="border-top-color:#F4365388"><div class="n" style="color:#F4365388">'+gapU+'</div><div class="l">Gap (unconf.)</div></div>'+
+    '<div class="sb plan"><div class="n">'+planned+'</div><div class="l">Planned</div></div>'+
+    '<div class="sb" style="border-top-color:#808080"><div class="n" style="color:#808080">'+unv+'</div><div class="l">Missing evidence</div></div>'+
+    (conflicts?'<div class="sb" style="border-top-color:#FF7514"><div class="n" style="color:#FF7514">'+conflicts+'</div><div class="l">Conflicts</div></div>':'');
+}
+
+// --- Load data and boot ---
+const base=location.pathname.replace(/\/views\/atlas\.html.*$/,"");
+let NAV=[];
+Promise.all([
+  fetch(base+"/data/features_derived.json").then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}),
+  // Screen nav metadata is optional: if it is missing the tree renders exactly as before.
+  fetch(base+"/data/screen-nav.json").then(r=>r.ok?r.json():{nav:[]}).catch(()=>({nav:[]}))
+]).then(([json, navCfg])=>{
+  NAV=(navCfg&&navCfg.nav)||[];
+  const features=json.features||[];
+  // KPI counts are features only — containers are scaffolding (baseline v1.6.1).
+  // The tree still gets the full set so containers render as grouping nodes.
+  updateStats(features.filter(f=>!f.is_container && f.row_type!=='detail'));
+  window.__FEATURES__=features;
+  const data=buildHierarchy(features);
+  boot(data);
+}).catch(err=>{
+  document.getElementById("stats").innerHTML='<div class="sb" style="border-top-color:#F43653"><div class="n" style="color:#F43653;font-size:14px">Failed to load features_derived.json: '+err.message+'</div><div class="l">Run: python3 derive_status.py first</div></div>';
+});
+
+function boot(data){
+
+const W=window.innerWidth, H=window.innerHeight;
+const svg=d3.select("#canvas").attr("width",W).attr("height",H);
+const g=svg.append("g");
+const zoomBehavior=d3.zoom().scaleExtent([.15,3]).on("zoom",e=>g.attr("transform",e.transform));
+svg.call(zoomBehavior);
+
+const treeFn=d3.tree().nodeSize([20,320]);
+const root=d3.hierarchy(data);
+root.x0=H/2; root.y0=0;
+
+// Start: only products visible
+root.children.forEach(c=>{
+  if(c.children){c._children=c.children;c.children=null;}
+});
+
+let idx=0;
+const dur=350;
+
+function upd(src){
+  treeFn(root);
+  const nodes=root.descendants(), links=root.links();
+  nodes.forEach(d=>d.y=d.depth*300);
+
+  // NODES
+  const nd=g.selectAll("g.node").data(nodes,d=>d.id||(d.id=++idx));
+  const ne=nd.enter().append("g").attr("class","node")
+    .attr("transform",`translate(${src.y0},${src.x0})`)
+    .on("click",(e,d)=>{
+      if(d.data.detail) return; // don't toggle details
+      if(d.children){d._children=d.children;d.children=null;}
+      else if(d._children){d.children=d._children;d._children=null;}
+      upd(d);
+    })
+    .on("mouseover",ttShow).on("mousemove",ttMove).on("mouseout",ttHide);
+
+  ne.append("circle").attr("r",0)
+    .style("fill",d=>d._children?(d.data.color||BLUE):d.data.detail?"transparent":(d.data.color||DB))
+    .style("stroke",d=>d.data.detail?"transparent":(d.data.color||BLUE));
+
+  ne.append("text").attr("dy",".35em")
+    .attr("x",d=>{
+      if(d.data.detail) return 8;
+      return d.children||d._children?-14:14;
+    })
+    .attr("text-anchor",d=>{
+      if(d.data.detail) return "start";
+      return d.children||d._children?"end":"start";
+    })
+    .text(d=>{
+      let t=d.data.name;
+      // The dashboard displays the CONTRACT status. Derived evidence annotates via ↻,
+      // it never changes the glyph.
+      const shown=d.data.typed||d.data.status;
+      if(shown && !d.data.detail){
+        const p={"Live":"● ","Gap":"✕ ","Gap (unconfirmed)":"? ","Planned":"○ ","Unverified":"◌ "};
+        t=(p[shown]||"")+t;
+      }
+      // Feature parents advertise how many children they hide, and which way they open.
+      const kids=(d.children||d._children||[]).filter(k=>k.data?k.data.isFeature:k.isFeature);
+      if(d.data.isFeature && kids.length) t+=" ("+kids.length+") "+(d.children?"▾":"▸");
+      // A screen nested by nav_parent reads as an entry point, so it shows its own count.
+      else if(d.data.navChild){
+        const n=(d.children||d._children||[]).filter(c=>!c.detail).length;
+        if(n) t+=" ("+n+") "+(d.children?"▾":"▸");
+      }
+      if(d.data.conflict && !d.data.detail) t+=" ↻";   // marker sits after the count
+      if(d.data.detail && t.length>80) t=t.substring(0,77)+"...";
+      return t;
+    })
+    .style("fill",d=>{
+      if(d.data.detail) return "#888";
+      const s=d.data.typed||d.data.status;
+      if(s==="Live") return "#20C992";
+      if(s==="Gap") return "#F43653";
+      if(s==="Gap (unconfirmed)") return "#F4365388";
+      if(s==="Planned") return "#A2E3FF";
+      if(s==="Unverified") return "#808080";
+      return "#fff";
+    })
+    .style("font-size",d=>d.data.detail?"10px":d.depth===0?"15px":d.depth===1?"12px":"11px")
+    .style("font-weight",d=>d.depth<=1?"700":d.data.detail?"400":"500");
+
+  // Collapsed single-screen areas show the area name and nothing else. The Level4 screen
+  // stays in the data (node.screenLabel, and every row's own screen column) and surfaces
+  // only on hover — it is never part of the visible label.
+  ne.selectAll("text").filter(d=>d.data.screenLabel)
+    .append("title").text(d=>d.data.name+" — "+d.data.screenLabel);
+
+  // Status badge for leaf nodes
+  ne.filter(d=>d.data.status && !d.data.detail && d.data.comp)
+    .append("text")
+    .attr("dy",".35em").attr("x",14)
+    .attr("text-anchor","start")
+    .text(d=>"")
+    .style("font-size","9px").style("fill","#F43653");
+
+  const nu=ne.merge(nd);
+  nu.transition().duration(dur).attr("transform",d=>`translate(${d.y},${d.x})`);
+  nu.select("circle")
+    .attr("r",d=>d.data.detail?0:d.depth===0?10:d._children?7:4)
+    .style("fill",d=>d._children?(d.data.color||BLUE):d.children?DB:(d.data.color||DB))
+    .style("stroke",d=>{
+      if(d.data.detail) return "transparent";
+      if(d.data.conflict) return "#00B2FF";
+      return d.data.color||BLUE;
+    })
+    .style("stroke-width",d=>d.data.conflict?"3px":"2px");
+
+  const nx=nd.exit().transition().duration(dur)
+    .attr("transform",`translate(${src.y},${src.x})`).remove();
+  nx.select("circle").attr("r",0);
+  nx.select("text").style("fill-opacity",0);
+
+  // LINKS
+  const lk=g.selectAll("path.link").data(links,d=>d.target.id);
+  const le=lk.enter().insert("path","g").attr("class","link")
+    .attr("d",()=>{const o={x:src.x0,y:src.y0};return diag(o,o);})
+    .style("stroke",d=>d.target.data.detail?"#333":(d.target.data.color||BLUE));
+  le.merge(lk).transition().duration(dur)
+    .attr("d",d=>diag(d.source,d.target))
+    .style("stroke",d=>d.target.data.detail?"#333":(d.target.data.color||BLUE))
+    .style("stroke-width",d=>d.target.data.detail?"1px":d.target.depth<=1?"2px":"1.5px");
+  lk.exit().transition().duration(dur)
+    .attr("d",()=>{const o={x:src.x,y:src.y};return diag(o,o);}).remove();
+
+  nodes.forEach(d=>{d.x0=d.x;d.y0=d.y;});
+}
+
+function diag(s,d){return`M${s.y} ${s.x}C${(s.y+d.y)/2} ${s.x},${(s.y+d.y)/2} ${d.x},${d.y} ${d.x}`;}
+
+// Human-readable reason the derived status differs from the hand-typed sheet.
+// Mirrors the rule order in scripts/derive_status.py.
+function reasonFor(d){
+  switch(d.status){
+    case "Live":              return "a verified-live record exists within the last 90 days";
+    case "Planned":           return "no verified-live confirmation on file, but a BRD or Figma design exists";
+    case "Gap":               return "competitors offer this and there is no verified-live confirmation for ARC";
+    case "Gap (unconfirmed)": return "only weak/indirect competitor evidence, and no verified-live confirmation";
+    case "Unverified":        return "there is no verification record and no BRD, Figma or competitor evidence on file";
+    default:                  return "the derived status differs from the hand-typed value";
+  }
+}
+
+// Tooltip
+const tip=document.getElementById("tip");
+function ttShow(e,d){
+  if(d.data.detail||!d.data.isFeature) return;
+  let h=`<div class="t">${d.data.name}</div>`;
+  const shown=d.data.typed||d.data.status;      // contract status, not the derived one
+  if(shown){
+    const bg=C[shown]||"#333";
+    h+=`<span class="s" style="background:${bg}">${shown}</span> `;
+  }
+  if(d.data.conflict) h+=`<div class="m" style="color:#00B2FF">↻ <b>${d.data.typed||d.data.handTyped||"?"}</b> — no verification evidence yet<br><span style="color:#A2E3FF">evidence state: <b>${(d.data.derived||d.data.status)==="Unverified"?"Missing evidence":(d.data.derived||d.data.status)}</b> — ${reasonFor({status:d.data.derived||d.data.status})}</span></div>`;
+  if(d.data.desc) h+=`<div class="desc">${d.data.desc}</div>`;
+  const m=[];
+  if(d.data.source) m.push(d.data.source);
+  if(d.data.brd) m.push(d.data.brd);
+  if(m.length) h+=`<div class="m">${m.join(" · ")}</div>`;
+  if(d.data.comp) h+=`<div class="comp">Competitors: ${d.data.comp}</div>`;
+  if(d.data.score) h+=`<div class="m" style="color:#F1B53D">Priority Score: ${d.data.score}/25</div>`;
+  if(d.data.area) h+=`<div class="m" style="color:#A2E3FF">Area: ${d.data.area}${d.data.screen?" → "+d.data.screen:""}</div>`;
+  if(d.data.figma_file) h+=`<div class="m" style="color:#A2E3FF">Figma source: ${d.data.figma_file}</div>`;
+  if(d.data.figma_link) h+=`<div class="m"><a href="${d.data.figma_link}" target="_blank" rel="noopener" style="color:#A2E3FF;text-decoration:underline">Open in Figma &rarr;</a></div>`;
+  if(d.data.live_date) h+=`<div class="m" style="color:#00B2FF">Target: ${fmtDate(d.data.live_date)}</div>`;
+  if(d.data.went_live) h+=`<div class="m" style="color:#20C992">Went Live: ${fmtDate(d.data.went_live)}</div>`;
+  if(d.data.tags) h+=`<div class="m" style="color:#F1B53D">Tags: ${d.data.tags}</div>`;
+  tip.innerHTML=h; tip.style.display="block";
+}
+function ttMove(e){tip.style.left=(e.clientX+16)+"px";tip.style.top=(e.clientY-10)+"px";}
+function ttHide(){tip.style.display="none";}
+
+// Controls
+function showProducts(){
+  root.children.forEach(c=>{
+    if(c.children){c._children=c.children;c.children=null;}
+    else if(c._children) collapse(c);
+  });
+  upd(root); resetZoom();
+}
+function expandAll(){expand(root);upd(root);}
+function collapseAll(){root.children.forEach(c=>collapse(c));upd(root);resetZoom();}
+function collapse(d){if(d.children){d._children=d.children;d._children.forEach(collapse);d.children=null;}}
+function expand(d){if(d._children){d.children=d._children;d._children=null;}if(d.children)d.children.forEach(expand);}
+function resetZoom(){svg.transition().duration(500).call(zoomBehavior.transform,d3.zoomIdentity.translate(180,H/2).scale(.55));}
+
+function filterStatus(st){
+  expand(root);
+  upd(root);
+  setTimeout(()=>{
+    g.selectAll("g.node").style("opacity",d=>{
+      if(!d.data.isFeature && !d.data.detail) return 1;
+      if(st==="all") return 1;
+      if(st==="conflict"){
+        if(d.data.detail) return d.parent&&d.parent.data.conflict?1:.08;
+        return d.data.conflict?1:.08;
+      }
+      if(d.data.detail) return d.parent&&d.parent.data.status===st?1:.08;
+      return d.data.status===st?1:.08;
+    });
+  },dur+50);
+}
+
+function search(q){
+  if(!q||q.length<2){g.selectAll("g.node").style("opacity",1);return;}
+  const s=q.toLowerCase();
+  g.selectAll("g.node").style("opacity",d=>{
+    if(!d.data.isFeature && !d.data.detail) return 1;
+    const hit=d.data.name.toLowerCase().includes(s)||(d.data.desc&&d.data.desc.toLowerCase().includes(s))||(d.data.comp&&d.data.comp.toLowerCase().includes(s));
+    return hit?1:.08;
+  });
+}
+
+// The toolbar calls these via inline onclick, but everything here is scoped inside
+// boot(), so they were never reachable from global scope — every toolbar button was
+// a no-op. Export them explicitly.
+window.toggleArchived=function(){
+  SHOW_ARCHIVED=!SHOW_ARCHIVED;
+  const b=document.getElementById('archBtn');
+  if(b){ b.textContent=SHOW_ARCHIVED?'Hide Archived':'Show Archived'; b.classList.toggle('on',SHOW_ARCHIVED); }
+  if(window.__FEATURES__) boot(buildHierarchy(window.__FEATURES__));
+};
+window.expandAll=expandAll; window.collapseAll=collapseAll;
+window.showProducts=showProducts; window.filterStatus=filterStatus;
+window.search=search; window.resetZoom=resetZoom; window.root=root;
+
+upd(root);
+resetZoom();
+} // end boot()
+</script>
+<script src="_trustbar.js"></script>
+</body>
+</html>

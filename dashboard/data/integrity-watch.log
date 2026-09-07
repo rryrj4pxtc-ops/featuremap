@@ -1,0 +1,1008 @@
+2026-08-17 12:17:07  OK   INTEGRITY OK — master matches the v1.2.1 fingerprint recorded 2026-08-17
+2026-08-17 12:17:37  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.2.1):
+        md5   deadbeefdeadbeefdeadbeefdeadbeef -> 09b8775f0f17dac2de103c2bb8c47486
+    
+    Restore with:
+        cp 'saudi-portfolio-BASELINE-v1.2.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 12:18:08  OK   INTEGRITY OK — master matches the v1.2.1 fingerprint recorded 2026-08-17
+2026-08-17 12:18:46  OK   INTEGRITY OK — master matches the v1.2.1 fingerprint recorded 2026-08-17
+2026-08-17 13:21:59  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.2.1):
+        md5   09b8775f0f17dac2de103c2bb8c47486 -> 66a0bd6824eb1533709ea72c76a33467
+        size  107897 -> 109392 bytes
+    
+    Restore with:
+        cp 'saudi-portfolio-BASELINE-v1.2.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 13:26:52  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.2.1):
+        md5   66a0bd6824eb1533709ea72c76a33467 -> 5b7433e89a71d2f0d87775fd185e75f0
+        size  109392 -> 109486 bytes
+    
+    Restore with:
+        cp 'saudi-portfolio-BASELINE-v1.2.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 14:04:11  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.2.1):
+        md5   5b7433e89a71d2f0d87775fd185e75f0 -> 2f45b3515d5cf9204d3b26c1794a9f12
+        size  109486 -> 112864 bytes
+        rows  371 -> 400
+        screen 'Stock Details'  4 -> 1 rows
+    
+    Restore with:
+        cp 'saudi-portfolio-BASELINE-v1.2.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 14:05:05  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.2.1):
+        md5   5b7433e89a71d2f0d87775fd185e75f0 -> e32f787c830d670c82c7a825d1bf8140
+        size  109486 -> 112901 bytes
+        rows  371 -> 400
+        screen 'Stock Details'  4 -> 1 rows
+    
+    Restore with:
+        cp 'saudi-portfolio-BASELINE-v1.2.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 14:09:55  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.4):
+        md5   e32f787c830d670c82c7a825d1bf8140 -> 52968e0f269c8d53e13fe9174bb0c76c
+        size  112901 -> 112485 bytes
+        rows  400 -> 397
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.4-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 14:19:47  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.4.1):
+        md5   52968e0f269c8d53e13fe9174bb0c76c -> f558bfb78122fc9259befba3559e416f
+        size  112485 -> 113419 bytes
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.4.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-17 14:59:02  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.4.1):
+        md5   f558bfb78122fc9259befba3559e416f -> 6b349ec9d9e74eed2cf7dc7c2e0c9d1f
+        size  113419 -> 114777 bytes
+        rows  397 -> 399
+        screen 'Market Page'  26 -> 28 rows
+        screen 'Order Details'  4 -> 0 rows
+        screen 'Stock Details'  1 -> 0 rows
+        screen 'Stock Page'  35 -> 36 rows
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.4.1-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-18 08:28:40  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.5):
+        md5   6b349ec9d9e74eed2cf7dc7c2e0c9d1f -> 0c5564a119c2e95ffad294421cc620a4
+        size  114777 -> 117792 bytes
+        rows  399 -> 405
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.5-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-18 08:30:10  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.6):
+        md5   0c5564a119c2e95ffad294421cc620a4 -> f2863d9cbfa4b32dc0e89e660b99bb73
+        size  117792 -> 117805 bytes
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.5-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-18 08:30:44  OK   INTEGRITY OK — master matches the v1.6 fingerprint recorded 2026-08-18
+2026-08-18 08:40:50  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.6):
+        md5   10afcb9b5c250909a75756378ec5303f -> ce9102a97971477d5a774fc9b42014cc
+        size  117807 -> 119408 bytes
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.5-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-18 12:17:36  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.6.1):
+        md5   ce9102a97971477d5a774fc9b42014cc -> d1582be73eab701e884bf9346a660a3e
+        size  119408 -> 121481 bytes
+        rows  405 -> 430
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.5-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-18 12:18:07  OK   INTEGRITY OK — master matches the v1.7 fingerprint recorded 2026-08-18
+2026-08-18 12:18:51  OK   INTEGRITY OK — master matches the v1.7 fingerprint recorded 2026-08-18
+2026-08-23 14:41:36  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.7):
+        md5   3d8c3f4325e0e151b0afa06035bd335b -> 8e2d1e2d353c41441e856e8c430765d9
+        size  121575 -> 121854 bytes
+        rows  430 -> 432
+        screen 'Stock Page'  36 -> 37 rows
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.5-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-23 14:42:30  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.8):
+        md5   8e2d1e2d353c41441e856e8c430765d9 -> b5053b9d5a6e0b1fcccf8ffde15fe5b2
+        size  121854 -> 121865 bytes
+        screen 'Stock Page'  36 -> 37 rows
+    
+    Restore with:
+        cp 'saudi-structure-BASELINE-v1.5-2026-08-17.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 11:06:51  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.8):
+        md5   b5053b9d5a6e0b1fcccf8ffde15fe5b2 -> 28c8a7cc0e6762742be0af75804edb19
+        size  121865 -> 123718 bytes
+        rows  432 -> 444
+        screen 'Market Page'  28 -> 24 rows
+        screen 'Stock Page'  37 -> 34 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.8-2026-08-23.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 11:13:56  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9):
+        md5   28c8a7cc0e6762742be0af75804edb19 -> b0a62cd7a5f9266cc7bdd8aed5b8f050
+        size  123718 -> 124435 bytes
+        rows  444 -> 452
+        screen 'Market Page'  24 -> 27 rows
+        screen 'Stock Page'  34 -> 35 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 11:37:38  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.1):
+        md5   b0a62cd7a5f9266cc7bdd8aed5b8f050 -> d4b93368ecdae8caf09cabdb247d3d4e
+        size  124435 -> 124615 bytes
+        rows  452 -> 450
+        screen 'Market Page'  27 -> 32 rows
+        screen 'Stock Page'  35 -> 41 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.1-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 11:42:51  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.2):
+        md5   d4b93368ecdae8caf09cabdb247d3d4e -> 46a3e306b2a4541e6323f79dc36a87cd
+        size  124615 -> 124684 bytes
+        screen 'Market Page'  32 -> 33 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.2-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 11:49:07  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.3):
+        md5   46a3e306b2a4541e6323f79dc36a87cd -> 050132b53210b78eb2d95dae2cd3ab35
+        size  124684 -> 126752 bytes
+        rows  450 -> 474
+        screen 'Market Page'  33 -> 45 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.3-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 11:53:47  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.4):
+        md5   050132b53210b78eb2d95dae2cd3ab35 -> 71382164a2f2845945d216c560b454a5
+        size  126752 -> 126759 bytes
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.4-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 12:02:46  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.5):
+        md5   71382164a2f2845945d216c560b454a5 -> b29ffe9b19240cd18d7f8d7e9400fce9
+        size  126759 -> 126782 bytes
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.5-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 12:10:43  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.6):
+        md5   b29ffe9b19240cd18d7f8d7e9400fce9 -> ee0e519b9832574ae9a5c5f2893839fe
+        size  126782 -> 131603 bytes
+        rows  474 -> 530
+        screen 'Stock Page'  41 -> 69 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.6-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 12:43:16  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.7):
+        md5   ee0e519b9832574ae9a5c5f2893839fe -> e22705504275de0038ece9f730909c63
+        size  131603 -> 131571 bytes
+        headers changed
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.7-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 12:47:23  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.8):
+        md5   e22705504275de0038ece9f730909c63 -> 03e08bc3e93e59057660d0bff4eafb5a
+        size  131571 -> 131848 bytes
+        rows  530 -> 532
+        screen 'Stock Page'  69 -> 70 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.8-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 13:37:39  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v1.9.9):
+        md5   03e08bc3e93e59057660d0bff4eafb5a -> 536ab1efd2ba9304298c886a2b02f179
+        size  131848 -> 132389 bytes
+    
+    Restore with:
+        cp 'structure-BASELINE-v1.9.9-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 13:55:00  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.0):
+        md5   536ab1efd2ba9304298c886a2b02f179 -> b4b01ab69b8912f1ae0d0bcc755ba5df
+        size  132389 -> 132635 bytes
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.0-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 13:59:31  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.0.1):
+        md5   b4b01ab69b8912f1ae0d0bcc755ba5df -> 0f9af42576c8ed60606af95949acbd41
+        size  132635 -> 132854 bytes
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.0.1-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-25 14:06:48  OK   INTEGRITY OK — master matches the v2.0.3 fingerprint recorded 2026-08-25
+2026-08-26 10:46:56  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.0.3):
+        md5   8603c07a8ec3e96ea9cb60b8fb19b655 -> 2d5c4c89af2d3d7bf56277aa6ec5cbcb
+        size  132981 -> 135487 bytes
+        rows  532 -> 551
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.0.3-2026-08-25.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 11:02:12  OK   INTEGRITY OK — master matches the v2.2.1 fingerprint recorded 2026-08-26
+2026-08-26 11:26:52  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 37a1d5ff8b128ba122c205fc7aa16781
+        size  135741 -> 136823 bytes
+        rows  551 -> 561
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 11:47:28  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> f83caf71a5fef1de11d3f26b2ff6227d
+        size  135741 -> 141104 bytes
+        rows  551 -> 611
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 11:48:13  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 9b223cbd55279f756ada40a6cecf3a48
+        size  135741 -> 141020 bytes
+        rows  551 -> 608
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 11:48:57  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 1b7fcc0dfd197321fe711314c9b964ba
+        size  135741 -> 141183 bytes
+        rows  551 -> 608
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 11:53:04  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fff1e5f5a737c972181eb7fcf72d8e22
+        size  135741 -> 141194 bytes
+        rows  551 -> 608
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 12:23:26  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 54ccb68133c676e6aac395ba93fa9ac7
+        size  135741 -> 140627 bytes
+        rows  551 -> 600
+        screen 'Market Page'  45 -> 37 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 12:51:58  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 368795741f332da9f1a5ba84e5f4a6d5
+        size  135741 -> 141212 bytes
+        rows  551 -> 602
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 13:47:16  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 368795741f332da9f1a5ba84e5f4a6d5
+        size  135741 -> 141212 bytes
+        rows  551 -> 602
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 13:54:24  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 69136f30681cc2c3456541815a7b50c0
+        size  135741 -> 141373 bytes
+        rows  551 -> 602
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 13:57:52  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 23c68155020e7d0dd0d0310f35866cee
+        size  135741 -> 141383 bytes
+        rows  551 -> 602
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 14:00:43  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> c9db2562ed467869d9b96281401fa79f
+        size  135741 -> 141438 bytes
+        rows  551 -> 602
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 14:07:12  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 1a8fe0cb67d1f6ac7247faea119888cc
+        size  135741 -> 145443 bytes
+        rows  551 -> 643
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-26 14:16:29  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 8d770d07b1dd671dabd0cb9553e55f4b
+        size  135741 -> 146599 bytes
+        rows  551 -> 655
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 09:20:34  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 2e7a074711a6649043888a7d7d0cc203
+        size  135741 -> 146606 bytes
+        rows  551 -> 655
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:02:01  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 39fe15293a89d0d33d5f6a6cf21e97d4
+        size  135741 -> 146839 bytes
+        rows  551 -> 655
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:05:14  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> a8cc9ae56e5f87cfd2cf97b06f13d55b
+        size  135741 -> 146814 bytes
+        rows  551 -> 654
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:06:36  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fe0d8a341e15d244161abaef71ecb554
+        size  135741 -> 146693 bytes
+        rows  551 -> 653
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:10:15  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 9ac9878e41c84b622fb59070d9d5888d
+        size  135741 -> 146667 bytes
+        rows  551 -> 652
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:14:23  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 71c742ce221c3ee5eeabdd8185b6ca00
+        size  135741 -> 146990 bytes
+        rows  551 -> 654
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:17:45  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 077a50671d085db1502e3745c5921e12
+        size  135741 -> 147210 bytes
+        rows  551 -> 654
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:21:12  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 75794a660219f375b93acd5789addd62
+        size  135741 -> 147262 bytes
+        rows  551 -> 654
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:29:23  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 35df2d0ae7d393d7c7d144283ca645f8
+        size  135741 -> 147642 bytes
+        rows  551 -> 658
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:31:50  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 82f97ed059d9c086162934bbd08011bf
+        size  135741 -> 147710 bytes
+        rows  551 -> 658
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:37:20  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 0f2681c8261f76a36b1b0a946129f2bb
+        size  135741 -> 148171 bytes
+        rows  551 -> 665
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 10:55:41  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> c93112cd179c141911a75b163e9ca97d
+        size  135741 -> 149002 bytes
+        rows  551 -> 677
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:01:08  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 74c9473cd858cec1f9e782bde356d40e
+        size  135741 -> 149048 bytes
+        rows  551 -> 677
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:05:08  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> df6740bbb51c551bdf9c4ce8048a1659
+        size  135741 -> 149290 bytes
+        rows  551 -> 680
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:10:16  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> e5636840b9029ee0bde7f298aeccee05
+        size  135741 -> 149604 bytes
+        rows  551 -> 685
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:15:08  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> dcd93e9e6f01e24ac43510538658f51c
+        size  135741 -> 149808 bytes
+        rows  551 -> 687
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:25:41  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 90d1854eae2399ef60c8fc780b4bcc78
+        size  135741 -> 150012 bytes
+        rows  551 -> 689
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:39:46  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 2784b47259fdb85f58361165ae677fc3
+        size  135741 -> 150008 bytes
+        rows  551 -> 689
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:41:32  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 11ef7184067302d943e051275a1f88a9
+        size  135741 -> 149991 bytes
+        rows  551 -> 689
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:45:41  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> bb8cb30326e206bbfbabaa031361e583
+        size  135741 -> 150025 bytes
+        rows  551 -> 689
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:50:16  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 214d30b85e4f8108138533de6fc0bdef
+        size  135741 -> 150223 bytes
+        rows  551 -> 692
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 11:54:27  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 5b9ea25114bcc04f957c7c9238eb0e89
+        size  135741 -> 150774 bytes
+        rows  551 -> 697
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 12:09:09  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 8c284f17ae5bc43f4adcc1ad86561da8
+        size  135741 -> 156639 bytes
+        rows  551 -> 751
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 12:34:05  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 87d13433b5265bd71a5949e03ec1e0dc
+        size  135741 -> 154087 bytes
+        rows  551 -> 723
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 12:35:04  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 0933cda839a7ad0238edaedec9afdf8f
+        size  135741 -> 154121 bytes
+        rows  551 -> 723
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 13:03:19  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 9e50641def250b87ec318aaac47f6e8a
+        size  135741 -> 158142 bytes
+        rows  551 -> 762
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 13:56:26  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 0ca416e34d6af96c8dc9d32b7f7b1c0d
+        size  135741 -> 157504 bytes
+        rows  551 -> 755
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 14:13:16  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 7757c3eb5670a58ae77725674265c8a0
+        size  135741 -> 157347 bytes
+        rows  551 -> 754
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 14:23:10  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> cd3a33a14966c3f211cf4f507b1fbf0c
+        size  135741 -> 157545 bytes
+        rows  551 -> 754
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 14:26:25  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 34a00d68e41d09088b07bcb88e44aead
+        size  135741 -> 157609 bytes
+        rows  551 -> 754
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 14:27:49  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 158fa914dd33f7af3fda39b125cf9111
+        size  135741 -> 157633 bytes
+        rows  551 -> 754
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 14:33:56  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> efb29fe7ebd51f933804d02260ebfb34
+        size  135741 -> 158234 bytes
+        rows  551 -> 756
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:03:37  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 185402570317f22ead1a74fff3c962da
+        size  135741 -> 158480 bytes
+        rows  551 -> 756
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:17:32  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 3298bd3d3094ddd355d0b0a00a36be67
+        size  135741 -> 159017 bytes
+        rows  551 -> 761
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:20:28  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 8a8debf325623605ccb03332bf9d65f8
+        size  135741 -> 158706 bytes
+        rows  551 -> 758
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:22:34  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 955b27fb2ddc06a59cc58c80eb03fc38
+        size  135741 -> 158718 bytes
+        rows  551 -> 758
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:46:43  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 016f26a727a37f5d7c138b64569fb625
+        size  135741 -> 159625 bytes
+        rows  551 -> 764
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:52:07  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 2e1fc6aef7b2c278a960a1f42c307443
+        size  135741 -> 159768 bytes
+        rows  551 -> 765
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:56:10  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 99e3270668c4310064230ea8e6fa8f39
+        size  135741 -> 159800 bytes
+        rows  551 -> 765
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:57:45  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> d7991975bec5d93b4aec980cfe5265ab
+        size  135741 -> 159846 bytes
+        rows  551 -> 765
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 16:59:09  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 4e32ca149afea1a25dfd4ecf9153dc15
+        size  135741 -> 159837 bytes
+        rows  551 -> 765
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 17:05:29  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 790c003fee5516704be56c0921f2fc62
+        size  135741 -> 159890 bytes
+        rows  551 -> 765
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 17:09:44  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 27d9c86e564ff07613d781a6e9ad979a
+        size  135741 -> 159620 bytes
+        rows  551 -> 763
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-27 17:29:25  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 180148d562ea064347b6c51b2474c720
+        size  135741 -> 163144 bytes
+        rows  551 -> 818
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-30 09:14:52  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> b2de61df450afc1e136f55f315909b88
+        size  135741 -> 163896 bytes
+        rows  551 -> 824
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 12:04:03  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 170ec5441cd4fbd9553bf65723de013b
+        size  135741 -> 164085 bytes
+        rows  551 -> 826
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 12:08:51  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> ddd4fc62a3de5df0f7a26971f754c60a
+        size  135741 -> 164093 bytes
+        rows  551 -> 826
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 12:11:31  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 7a2fe0ca6fe4c0a570b372588fa964e4
+        size  135741 -> 164229 bytes
+        rows  551 -> 827
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 12:17:36  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fe424b1e7c3f99f8f6c34cef2ed3aeb6
+        size  135741 -> 164504 bytes
+        rows  551 -> 831
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 14:22:02  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> dc6e6654adcff4a9fc43cc7327ef41c7
+        size  135741 -> 168408 bytes
+        rows  551 -> 876
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 14:25:20  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> b3e4e3eff538dc321f34d37a70f1f4f7
+        size  135741 -> 168415 bytes
+        rows  551 -> 876
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 14:39:25  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> faa3bcc42c945a45cb0f56c81561ca78
+        size  135741 -> 167657 bytes
+        rows  551 -> 864
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 15:07:04  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 3fa495d5032a3cca08cc5ec9bb466064
+        size  135741 -> 167664 bytes
+        rows  551 -> 864
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 16:08:18  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 736842c047c23b027743cdce68440f96
+        size  135741 -> 167703 bytes
+        rows  551 -> 864
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 16:57:42  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fd8cf93782dae6443aad38c5b08318e1
+        size  135741 -> 168081 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 16:59:04  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fd8cf93782dae6443aad38c5b08318e1
+        size  135741 -> 168081 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 16:59:49  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fd8cf93782dae6443aad38c5b08318e1
+        size  135741 -> 168081 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 17:00:19  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> fd8cf93782dae6443aad38c5b08318e1
+        size  135741 -> 168081 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 17:03:47  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> be6372173eaf2a7adfdd8702e79adb30
+        size  135741 -> 168119 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 17:09:15  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 69467d207900be2a4361fbc71e7ca1d2
+        size  135741 -> 168354 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-08-31 17:10:01  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.2.1):
+        md5   2f18710204c0bff912aa1e71cfe288d7 -> 8422748c57f956bd3f0ac670ab7ca510
+        size  135741 -> 168471 bytes
+        rows  551 -> 865
+        screen 'Market Page'  45 -> 38 rows
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.2.1-2026-08-26.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
+2026-09-02 10:14:19  OK   INTEGRITY OK — master matches the v2.21 fingerprint recorded 2026-09-02
+2026-09-06 13:56:41  DRIFT
+    INTEGRITY DRIFT — master changed outside the guardrail (baseline v2.21):
+        md5   8422748c57f956bd3f0ac670ab7ca510 -> 9ddb1cc3aeab7d4bc347c433ae864689
+        size  168471 -> 168501 bytes
+    
+    Restore with:
+        cp 'structure-BASELINE-v2.21-2026-08-31.xlsx' features-master.xlsx
+    Then alert Ahmed before doing anything else. Do NOT regenerate JSON from a drifted master.
